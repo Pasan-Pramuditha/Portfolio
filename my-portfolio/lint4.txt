@@ -1,0 +1,52 @@
+
+D:\Portfolio web\my-portfolio\src\components\Hero.jsx
+   2:1   warning  Unused eslint-disable directive (no problems were reported from 'no-unused-vars')
+  26:16  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  24 |   const randomValues = useMemo(() => {
+  25 |     return floatingElements.map(() => ({
+> 26 |       left: `${Math.random() * 95}%`,
+     |                ^^^^^^^^^^^^^ Cannot call impure function
+  27 |       top: `${Math.random() * 95}%`,
+  28 |       duration: 12 + Math.random() * 10,
+  29 |       delay: Math.random() * 5  react-hooks/purity
+  27:15  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  25 |     return floatingElements.map(() => ({
+  26 |       left: `${Math.random() * 95}%`,
+> 27 |       top: `${Math.random() * 95}%`,
+     |               ^^^^^^^^^^^^^ Cannot call impure function
+  28 |       duration: 12 + Math.random() * 10,
+  29 |       delay: Math.random() * 5
+  30 |     }));                                 react-hooks/purity
+  28:22  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  26 |       left: `${Math.random() * 95}%`,
+  27 |       top: `${Math.random() * 95}%`,
+> 28 |       duration: 12 + Math.random() * 10,
+     |                      ^^^^^^^^^^^^^ Cannot call impure function
+  29 |       delay: Math.random() * 5
+  30 |     }));
+  31 |   }, []);                                                         react-hooks/purity
+  29:14  error    Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  27 |       top: `${Math.random() * 95}%`,
+  28 |       duration: 12 + Math.random() * 10,
+> 29 |       delay: Math.random() * 5
+     |              ^^^^^^^^^^^^^ Cannot call impure function
+  30 |     }));
+  31 |   }, []);
+  32 |                                                                                                       react-hooks/purity
+  31:6   warning  React Hook useMemo has a missing dependency: 'floatingElements'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               react-hooks/exhaustive-deps
+
+✖ 6 problems (4 errors, 2 warnings)
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+

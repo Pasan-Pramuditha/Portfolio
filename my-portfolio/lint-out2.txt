@@ -1,0 +1,70 @@
+
+D:\Portfolio web\my-portfolio\src\components\About.jsx
+    1:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  187:40  error  'Icon' is defined but never used                                               no-unused-vars
+
+D:\Portfolio web\my-portfolio\src\components\Experience.jsx
+  1:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Portfolio web\my-portfolio\src\components\Hero.jsx
+   1:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     no-unused-vars
+  10:30  error  Unnecessary escape character: \P                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-useless-escape
+  10:44  error  Unnecessary escape character: \m                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-useless-escape
+  10:57  error  Unnecessary escape character: \s                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-useless-escape
+  10:61  error  Unnecessary escape character: \a                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-useless-escape
+  10:68  error  Unnecessary escape character: \p                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-useless-escape
+  35:24  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  33 |             className="absolute text-cyan-accent font-mono text-xs font-bold opacity-0"
+  34 |             style={{
+> 35 |               left: `${Math.random() * 95}%`,
+     |                        ^^^^^^^^^^^^^ Cannot call impure function
+  36 |               top: `${Math.random() * 95}%`
+  37 |             }}
+  38 |             animate={{  react-hooks/purity
+  36:23  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  34 |             style={{
+  35 |               left: `${Math.random() * 95}%`,
+> 36 |               top: `${Math.random() * 95}%`
+     |                       ^^^^^^^^^^^^^ Cannot call impure function
+  37 |             }}
+  38 |             animate={{
+  39 |               y: ["-30px", "30px", "-30px"],                                              react-hooks/purity
+  45:30  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  43 |             }}
+  44 |             transition={{
+> 45 |               duration: 12 + Math.random() * 10,
+     |                              ^^^^^^^^^^^^^ Cannot call impure function
+  46 |               repeat: Infinity,
+  47 |               delay: Math.random() * 5,
+  48 |               ease: "linear"                                          react-hooks/purity
+  47:22  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+  45 |               duration: 12 + Math.random() * 10,
+  46 |               repeat: Infinity,
+> 47 |               delay: Math.random() * 5,
+     |                      ^^^^^^^^^^^^^ Cannot call impure function
+  48 |               ease: "linear"
+  49 |             }}
+  50 |           >                                                                react-hooks/purity
+  93:39  error  'Icon' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  no-unused-vars
+
+D:\Portfolio web\my-portfolio\src\components\Navbar.jsx
+  3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Portfolio web\my-portfolio\src\components\Projects.jsx
+    1:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  125:46  error  'Icon' is defined but never used                                               no-unused-vars
+
+✖ 17 problems (17 errors, 0 warnings)
+
