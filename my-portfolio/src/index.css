@@ -159,6 +159,14 @@
     box-shadow: 0 0 15px rgba(0, 208, 255, 0.5);
   }
 
+  /* Hero Section Mask for Desktop */
+  @media (min-width: 1024px) {
+    .hero-mask {
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+    }
+  }
+
   .info-card-grid {
     @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16;
   }

@@ -17,7 +17,7 @@ import {
 import profileImg from "../assets/profile.png";
 
 const socialLinks = [
-  { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
+  { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/pasan-pramuditha-31b2b2286", label: "LinkedIn" },
   { icon: FaGithub, href: "https://github.com/Pasan-Pramuditha", label: "GitHub" },
   { icon: FaWhatsapp, href: `https://wa.me/${"+94 77 813 6626".replace(/[^0-9]/g, "")}` },
   { icon: FaEnvelope, href: "mailto:pasanpr58@gmail.com", label: "Email" },
@@ -160,27 +160,27 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between z-10 w-full max-w-7xl">
-        {/* Left Content */}
+      <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between z-10 w-full max-w-7xl gap-12 lg:gap-0">
+        {/* Left Content (Text) - Now follows the image on mobile */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="lg:w-3/5 xl:w-2/3 flex flex-col items-start mt-12 lg:mt-0"
+          className="lg:w-3/5 xl:w-2/3 flex flex-col items-center text-center lg:items-start lg:text-left"
         >
           <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight mb-6 text-cyan-accent font-poppins"
             style={{ textShadow: "0 0 20px rgba(0, 208, 255, 0.3)" }}
           >
-            Pasan Pramuditha
+            Pasan <br /> Pramuditha
           </h1>
-          <p className="text-base sm:text-lg md:text-xl mb-10 md:mb-12 max-w-xl leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          <p className="text-base sm:text-lg md:text-xl mb-10 md:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             I am a Software Engineering undergraduate focused on building modern,
             resilient digital experiences with a clean aesthetic.
           </p>
 
-          <div className="flex flex-wrap gap-5 mb-14">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-5 mb-14">
             <a
               href="#cv"
               className="bg-cyan-accent hover:bg-cyan-accent/90 text-zinc-950 px-8 py-3 rounded-full text-[15px] font-bold transition-all shadow-lg shadow-cyan-accent/20 flex items-center"
@@ -196,7 +196,7 @@ const Hero = () => {
             </a>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex justify-center lg:justify-start gap-4">
             {socialLinks.map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
@@ -210,30 +210,23 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Right Content / Image (Professional Photo) */}
+        {/* Right Content (Image) - Now on top on mobile */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="lg:w-2/5 flex justify-center lg:justify-end items-end mt-16 lg:mt-0"
+          className="lg:w-2/5 flex justify-center lg:justify-end items-center lg:items-end mt-8 lg:mt-0"
         >
-          <div className="relative w-full max-w-[320px] md:max-w-md lg:max-w-[480px] flex items-end justify-center group mt-6 lg:mt-10">
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-full lg:h-auto lg:max-w-[480px] flex items-center justify-center lg:items-end group">
             {/* Intense glow matching the dark theme */}
-            <div className="absolute inset-x-0 bottom-10 h-1/2 bg-cyan-accent rounded-full blur-[130px] opacity-10 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none" />
+            <div className="absolute inset-0 lg:inset-x-0 lg:bottom-10 lg:h-1/2 bg-cyan-accent rounded-full blur-[60px] lg:blur-[130px] opacity-20 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none" />
 
-            <div
-              className="relative w-full z-10"
-              style={{
-                /* CSS mask to seamlessly blend the bottom of the photo into the background */
-                maskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)",
-                WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%)"
-              }}
-            >
+            <div className="relative w-full h-full lg:h-auto z-10 rounded-full lg:rounded-none overflow-hidden lg:overflow-visible border-4 border-cyan-accent lg:border-none shadow-[0_0_30px_rgba(0,208,255,0.5)] lg:shadow-none hero-mask flex items-center justify-center bg-zinc-950">
               <img
                 src={profileImg}
                 alt="Pasan Pramuditha"
-                className="w-full h-auto object-cover object-bottom transition-all duration-700 mx-auto drop-shadow-2xl"
+                className="w-full h-full lg:h-auto object-cover object-[90%_top] lg:object-bottom transition-all duration-700 mx-auto drop-shadow-2xl scale-125 lg:scale-100"
               />
             </div>
           </div>
