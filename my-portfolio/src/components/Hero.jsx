@@ -18,8 +18,8 @@ import profileImg from "../assets/profile.png";
 
 const socialLinks = [
   { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
-  { icon: FaGithub, href: "https://github.com/", label: "GitHub" },
-  { icon: FaWhatsapp, href: "#", label: "WhatsApp" },
+  { icon: FaGithub, href: "https://https://github.com/Pasan-Pramuditha.com/", label: "GitHub" },
+  { icon: FaWhatsapp, href: `https://wa.me/${"0778136626".replace(/[^0-9]/g, "")}` },
   { icon: FaEnvelope, href: "#contact", label: "Email" },
 ];
 
@@ -126,7 +126,7 @@ const Hero = () => {
       </div>
 
       {/* Network background effect (floating elements) refined */}
-      <div 
+      <div
         className="absolute inset-0 pointer-events-none transition-opacity duration-1000"
         style={{ opacity: "var(--hero-float-container-opacity)" }}
       >
