@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { HiOutlineAcademicCap, HiOutlineCalendar, HiOutlineMapPin } from "react-icons/hi2";
 import pearsonLogo from "../assets/pearsonLogo.png";
 import wolverhamptonLogo from "../assets/wolverhamptonLogo.png";
-import SunRayLogo from "../assets/sunrayLogo.png";
-import SchoolLogo from "../assets/schoolLogo.png";
+import SunRayLogo from "../assets/SunRayLogo.png";
+import SchoolLogo from "../assets/SchoolLogo.png";
 import NenasalaLogo from "../assets/NenasalaLogo.png"
 
 const educationData = [
