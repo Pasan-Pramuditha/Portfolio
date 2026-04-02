@@ -25,11 +25,11 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="about-me-kicker">Get to know me</p>
-            <h2 className="about-me-title">
-              About <span>Me</span>
+            <p className="text-[#00D0FF] text-[10px] font-black tracking-[0.3em] uppercase mb-1 font-poppins">Get to know me</p>
+            <h2 className="section-title mb-4 flex flex-wrap items-center gap-4">
+              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D0FF] to-cyan-300">Me</span>
             </h2>
-            <div className="about-me-underline" />
+            <div className="w-24 h-[4px] bg-gradient-to-r from-[#00D0FF] to-transparent mb-12 rounded-full shadow-[0_0_15px_rgba(0,208,255,0.5)]" />
           </motion.div>
 
           {/* Info Cards Grid */}
