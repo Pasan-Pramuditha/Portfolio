@@ -170,8 +170,8 @@ const Home = () => {
           className="lg:w-3/5 xl:w-2/3 flex flex-col items-center text-center lg:items-start lg:text-left"
         >
           <h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight mb-6 text-cyan-accent font-poppins"
-            style={{ textShadow: "0 0 20px rgba(0, 208, 255, 0.3)" }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-tight mb-6 text-cyan-accent font-poppins"
+            style={{ textShadow: "0 0 30px rgba(0, 208, 255, 0.5), 0 0 15px rgba(0, 208, 255, 0.3)" }}
           >
             Pasan <br className="lg:hidden" /> Pramuditha
           </h1>
