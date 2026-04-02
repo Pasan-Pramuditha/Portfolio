@@ -103,19 +103,17 @@ export default function Contact() {
       <div className="contact-container">
         {/* Section Header */}
         <motion.div
-          className="contact-header"
-          initial={{ opacity: 0, y: 30 }}
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="contact-badge">Get In Touch</span>
-          <h2 className="contact-title">
-            Let&apos;s <span className="contact-title-accent">Work Together</span>
+          <p className="text-[#00D0FF] text-[10px] font-black tracking-[0.3em] uppercase mb-1 font-poppins">Get In Touch</p>
+          <h2 className="text-white text-5xl md:text-6xl font-black uppercase tracking-tight mb-4 flex items-center gap-4 font-poppins">
+            Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D0FF] to-cyan-300">Me</span>
           </h2>
-          <p className="contact-subtitle">
-            Have a project in mind or just want to say hello? I&apos;d love to hear from you.
-          </p>
+          <div className="w-24 h-[4px] bg-gradient-to-r from-[#00D0FF] to-transparent mb-12 rounded-full shadow-[0_0_15px_rgba(0,208,255,0.5)]" />
         </motion.div>
 
         <div className="contact-grid">
