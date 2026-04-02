@@ -23,7 +23,7 @@ const socialLinks = [
   { icon: FaEnvelope, href: "mailto:pasanpr58@gmail.com", label: "Email" },
 ];
 
-const Hero = () => {
+const Home = () => {
   const floatingItems = [
     { content: "{ }", type: "text" },
     { content: "< >", type: "text" },
@@ -173,7 +173,7 @@ const Hero = () => {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight mb-6 text-cyan-accent font-poppins"
             style={{ textShadow: "0 0 20px rgba(0, 208, 255, 0.3)" }}
           >
-            Pasan <br /> Pramuditha
+            Pasan <br className="lg:hidden" /> Pramuditha
           </h1>
           <p className="text-base sm:text-lg md:text-xl mb-10 md:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             I am a Software Engineering undergraduate focused on building modern,
@@ -222,7 +222,7 @@ const Hero = () => {
             {/* Intense glow matching the dark theme */}
             <div className="absolute inset-0 lg:inset-x-0 lg:bottom-10 lg:h-1/2 bg-cyan-accent rounded-full blur-[60px] lg:blur-[130px] opacity-20 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none" />
 
-            <div className="relative w-full h-full lg:h-auto z-10 rounded-full lg:rounded-none overflow-hidden lg:overflow-visible border-4 border-cyan-accent lg:border-none shadow-[0_0_30px_rgba(0,208,255,0.5)] lg:shadow-none hero-mask flex items-center justify-center bg-zinc-950">
+            <div className="relative w-full h-full lg:h-auto z-10 rounded-full lg:rounded-none overflow-hidden lg:overflow-visible border-4 border-cyan-accent lg:border-none shadow-[0_0_30px_rgba(0,208,255,0.5)] lg:shadow-none hero-mask flex items-center justify-center bg-transparent">
               <img
                 src={profileImg}
                 alt="Pasan Pramuditha"
@@ -236,6 +236,6 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Home;
 
 

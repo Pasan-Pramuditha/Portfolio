@@ -1,5 +1,6 @@
+
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import Home from "./components/Home";
 import About from "./components/About";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
@@ -12,7 +13,7 @@ function App() {
     <div className="app-shell">
       <Navbar />
       <main>
-        <Hero />
+        <Home />
         <About />
         <Education />
         <Experience />
