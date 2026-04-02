@@ -59,7 +59,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] flex items-center overflow-hidden px-6 md:px-12 xl:px-24 font-outfit transition-colors duration-500"
+      className="relative min-h-[90vh] flex items-center overflow-hidden px-4 sm:px-6 md:px-12 xl:px-24 font-outfit transition-colors duration-500"
       style={{ backgroundColor: "var(--bg-primary)" }}
     >
       {/* Premium Background Overlays */}
@@ -170,12 +170,12 @@ const Hero = () => {
           className="lg:w-3/5 xl:w-2/3 flex flex-col items-start mt-12 lg:mt-0"
         >
           <h1
-            className="text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-bold mb-6 tracking-tight whitespace-nowrap text-cyan-accent"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-bold mb-6 tracking-tight text-cyan-accent"
             style={{ textShadow: "0 0 20px rgba(0, 208, 255, 0.3)" }}
           >
             Pasan Pramuditha
           </h1>
-          <p className="text-lg md:text-xl mb-12 max-w-xl leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+          <p className="text-base sm:text-lg md:text-xl mb-10 md:mb-12 max-w-xl leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             I am a Software Engineering undergraduate focused on building modern,
             resilient digital experiences with a clean aesthetic.
           </p>
@@ -218,7 +218,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="lg:w-2/5 flex justify-center lg:justify-end items-end mt-16 lg:mt-0"
         >
-          <div className="relative w-80 md:w-96 lg:w-[480px] flex items-end justify-center group mt-10">
+          <div className="relative w-full max-w-[320px] md:max-w-md lg:max-w-[480px] flex items-end justify-center group mt-6 lg:mt-10">
             {/* Intense glow matching the dark theme */}
             <div className="absolute inset-x-0 bottom-10 h-1/2 bg-cyan-accent rounded-full blur-[130px] opacity-10 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none" />
 

@@ -73,13 +73,13 @@ const Navbar = () => {
   const toggleTheme = () => setIsLight(!isLight);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-500 font-outfit ${scrolled ? "bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/10 shadow-lg py-4" : "bg-transparent py-6"}`}>
+    <header className={`fixed top-0 left-0 right-0 w-full z-[100] transition-all duration-500 font-outfit ${scrolled ? "bg-[#0a0a0a]/80 backdrop-blur-xl border-b border-white/10 shadow-lg py-4" : "bg-transparent py-6"}`}>
       <div className={`mx-auto max-w-[1600px] flex items-center justify-between px-4 md:px-8 transition-all duration-500`}>
 
         {/* LOGO */}
         <a
           href="#home"
-          className="text-xl md:text-2xl font-bold tracking-tight transition-colors flex-shrink-0"
+          className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight transition-colors flex-shrink-0"
           style={{ color: isLight ? "var(--text-primary)" : "white" }}
         >
           <span className="text-[#00D0FF]">Pasan</span> Pramuditha

@@ -82,7 +82,7 @@
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] font-outfit;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] font-outfit;
     color: var(--text-primary);
   }
 
@@ -145,7 +145,7 @@
   }
 
   .about-me-title {
-    @apply text-white text-5xl md:text-6xl font-black uppercase tracking-tight mb-4 flex items-center gap-4;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight mb-4 flex items-center gap-4;
     font-family: 'Poppins', sans-serif;
   }
 
@@ -159,7 +159,7 @@
   }
 
   .info-card-grid {
-    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16;
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16;
   }
 
   .info-card {
@@ -241,7 +241,7 @@
   ============================================= */
 
   .contact-section {
-    @apply relative py-28 px-6 overflow-hidden;
+    @apply relative py-20 md:py-28 px-4 sm:px-6 overflow-hidden;
     border-top: 1px solid var(--card-border);
   }
 
@@ -307,7 +307,7 @@
   }
 
   .contact-title {
-    @apply text-4xl md:text-5xl font-black tracking-tight mb-4;
+    @apply text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-4;
     color: var(--text-primary);
     font-family: 'Outfit', sans-serif;
   }
@@ -336,7 +336,7 @@
   }
 
   .contact-info-inner {
-    @apply relative h-full rounded-[2rem] p-8 overflow-hidden;
+    @apply relative h-full rounded-[2rem] p-6 sm:p-8 overflow-hidden;
     background: linear-gradient(135deg, rgba(0, 208, 255, 0.12) 0%, rgba(167, 139, 250, 0.08) 100%);
     border: 1px solid rgba(0, 208, 255, 0.2);
     backdrop-filter: blur(16px);
@@ -419,7 +419,7 @@
     @apply flex flex-col gap-5 h-full;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    @apply rounded-[2rem] p-8;
+    @apply rounded-[2rem] p-5 sm:p-8;
     backdrop-filter: blur(12px);
   }
 
