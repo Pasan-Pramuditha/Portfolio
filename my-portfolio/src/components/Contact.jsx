@@ -28,9 +28,9 @@ const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
 // =====================================================
 // Your personal contact info shown on the left panel
 // =====================================================
-const YOUR_EMAIL = "your@email.com";
-const YOUR_PHONE = "+94 77 123 4567";
-const YOUR_LOCATION = "Colombo, Sri Lanka";
+const YOUR_EMAIL = "pasanpr58@gmail.com";
+const YOUR_PHONE = "+94 77 813 6626";
+const YOUR_LOCATION = "Beliatta, Sri Lanka";
 
 const contactInfo = [
   {
