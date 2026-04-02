@@ -20,7 +20,7 @@ const socialLinks = [
   { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
   { icon: FaGithub, href: "https://github.com/Pasan-Pramuditha", label: "GitHub" },
   { icon: FaWhatsapp, href: `https://wa.me/${"+94 77 813 6626".replace(/[^0-9]/g, "")}` },
-  { icon: FaEnvelope, href: "pasanpr58@gmail.com", label: "Email" },
+  { icon: FaEnvelope, href: "mailto:pasanpr58@gmail.com", label: "Email" },
 ];
 
 const Hero = () => {
