@@ -13,11 +13,11 @@ import {
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
-// Configuration Constants
-const EMAILJS_SERVICE_ID = "service_mv5cfh9";
-const EMAILJS_TEMPLATE_ID = "template_plp6043";
-const EMAILJS_PUBLIC_KEY = "nJg-biXkU0CWu2iRF";
-const ZEROBOUNCE_API_KEY = "4cfda998fb744f4f8adc45521ad4795a";
+// Configuration Constants (Securely loaded from .env)
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const ZEROBOUNCE_API_KEY = import.meta.env.VITE_ZEROBOUNCE_API_KEY;
 
 const YOUR_EMAIL = "pasanpr58@gmail.com";
 const YOUR_PHONE = "+94 77 813 6626";
