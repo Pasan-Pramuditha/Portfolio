@@ -244,6 +244,28 @@
     @apply relative py-28 px-6 overflow-hidden;
   }
 
+  /* Floating particles container */
+  .contact-particles {
+    @apply absolute inset-0 pointer-events-none overflow-hidden;
+  }
+
+  .contact-particle {
+    @apply absolute rounded-full bg-[#00D0FF];
+    opacity: 0.15;
+  }
+
+  /* Animated rotating ring inside left panel */
+  .contact-animated-ring {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    bottom: -50px;
+    right: -50px;
+    border-radius: 50%;
+    border: 1px dashed rgba(0, 208, 255, 0.2);
+    pointer-events: none;
+  }
+
   /* Background glowing orbs */
   .contact-bg-orb {
     @apply absolute pointer-events-none rounded-full;
