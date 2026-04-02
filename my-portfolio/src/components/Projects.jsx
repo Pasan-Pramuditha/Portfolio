@@ -57,7 +57,12 @@ const Projects = () => {
             >
               <div className="flex justify-between items-start mb-8">
                 <div className="h-14 w-1 flex bg-cyan-accent/30 group-hover:bg-cyan-accent transition-colors" />
-                <span className="px-4 py-1.5 rounded-full border bg-zinc-950/10 text-[10px] font-bold uppercase tracking-[0.2em]" style={{ borderColor: "var(--card-border)", color: "var(--text-secondary)" }}>
+                <span className="px-4 py-1.5 rounded-full border text-[10px] font-bold uppercase tracking-[0.2em] transition-colors duration-300" 
+                  style={{ 
+                    borderColor: "var(--card-border)", 
+                    color: "var(--text-secondary)",
+                    backgroundColor: "var(--bg-secondary)"
+                  }}>
                   {project.year}
                 </span>
               </div>
@@ -73,7 +78,8 @@ const Projects = () => {
               </p>
 
               <div className="flex gap-4">
-                <button className="bg-zinc-800 hover:bg-cyan-accent hover:text-zinc-950 text-white px-6 py-3 rounded-xl font-bold text-[13px] transition-all flex items-center gap-2 group/btn uppercase tracking-widest">
+                <button className="hover:bg-cyan-accent hover:text-zinc-950 px-6 py-3 rounded-xl font-bold text-[13px] transition-all flex items-center gap-2 group/btn uppercase tracking-widest"
+                  style={{ backgroundColor: "var(--bg-secondary)", color: "var(--text-primary)" }}>
                   Details <FaArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
                 </button>
                 <button className="w-12 h-12 flex items-center justify-center rounded-xl border text-zinc-400 hover:border-cyan-accent hover:text-cyan-accent hover:bg-cyan-accent/5 transition-all" style={{ borderColor: "var(--card-border)" }}>

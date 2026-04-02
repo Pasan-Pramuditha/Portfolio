@@ -100,7 +100,12 @@ const SkillCard = ({ skill, index }) => {
       transition={{ duration: 0.5, delay: (index % 10) * 0.05 }}
       whileHover={{ y: -10, scale: 1.05 }}
       onMouseMove={handleMouseMove}
-      className="group relative flex flex-col items-center justify-center p-6 md:p-8 rounded-3xl bg-[#0d0d0d] border border-white/5 hover:border-[#00D0FF]/50 transition-all duration-300 cursor-pointer overflow-hidden shadow-2xl"
+      className="group relative flex flex-col items-center justify-center p-6 md:p-8 rounded-3xl transition-all duration-300 cursor-pointer overflow-hidden shadow-2xl"
+      style={{ 
+        backgroundColor: "var(--card-bg)", 
+        borderColor: "var(--card-border)",
+        borderWidth: "1px"
+      }}
     >
       <motion.div
         className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -126,7 +131,7 @@ const SkillCard = ({ skill, index }) => {
         </div>
       </motion.div>
 
-      <span className="text-zinc-500 font-black tracking-widest text-[9px] md:text-[11px] text-center relative z-10 group-hover:text-white transition-colors duration-300 uppercase font-poppins">
+      <span className="font-black tracking-widest text-[9px] md:text-[11px] text-center relative z-10 group-hover:text-cyan-accent transition-colors duration-300 uppercase font-poppins" style={{ color: "var(--text-secondary)" }}>
         {skill.name}
       </span>
 

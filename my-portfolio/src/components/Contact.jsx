@@ -185,7 +185,7 @@ export default function Contact() {
           >
             Contact{" "}
             <motion.span
-              className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D0FF] to-cyan-300"
+              className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-accent to-cyan-300"
               animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
               style={{ backgroundSize: "200% auto" }}
@@ -195,7 +195,7 @@ export default function Contact() {
           </motion.h2>
 
           <motion.div
-            className="w-24 h-[4px] bg-gradient-to-r from-[#00D0FF] to-transparent rounded-full mb-12"
+            className="w-24 h-[4px] bg-gradient-to-r from-cyan-accent to-transparent rounded-full mb-12"
             style={{ boxShadow: "0 0 15px rgba(0,208,255,0.5)" }}
             initial={{ scaleX: 0, originX: 0 }}
             animate={isInView ? { scaleX: 1 } : {}}

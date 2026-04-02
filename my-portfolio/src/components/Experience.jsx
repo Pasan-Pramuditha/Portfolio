@@ -70,9 +70,9 @@ const Experience = () => {
                       </span>
 
                       {item.status && (
-                        <span className={`text-[9px] font-black uppercase tracking-[0.15em] px-2.5 py-1 rounded-lg backdrop-blur-md ${item.status === 'Active'
-                          ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-[0_0_10px_rgba(52,211,153,0.1)]'
-                          : 'bg-[#00D0FF]/10 text-[#00D0FF] border border-[#00D0FF]/20 animate-pulse'
+                        <span className={`text-[9px] font-black uppercase tracking-[0.15em] px-2.5 py-1 rounded-lg backdrop-blur-md transition-colors duration-300 ${item.status === 'Active'
+                          ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 shadow-[0_0_10px_rgba(52,211,153,0.1)]'
+                          : 'bg-cyan-accent/10 text-cyan-700 dark:text-cyan-accent border border-cyan-accent/20 animate-pulse'
                           }`}>
                           {item.status}
                         </span>
@@ -81,7 +81,7 @@ const Experience = () => {
 
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
-                        <h3 className="text-white text-xl md:text-2xl font-bold mb-3 font-poppins group-hover:text-[#00D0FF] transition-colors leading-tight">
+                        <h3 className="text-xl md:text-2xl font-bold mb-3 font-poppins group-hover:text-cyan-accent transition-colors leading-tight" style={{ color: "var(--text-primary)" }}>
                           {item.role}
                         </h3>
                       </div>
@@ -106,15 +106,15 @@ const Experience = () => {
                       </div>
                     </div>
 
-                    <div className="flex flex-col gap-2 mb-4 text-zinc-400 text-[13px] font-inter">
+                    <div className="flex flex-col gap-2 mb-4 text-[13px] font-inter" style={{ color: "var(--text-secondary)" }}>
                       <div className="flex items-center gap-2">
-                        <HiOutlineBriefcase className="text-[#00D0FF] text-lg" />
-                        <span className="font-medium text-zinc-200">{item.company}</span>
+                        <HiOutlineBriefcase className="text-cyan-accent text-lg" />
+                        <span className="font-medium" style={{ color: "var(--text-primary)" }}>{item.company}</span>
                       </div>
                     </div>
 
-                    <div className="mt-4 pt-4 border-t border-white/5">
-                      <p className="text-zinc-400 text-[13px] leading-relaxed font-inter group-hover:text-zinc-300 transition-colors">
+                    <div className="mt-4 pt-4 border-t" style={{ borderColor: "var(--card-border)" }}>
+                      <p className="text-[13px] leading-relaxed font-inter transition-colors" style={{ color: "var(--text-secondary)" }}>
                         {item.summary}
                       </p>
                     </div>

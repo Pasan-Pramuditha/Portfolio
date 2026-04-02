@@ -93,8 +93,12 @@ const Navbar = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className={`relative px-4 py-2 text-[11px] xl:text-[12px] font-bold uppercase tracking-[0.15em] transition-all duration-300 rounded-full z-10 ${isActive ? "text-[#00D0FF]" : "text-zinc-400 hover:text-white"
+                className={`relative px-4 py-2 text-[11px] xl:text-[12px] font-bold uppercase tracking-[0.15em] transition-all duration-300 rounded-full z-10 
+                  ${isActive 
+                    ? "text-cyan-accent" 
+                    : "text-zinc-400 hover:text-cyan-accent dark:hover:text-white"
                   }`}
+                style={{ color: isActive ? "var(--accent-primary)" : "var(--text-secondary)" }}
               >
                 {isActive && (
                   <motion.div

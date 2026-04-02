@@ -18,10 +18,16 @@
     --bg-secondary: #0a0a0a;
     --text-primary: #ffffff;
     --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --text-contrast: #000000;
     --card-bg: rgba(24, 24, 27, 0.4);
+    --card-bg-hover: rgba(0, 208, 255, 0.08);
     --card-border: rgba(255, 255, 255, 0.08);
+    --card-border-hover: rgba(0, 208, 255, 0.4);
     --input-bg: rgba(24, 24, 27, 0.6);
     --nav-bg: rgba(0, 0, 0, 0.85);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.05);
     --hero-glow-opacity: 0.1;
     --hero-float-container-opacity: 0.3;
     --hero-float-item-opacity: 0.5;
@@ -38,10 +44,16 @@
     --bg-secondary: #ffffff;
     --text-primary: #0f172a;
     --text-secondary: #475569;
+    --text-muted: #64748b;
+    --text-contrast: #ffffff;
     --card-bg: #ffffff;
+    --card-bg-hover: rgba(0, 208, 255, 0.05);
     --card-border: rgba(0, 0, 0, 0.05);
+    --card-border-hover: rgba(0, 208, 255, 0.3);
     --input-bg: #ffffff;
     --nav-bg: rgba(255, 255, 255, 0.85);
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.04);
     --hero-glow-opacity: 0.12;
     --hero-float-container-opacity: 0.7;
     --hero-float-item-opacity: 0.9;
@@ -172,12 +184,16 @@
   }
 
   .info-card {
-    @apply relative border border-white/10 rounded-3xl p-6 bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-xl transition-all duration-500 ease-out flex flex-col justify-center min-h-[130px] shadow-lg overflow-hidden cursor-default;
+    @apply relative rounded-3xl p-6 transition-all duration-500 ease-out flex flex-col justify-center min-h-[130px] shadow-lg overflow-hidden cursor-default;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
     font-family: 'Inter', sans-serif;
   }
 
   .info-card:hover {
-    @apply border-[#00D0FF]/40 -translate-y-2 bg-gradient-to-b from-[#00D0FF]/[0.08] to-transparent;
+    @apply -translate-y-2;
+    background-color: var(--card-bg-hover);
+    border-color: var(--card-border-hover);
     box-shadow: 0 20px 40px rgba(0, 208, 255, 0.15);
   }
 
@@ -192,7 +208,8 @@
   }
 
   .info-card-title {
-    @apply flex items-center gap-3 text-white font-bold text-[14px] mb-3 uppercase tracking-wider relative z-10 transition-colors duration-300;
+    @apply flex items-center gap-3 font-bold text-[14px] mb-3 uppercase tracking-wider relative z-10 transition-colors duration-300;
+    color: var(--text-primary);
     font-family: 'Poppins', sans-serif;
   }
 
@@ -209,21 +226,29 @@
   }
 
   .info-card:hover .icon-container {
-    @apply bg-[#00D0FF] text-black scale-110 -rotate-12;
+    @apply bg-[#00D0FF] rounded-xl flex items-center justify-center scale-110 -rotate-12;
+    color: var(--text-contrast);
     box-shadow: 0 0 20px rgba(0, 208, 255, 0.6);
   }
 
   .info-card-subtitle {
-    @apply text-zinc-400 text-[12px] font-medium leading-relaxed relative z-10 transition-colors duration-300;
+    @apply text-[12px] font-medium leading-relaxed relative z-10 transition-colors duration-300;
+    color: var(--text-secondary);
     font-family: 'Inter', sans-serif;
   }
 
   .info-card:hover .info-card-subtitle {
+    @apply text-zinc-900;
+  }
+
+  :root.dark .info-card:hover .info-card-subtitle {
     @apply text-zinc-100;
   }
 
   .text-glass-container {
-    @apply p-8 md:p-12 bg-gradient-to-b from-white/[0.03] to-transparent border border-white/5 rounded-[2.5rem] relative overflow-hidden backdrop-blur-xl shadow-2xl;
+    @apply p-8 md:p-12 border rounded-[2.5rem] relative overflow-hidden backdrop-blur-xl shadow-2xl;
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
   }
 
   .text-glass-container::before {
@@ -232,7 +257,8 @@
   }
 
   .about-paragraph {
-    @apply text-zinc-300 text-[15px] md:text-[16px] leading-[1.8] font-normal max-w-none md:max-w-5xl mb-6;
+    @apply text-[15px] md:text-[16px] leading-[1.8] font-normal max-w-none md:max-w-5xl mb-6 transition-colors duration-300;
+    color: var(--text-secondary);
     font-family: 'Inter', sans-serif;
     letter-spacing: 0.02em;
   }
@@ -242,7 +268,8 @@
   }
 
   .highlight-text {
-    @apply text-white font-medium;
+    @apply font-medium transition-colors duration-300;
+    color: var(--text-primary);
   }
 
   /* =============================================
@@ -448,8 +475,8 @@
 
   .contact-input {
     @apply w-full rounded-xl px-4 py-3 text-sm outline-none transition-all duration-200;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--input-bg);
+    border: 1px solid var(--card-border);
     color: var(--text-primary);
     font-family: 'Inter', sans-serif;
   }
@@ -461,7 +488,7 @@
   }
 
   .contact-input::placeholder {
-    color: rgba(161, 161, 170, 0.5);
+    color: var(--text-muted);
   }
 
   /* Error state for email input */
