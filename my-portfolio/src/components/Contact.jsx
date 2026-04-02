@@ -15,12 +15,6 @@ import { FaWhatsapp } from "react-icons/fa";
 
 // =====================================================
 // 🔧 EMAILJS CONFIGURATION
-// Replace these with your actual EmailJS credentials
-// Steps:
-// 1. Go to https://www.emailjs.com/ and create a free account
-// 2. Create a Service (Gmail recommended) → copy Service ID
-// 3. Create an Email Template → copy Template ID
-// 4. Go to Account > API Keys → copy Public Key
 // =====================================================
 const EMAILJS_SERVICE_ID = "service_mv5cfh9";
 const EMAILJS_TEMPLATE_ID = "template_plp6043";
@@ -61,10 +55,12 @@ const inputVariants = {
 
 export default function Contact() {
   const formRef = useRef();
+
+  // මෙතන අලුත් නම් ටික දැම්මා (user_name, user_email, user_phone)
   const [formData, setFormData] = useState({
-    from_name: "",
-    from_email: "",
-    phone: "",
+    user_name: "",
+    user_email: "",
+    user_phone: "",
     subject: "",
     message: "",
   });
@@ -88,7 +84,8 @@ export default function Contact() {
         EMAILJS_PUBLIC_KEY
       );
       setStatus("success");
-      setFormData({ from_name: "", from_email: "", phone: "", subject: "", message: "" });
+      // යැව්වට පස්සේ form එක හිස් කරන තැනත් අලුත් නම් වලට වෙනස් කළා
+      setFormData({ user_name: "", user_email: "", user_phone: "", subject: "", message: "" });
     } catch (err) {
       console.error("EmailJS Error:", err);
       setStatus("error");
@@ -202,14 +199,14 @@ export default function Contact() {
                   </label>
                   <motion.input
                     variants={inputVariants}
-                    animate={focusedField === "from_name" ? "focus" : "blur"}
+                    animate={focusedField === "user_name" ? "focus" : "blur"}
                     id="contact-name"
                     type="text"
-                    name="from_name"
+                    name="user_name"
                     placeholder="Kasun Perera"
-                    value={formData.from_name}
+                    value={formData.user_name}
                     onChange={handleChange}
-                    onFocus={() => setFocusedField("from_name")}
+                    onFocus={() => setFocusedField("user_name")}
                     onBlur={() => setFocusedField(null)}
                     className="contact-input"
                     required
@@ -221,14 +218,14 @@ export default function Contact() {
                   </label>
                   <motion.input
                     variants={inputVariants}
-                    animate={focusedField === "from_email" ? "focus" : "blur"}
+                    animate={focusedField === "user_email" ? "focus" : "blur"}
                     id="contact-email"
                     type="email"
-                    name="from_email"
+                    name="user_email"
                     placeholder="kasun@email.com"
-                    value={formData.from_email}
+                    value={formData.user_email}
                     onChange={handleChange}
-                    onFocus={() => setFocusedField("from_email")}
+                    onFocus={() => setFocusedField("user_email")}
                     onBlur={() => setFocusedField(null)}
                     className="contact-input"
                     required
@@ -244,14 +241,14 @@ export default function Contact() {
                   </label>
                   <motion.input
                     variants={inputVariants}
-                    animate={focusedField === "phone" ? "focus" : "blur"}
+                    animate={focusedField === "user_phone" ? "focus" : "blur"}
                     id="contact-phone"
                     type="tel"
-                    name="phone"
+                    name="user_phone"
                     placeholder="+94 77 123 4567"
-                    value={formData.phone}
+                    value={formData.user_phone}
                     onChange={handleChange}
-                    onFocus={() => setFocusedField("phone")}
+                    onFocus={() => setFocusedField("user_phone")}
                     onBlur={() => setFocusedField(null)}
                     className="contact-input"
                   />
