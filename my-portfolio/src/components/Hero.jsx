@@ -170,7 +170,7 @@ const Hero = () => {
           className="lg:w-3/5 xl:w-2/3 flex flex-col items-start mt-12 lg:mt-0"
         >
           <h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] font-bold mb-6 tracking-tight text-cyan-accent"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight mb-6 text-cyan-accent font-poppins"
             style={{ textShadow: "0 0 20px rgba(0, 208, 255, 0.3)" }}
           >
             Pasan Pramuditha

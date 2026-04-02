@@ -178,7 +178,7 @@ export default function Contact() {
           </motion.p>
 
           <motion.h2
-            className="text-white text-5xl md:text-6xl font-black uppercase tracking-tight mb-4 flex items-center gap-4 font-poppins"
+            className="section-title mb-4 flex items-center gap-4"
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}

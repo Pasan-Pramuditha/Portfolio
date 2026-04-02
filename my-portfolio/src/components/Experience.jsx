@@ -35,7 +35,7 @@ const Experience = () => {
           className="mb-16"
         >
           <p className="text-[#00D0FF] text-[10px] font-black tracking-[0.3em] uppercase mb-1 font-poppins">Career Path</p>
-          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight mb-4 flex flex-wrap items-center gap-4 font-poppins">
+          <h2 className="section-title mb-4 flex flex-wrap items-center gap-4">
             My <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D0FF] to-cyan-300">Experience</span>
           </h2>
           <div className="w-24 h-[4px] bg-gradient-to-r from-[#00D0FF] to-transparent mb-12 rounded-full shadow-[0_0_15px_rgba(0,208,255,0.5)]" />
