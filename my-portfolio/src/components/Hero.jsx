@@ -59,7 +59,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] flex items-center overflow-hidden px-4 sm:px-6 md:px-12 xl:px-24 font-outfit transition-colors duration-500"
+      className="relative min-h-[90vh] flex items-center overflow-hidden px-4 sm:px-6 md:px-12 xl:px-24 pt-28 sm:pt-32 lg:pt-0 font-outfit transition-colors duration-500"
       style={{ backgroundColor: "var(--bg-primary)" }}
     >
       {/* Premium Background Overlays */}
