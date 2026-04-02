@@ -22,9 +22,9 @@ import { FaWhatsapp } from "react-icons/fa";
 // 3. Create an Email Template → copy Template ID
 // 4. Go to Account > API Keys → copy Public Key
 // =====================================================
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID = "service_mv5cfh9";
+const EMAILJS_TEMPLATE_ID = "template_plp6043";
+const EMAILJS_PUBLIC_KEY = "nJg-biXkU0CWu2iRF";
 
 // =====================================================
 // Your personal contact info shown on the left panel
