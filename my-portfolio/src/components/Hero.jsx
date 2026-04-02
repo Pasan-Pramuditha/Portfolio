@@ -19,7 +19,7 @@ import profileImg from "../assets/profile.png";
 const socialLinks = [
   { icon: FaLinkedinIn, href: "#", label: "LinkedIn" },
   { icon: FaGithub, href: "https://https://github.com/Pasan-Pramuditha.com/", label: "GitHub" },
-  { icon: FaWhatsapp, href: `https://wa.me/${"0778136626".replace(/[^0-9]/g, "")}` },
+  { icon: FaWhatsapp, href: `https://wa.me/${"+94 77 813 6626".replace(/[^0-9]/g, "")}` },
   { icon: FaEnvelope, href: "#contact", label: "Email" },
 ];
 
