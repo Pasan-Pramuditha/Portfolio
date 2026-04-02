@@ -497,4 +497,36 @@
   :root.light .contact-input:focus {
     background: rgba(0, 208, 255, 0.03);
   }
+
+  /* Social quick-link icon buttons */
+  .contact-social-links {
+    @apply flex gap-3 mt-8;
+  }
+
+  .contact-social-btn {
+    @apply flex items-center justify-center w-11 h-11 rounded-xl transition-all duration-300;
+    color: #00D0FF;
+    background: rgba(0, 208, 255, 0.08);
+    border: 1px solid rgba(0, 208, 255, 0.2);
+  }
+
+  .contact-social-btn:hover {
+    background: rgba(0, 208, 255, 0.18);
+    border-color: rgba(0, 208, 255, 0.5);
+    box-shadow: 0 0 16px rgba(0, 208, 255, 0.3);
+    transform: translateY(-2px);
+  }
+
+  /* WhatsApp variant — green */
+  .contact-social-btn--wa {
+    color: #25D366;
+    background: rgba(37, 211, 102, 0.08);
+    border-color: rgba(37, 211, 102, 0.2);
+  }
+
+  .contact-social-btn--wa:hover {
+    background: rgba(37, 211, 102, 0.18);
+    border-color: rgba(37, 211, 102, 0.5);
+    box-shadow: 0 0 16px rgba(37, 211, 102, 0.3);
+  }
 }

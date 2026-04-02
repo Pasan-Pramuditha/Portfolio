@@ -11,6 +11,7 @@ import {
   FiCheckCircle,
   FiAlertCircle,
 } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 // =====================================================
 // 🔧 EMAILJS CONFIGURATION
@@ -95,7 +96,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="contact-section">
+    <section id="contact" className="contact-section" style={{ borderTop: "1px solid var(--card-border)" }}>
       {/* Background decorations */}
       <div className="contact-bg-orb contact-bg-orb--1" />
       <div className="contact-bg-orb contact-bg-orb--2" />
@@ -154,6 +155,28 @@ export default function Contact() {
                     </div>
                   </motion.div>
                 ))}
+              </div>
+
+              {/* Social Quick Links */}
+              <div className="contact-social-links">
+                <a
+                  href={`mailto:${YOUR_EMAIL}`}
+                  className="contact-social-btn"
+                  aria-label="Send Email"
+                  title="Send Email"
+                >
+                  <FiMail size={20} />
+                </a>
+                <a
+                  href={`https://wa.me/${YOUR_PHONE.replace(/[^0-9]/g, "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-social-btn contact-social-btn--wa"
+                  aria-label="WhatsApp"
+                  title="Chat on WhatsApp"
+                >
+                  <FaWhatsapp size={22} />
+                </a>
               </div>
 
               {/* Decorative circles */}
