@@ -81,6 +81,7 @@ export default function Contact() {
       await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, EMAILJS_PUBLIC_KEY);
       setStatus("success");
       setFormData({ user_name: "", user_email: "", user_phone: "", subject: "", message: "" });
+      setTimeout(() => setStatus("idle"), 15000);
     } catch (err) {
       console.error("EmailJS Error:", err);
       setStatus("error");
