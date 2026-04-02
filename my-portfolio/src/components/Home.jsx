@@ -59,7 +59,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] flex items-center overflow-hidden px-4 sm:px-6 md:px-12 xl:px-24 pt-28 sm:pt-32 lg:pt-0 font-outfit transition-colors duration-500 border-b"
+      className="relative min-h-[90vh] flex items-center overflow-hidden px-4 sm:px-6 md:px-12 xl:px-24 pt-28 sm:pt-32 pb-24 sm:pb-32 lg:pt-0 lg:pb-0 font-outfit transition-colors duration-500 border-b"
       style={{ backgroundColor: "var(--bg-primary)", borderColor: "var(--card-border)" }}
     >
       {/* Premium Background Overlays */}
