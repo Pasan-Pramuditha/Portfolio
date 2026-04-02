@@ -13,16 +13,12 @@ import {
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
-// =====================================================
-// 🔧 EMAILJS CONFIGURATION
-// =====================================================
+// Configuration Constants
 const EMAILJS_SERVICE_ID = "service_mv5cfh9";
 const EMAILJS_TEMPLATE_ID = "template_plp6043";
 const EMAILJS_PUBLIC_KEY = "nJg-biXkU0CWu2iRF";
+const ZEROBOUNCE_API_KEY = "4cfda998fb744f4f8adc45521ad4795a";
 
-// =====================================================
-// Your personal contact info shown on the left panel
-// =====================================================
 const YOUR_EMAIL = "pasanpr58@gmail.com";
 const YOUR_PHONE = "+94 77 813 6626";
 const YOUR_LOCATION = "Beliatta, Sri Lanka";
@@ -54,6 +50,15 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
+// Strict email format regex
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;
+
+function validateEmail(email) {
+  const trimmed = email.trim();
+  if (!EMAIL_REGEX.test(trimmed)) return "Please enter a valid email address.";
+  return null; // valid format (ZeroBounce will handle domain/existence check)
+}
+
 const inputVariants = {
   focus: { scale: 1.015, transition: { duration: 0.2 } },
   blur: { scale: 1, transition: { duration: 0.2 } },
@@ -69,21 +74,57 @@ export default function Contact() {
   });
   const [status, setStatus] = useState("idle");
   const [focusedField, setFocusedField] = useState(null);
+  const [emailError, setEmailError] = useState(null);
+  const [isValidating, setIsValidating] = useState(false);
 
   const handleChange = (e) =>
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
+  const handleEmailBlur = () => {
+    setFocusedField(null);
+    setEmailError(validateEmail(formData.user_email));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (status === "sending") return;
-    setStatus("sending");
+    if (status === "sending" || isValidating) return;
+
+    // Check basic format first
+    const emailValidationError = validateEmail(formData.user_email);
+    if (emailValidationError) {
+      setEmailError(emailValidationError);
+      return;
+    }
+
+    setIsValidating(true);
+    setStatus("idle");
+
     try {
+      // 🔍 ZeroBounce Real-time Validation
+      const zbResponse = await fetch(
+        `https://api.zerobounce.net/v2/validate?api_key=${ZEROBOUNCE_API_KEY}&email=${encodeURIComponent(formData.user_email)}`
+      );
+      const zbData = await zbResponse.json();
+      setIsValidating(false);
+
+      if (zbData.status !== "valid") {
+        let msg = "This email address is invalid.";
+        if (zbData.status === "disposable") msg = "Disposable emails are not allowed.";
+        if (zbData.status === "spamtrap") msg = "This email is blocked by our system.";
+        setEmailError(msg);
+        return;
+      }
+
+      // 📧 Proceed with EmailJS only if ZeroBounce says it's valid
+      setStatus("sending");
       await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, EMAILJS_PUBLIC_KEY);
       setStatus("success");
+      setEmailError(null);
       setFormData({ user_name: "", user_email: "", user_phone: "", subject: "", message: "" });
       setTimeout(() => setStatus("idle"), 15000);
     } catch (err) {
-      console.error("EmailJS Error:", err);
+      console.error("Validation/Email Error:", err);
+      setIsValidating(false);
       setStatus("error");
     }
   };
@@ -93,7 +134,6 @@ export default function Contact() {
       id="contact"
       ref={sectionRef}
       className="contact-section"
-      style={{ borderTop: "1px solid var(--card-border)" }}
     >
       {/* ── Animated floating particles ── */}
       <div className="contact-particles" aria-hidden="true">
@@ -312,12 +352,28 @@ export default function Contact() {
                       id="contact-email" type="email" name="user_email"
                       placeholder="kasun@email.com"
                       value={formData.user_email}
-                      onChange={handleChange}
+                      onChange={(e) => {
+                        handleChange(e);
+                        if (emailError) setEmailError(validateEmail(e.target.value));
+                      }}
                       onFocus={() => setFocusedField("user_email")}
-                      onBlur={() => setFocusedField(null)}
-                      className="contact-input"
+                      onBlur={handleEmailBlur}
+                      className={`contact-input ${emailError ? "contact-input--error" : ""}`}
                       required
                     />
+                    <AnimatePresence>
+                      {emailError && (
+                        <motion.p
+                          className="contact-field-error"
+                          initial={{ opacity: 0, y: -6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -6 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <FiAlertCircle size={12} /> {emailError}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </motion.div>
 
@@ -378,6 +434,18 @@ export default function Contact() {
 
                 {/* Status Messages */}
                 <AnimatePresence mode="wait">
+                  {isValidating && (
+                    <motion.div
+                      key="validating"
+                      className="contact-alert contact-alert--info"
+                      initial={{ opacity: 0, scale: 0.9, y: -8 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                    >
+                      <span className="contact-spinner contact-spinner--cyan" />
+                      <span>Verifying email address...</span>
+                    </motion.div>
+                  )}
                   {status === "success" && (
                     <motion.div
                       key="success"
