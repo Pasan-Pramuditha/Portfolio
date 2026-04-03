@@ -135,8 +135,8 @@ const CVViewer = () => {
                         <motion.a
                             whileHover={{ scale: 1.05, y: -4, boxShadow: "0 10px 25px -5px rgba(0, 208, 255, 0.4)" }}
                             whileTap={{ scale: 0.95 }}
-                            href="/My_Cv.pdf"
-                            download="Pasan_Pramuditha_CV.pdf"
+                            href="/Pasan_Pramuditha_CV.pdf"
+                            download="Pasan_Pramuditha_CV"
                             className="flex items-center gap-2 px-8 py-4 transition-all rounded-xl font-black text-xs uppercase tracking-widest text-zinc-950 border-none relative overflow-hidden group"
                             style={{ 
                                 background: "linear-gradient(135deg, #00D0FF 0%, #00aacc 100%)"
@@ -177,7 +177,7 @@ const CVViewer = () => {
                     
                     <div className="flex justify-center flex-col items-center relative z-10">
                         <Document
-                            file="/My_Cv.pdf"
+                            file="/Pasan_Pramuditha_CV.pdf"
                             onLoadSuccess={onDocumentLoadSuccess}
                             loading={null}
                             className="max-w-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
