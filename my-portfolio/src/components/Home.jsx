@@ -182,7 +182,9 @@ const Home = () => {
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-5 mb-14">
             <a
-              href="#cv"
+              href="/My_Cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-cyan-accent hover:bg-cyan-accent/90 text-zinc-950 px-8 py-3 rounded-full text-[15px] font-bold transition-all shadow-lg shadow-cyan-accent/20 flex items-center"
             >
               View CV
