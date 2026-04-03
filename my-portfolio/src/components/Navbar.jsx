@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { FaBars, FaTimes, FaSun, FaMoon } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -77,13 +78,13 @@ const Navbar = () => {
       <div className={`mx-auto max-w-[1600px] flex items-center justify-between px-4 md:px-8 transition-all duration-500`}>
 
         {/* LOGO */}
-        <a
-          href="#home"
+        <Link
+          to="/"
           className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight transition-colors flex-shrink-0"
           style={{ color: isLight ? "var(--text-primary)" : "white" }}
         >
           <span className="text-[#00D0FF]">Pasan</span> Pramuditha
-        </a>
+        </Link>
 
         {/* DESKTOP NAV */}
         <nav className="hidden lg:flex items-center gap-2 xl:gap-4 mx-4">
@@ -92,7 +93,7 @@ const Navbar = () => {
             return (
               <a
                 key={link.label}
-                href={link.href}
+                href={`/${link.href}`}
                 className={`relative px-4 py-2 text-[11px] xl:text-[12px] font-bold uppercase tracking-[0.15em] transition-all duration-300 rounded-full z-10 
                   ${isActive 
                     ? "text-cyan-accent" 
@@ -169,7 +170,7 @@ const Navbar = () => {
               return (
                 <a
                   key={link.label}
-                  href={link.href}
+                  href={`/${link.href}`}
                   onClick={closeMenu}
                   className={`text-[13px] font-bold uppercase tracking-[0.2em] transition-all px-4 py-3 rounded-xl border ${isActive
                     ? "bg-[#00D0FF]/10 text-[#00D0FF] border-[#00D0FF]/30"
