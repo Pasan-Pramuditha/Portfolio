@@ -77,7 +77,7 @@ const skillsList = [
   { name: "REST APIs", icon: <TbApi className="text-5xl text-[#00D0FF]" />, color: "rgba(0, 208, 255, 0.3)" },
   { name: "Docker", icon: <SiDocker className="text-5xl text-[#2496ED]" />, color: "rgba(36, 150, 237, 0.3)" },
   { name: "Git", icon: <SiGit className="text-5xl text-[#F05032]" />, color: "rgba(240, 80, 50, 0.3)" },
-  { name: "GitHub", icon: <SiGithub className="text-5xl text-[#ffffff]" />, color: "rgba(255, 255, 255, 0.15)" },
+  { name: "GitHub", icon: <SiGithub className="text-5xl" style={{ color: "var(--text-primary)" }} />, color: "rgba(120, 120, 120, 0.3)" },
   { name: "GitLab", icon: <SiGitlab className="text-5xl text-[#FC6D26]" />, color: "rgba(252, 109, 38, 0.3)" },
 
 ];
