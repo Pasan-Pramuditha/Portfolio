@@ -75,7 +75,11 @@ const CVViewer = () => {
                         <a
                             href="/My_Cv.pdf"
                             download="Pasan_Pramuditha_CV.pdf"
-                            className="flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 rounded-xl font-bold text-sm text-cyan-accent hover:bg-cyan-accent/10 transition-all shadow-lg"
+                            className="flex items-center gap-2 px-6 py-3 transition-all shadow-lg rounded-xl font-bold text-sm text-cyan-accent hover:bg-cyan-accent/10 border"
+                            style={{ 
+                                backgroundColor: "var(--card-bg)", 
+                                borderColor: "var(--card-border)" 
+                            }}
                         >
                             <HiDownload size={18} />
                             Download PDF
@@ -88,7 +92,11 @@ const CVViewer = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.3 }}
-                    className="relative w-full min-h-[500px] bg-white/5 rounded-3xl overflow-hidden border border-white/10 shadow-2xl backdrop-blur-sm p-4 md:p-8"
+                    className="relative w-full min-h-[500px] rounded-3xl overflow-hidden border shadow-2xl backdrop-blur-sm p-4 md:p-8"
+                    style={{ 
+                        backgroundColor: "var(--card-bg)", 
+                        borderColor: "var(--card-border)" 
+                    }}
                     id="pdf-container"
                 >
                     {!isLoaded && (
@@ -127,7 +135,12 @@ const CVViewer = () => {
 
                         {/* Page Navigation */}
                         {numPages > 1 && (
-                            <div className="flex items-center gap-8 mt-8 bg-zinc-900/60 backdrop-blur-xl px-6 py-3 rounded-2xl border border-white/10">
+                            <div className="flex items-center gap-8 mt-8 backdrop-blur-xl px-6 py-3 rounded-2xl border transition-colors duration-300 shadow-lg"
+                                 style={{ 
+                                     backgroundColor: "var(--card-bg)", 
+                                     borderColor: "var(--card-border)" 
+                                 }}
+                            >
                                 <button
                                     onClick={() => changePage(-1)}
                                     disabled={pageNumber <= 1}
