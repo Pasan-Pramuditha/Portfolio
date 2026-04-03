@@ -17,7 +17,7 @@ import { FaWhatsapp } from "react-icons/fa";
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-const ZEROBOUNCE_API_KEY = import.meta.env.VITE_ZEROBOUNCE_API_KEY;
+const EMAIL_VALIDATION_ENDPOINT = "/api/validate-email";
 
 const YOUR_EMAIL = "pasanpr58@gmail.com";
 const YOUR_PHONE = "+94 77 813 6626";
@@ -59,6 +59,42 @@ function validateEmail(email) {
   return null; // valid format (ZeroBounce will handle domain/existence check)
 }
 
+function hasEmailJsConfig() {
+  return Boolean(EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY);
+}
+
+async function validateEmailWithZeroBounce(email) {
+  try {
+    const response = await fetch(EMAIL_VALIDATION_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    if (import.meta.env.DEV && response.status === 404) {
+      console.warn("Email validation API route is unavailable in local Vite dev. Skipping ZeroBounce validation.");
+      return null;
+    }
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      throw new Error(data.error || `Email validation failed with status ${response.status}`);
+    }
+
+    return data.valid ? null : data.error || "This email address is invalid.";
+  } catch (error) {
+    if (import.meta.env.DEV) {
+      console.warn("Email validation API request failed in local development. Skipping ZeroBounce validation.", error);
+      return null;
+    }
+
+    throw error;
+  }
+}
+
 const inputVariants = {
   focus: { scale: 1.015, transition: { duration: 0.2 } },
   blur: { scale: 1, transition: { duration: 0.2 } },
@@ -75,6 +111,7 @@ export default function Contact() {
   const [status, setStatus] = useState("idle");
   const [focusedField, setFocusedField] = useState(null);
   const [emailError, setEmailError] = useState(null);
+  const [submitError, setSubmitError] = useState("");
   const [isValidating, setIsValidating] = useState(false);
 
   const handleChange = (e) =>
@@ -96,22 +133,24 @@ export default function Contact() {
       return;
     }
 
+    if (!hasEmailJsConfig()) {
+      setSubmitError("Contact form is not configured yet. Please email me directly for now.");
+      setStatus("error");
+      return;
+    }
+
+    setEmailError(null);
+    setSubmitError("");
     setIsValidating(true);
     setStatus("idle");
 
     try {
       // 🔍 ZeroBounce Real-time Validation
-      const zbResponse = await fetch(
-        `https://api.zerobounce.net/v2/validate?api_key=${ZEROBOUNCE_API_KEY}&email=${encodeURIComponent(formData.user_email)}`
-      );
-      const zbData = await zbResponse.json();
+      const zeroBounceError = await validateEmailWithZeroBounce(formData.user_email);
       setIsValidating(false);
 
-      if (zbData.status !== "valid") {
-        let msg = "This email address is invalid.";
-        if (zbData.status === "disposable") msg = "Disposable emails are not allowed.";
-        if (zbData.status === "spamtrap") msg = "This email is blocked by our system.";
-        setEmailError(msg);
+      if (zeroBounceError) {
+        setEmailError(zeroBounceError);
         return;
       }
 
@@ -120,11 +159,13 @@ export default function Contact() {
       await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, EMAILJS_PUBLIC_KEY);
       setStatus("success");
       setEmailError(null);
+      setSubmitError("");
       setFormData({ user_name: "", user_email: "", user_phone: "", subject: "", message: "" });
       setTimeout(() => setStatus("idle"), 15000);
     } catch (err) {
       console.error("Validation/Email Error:", err);
       setIsValidating(false);
+      setSubmitError("Something went wrong while sending the message. Please try again or email directly.");
       setStatus("error");
     }
   };
@@ -471,7 +512,7 @@ export default function Contact() {
                       transition={{ type: "spring", stiffness: 300 }}
                     >
                       <FiAlertCircle size={18} />
-                      <span>Something went wrong. Please try again or email directly.</span>
+                      <span>{submitError || "Something went wrong. Please try again or email directly."}</span>
                     </motion.div>
                   )}
                 </AnimatePresence>
