@@ -101,7 +101,11 @@ const Education = () => {
 
                 {/* Card */}
                 <div className={`w-full md:w-[45%] pl-16 md:pl-0 ${index % 2 !== 0 ? "md:pl-12" : "md:pr-12"}`}>
-                  <div className="text-glass-container p-6 md:p-8 hover:border-[#00D0FF]/40 transition-all duration-500 ease-out hover:-translate-y-2 group cursor-default">
+                  <motion.div 
+                    whileHover={{ y: -10 }}
+                    whileTap={{ scale: 0.98, y: -5 }}
+                    className="text-glass-container p-6 md:p-8 hover:border-[#00D0FF]/40 transition-all duration-500 ease-out group cursor-default"
+                  >
                     <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                       <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00D0FF]/10 text-[#00D0FF] text-[11px] font-bold uppercase tracking-wider border border-[#00D0FF]/20">
                         <HiOutlineCalendar className="text-[14px]" />
@@ -155,7 +159,7 @@ const Education = () => {
                         <span>{item.location}</span>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}

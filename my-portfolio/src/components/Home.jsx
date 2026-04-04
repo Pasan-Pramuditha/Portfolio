@@ -182,31 +182,43 @@ const Home = () => {
           </p>
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-5 mb-14">
-            <Link
-              to="/cv"
-              className="bg-cyan-accent hover:bg-cyan-accent/90 text-zinc-950 px-8 py-3 rounded-full text-[15px] font-bold transition-all shadow-lg shadow-cyan-accent/20 flex items-center"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              View CV
-            </Link>
-            <a
-              href="#contact"
-              className="border px-8 py-3 rounded-full text-[15px] font-bold transition-all hover:bg-white/5"
-              style={{ borderColor: "var(--text-primary)", color: "var(--text-primary)" }}
+              <Link
+                to="/cv"
+                className="bg-cyan-accent hover:bg-cyan-accent/90 text-zinc-950 px-8 py-3 rounded-full text-[15px] font-bold transition-all shadow-lg shadow-cyan-accent/20 flex items-center"
+              >
+                View CV
+              </Link>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Contact me
-            </a>
+              <a
+                href="#contact"
+                className="border px-8 py-3 rounded-full text-[15px] font-bold transition-all hover:bg-white/5"
+                style={{ borderColor: "var(--text-primary)", color: "var(--text-primary)" }}
+              >
+                Contact me
+              </a>
+            </motion.div>
           </div>
 
           <div className="flex justify-center lg:justify-start gap-4">
             {socialLinks.map(({ icon: Icon, href, label }) => (
-              <a
+              <motion.a
                 key={label}
                 href={href}
-                className="w-12 h-12 flex items-center justify-center rounded-full border border-cyan-accent text-cyan-accent hover:bg-cyan-accent hover:text-zinc-950 transition-all shadow-[0_0_10px_rgba(0,208,255,0.2)] hover:shadow-[0_0_20px_rgba(0,208,255,0.4)]"
+                whileHover={{ y: -5, scale: 1.1, boxShadow: "0 0 20px rgba(0,208,255,0.4)" }}
+                whileTap={{ scale: 0.9 }}
+                className="w-12 h-12 flex items-center justify-center rounded-full border border-cyan-accent text-cyan-accent hover:bg-cyan-accent hover:text-zinc-950 transition-all shadow-[0_0_10px_rgba(0,208,255,0.2)]"
                 aria-label={label}
               >
                 <Icon size={20} />
-              </a>
+              </motion.a>
             ))}
           </div>
         </motion.div>

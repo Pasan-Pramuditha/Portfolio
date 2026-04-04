@@ -100,6 +100,7 @@ const ServiceCard = ({ service }) => {
       initial="initial"
       whileInView="visible"
       whileHover="hover"
+      whileTap="hover"
       viewport={{ once: true, margin: "-50px" }}
       onMouseMove={handleMouseMove}
       className="group relative h-full rounded-[2.5rem] p-8 md:p-10 transition-all duration-500 overflow-hidden cursor-default"

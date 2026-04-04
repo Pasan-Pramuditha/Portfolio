@@ -51,6 +51,7 @@ const Projects = () => {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileTap={{ scale: 0.98 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative p-10 card-style overflow-hidden"
