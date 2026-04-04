@@ -34,7 +34,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 transition-colors duration-500">
+    <section id="projects" className="py-24 border-b transition-colors duration-500 overflow-hidden relative" style={{ borderColor: "var(--card-border)" }}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
         <div className="mb-16">
           <p className="section-kicker">Portfolio</p>

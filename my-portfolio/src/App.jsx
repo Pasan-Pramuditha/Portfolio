@@ -6,6 +6,7 @@ import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
+import Services from "./components/Services";
 import Contact from "./components/Contact";
 import CVViewer from "./components/CVViewer";
 
@@ -17,6 +18,7 @@ const PortfolioLayout = () => (
     <Experience />
     <Skills />
     <Projects />
+    <Services />
     <Contact />
   </>
 );
