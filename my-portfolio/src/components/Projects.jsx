@@ -51,16 +51,15 @@ const Projects = () => {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileTap={{ scale: 0.98 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative p-10 card-style overflow-hidden"
             >
               <div className="flex justify-between items-start mb-8">
                 <div className="h-14 w-1 flex bg-cyan-accent/30 group-hover:bg-cyan-accent transition-colors" />
-                <span className="px-4 py-1.5 rounded-full border text-[10px] font-bold uppercase tracking-[0.2em] transition-colors duration-300" 
-                  style={{ 
-                    borderColor: "var(--card-border)", 
+                <span className="px-4 py-1.5 rounded-full border text-[10px] font-bold uppercase tracking-[0.2em] transition-colors duration-300"
+                  style={{
+                    borderColor: "var(--card-border)",
                     color: "var(--text-secondary)",
                     backgroundColor: "var(--bg-secondary)"
                   }}>

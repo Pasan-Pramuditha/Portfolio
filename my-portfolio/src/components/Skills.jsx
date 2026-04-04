@@ -99,11 +99,10 @@ const SkillCard = ({ skill, index }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: (index % 10) * 0.05 }}
       whileHover={{ y: -10, scale: 1.05 }}
-      whileTap={{ y: -10, scale: 1.05 }}
       onMouseMove={handleMouseMove}
       className="group relative flex flex-col items-center justify-center p-6 md:p-8 rounded-3xl transition-all duration-300 cursor-pointer overflow-hidden shadow-2xl"
-      style={{ 
-        backgroundColor: "var(--card-bg)", 
+      style={{
+        backgroundColor: "var(--card-bg)",
         borderColor: "var(--card-border)",
         borderWidth: "1px"
       }}

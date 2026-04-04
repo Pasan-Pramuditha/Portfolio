@@ -1,11 +1,11 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import { 
-  FiGlobe, 
-  FiSmartphone, 
-  FiLayout, 
-  FiServer, 
-  FiDatabase, 
-  FiMonitor 
+import {
+  FiGlobe,
+  FiSmartphone,
+  FiLayout,
+  FiServer,
+  FiDatabase,
+  FiMonitor
 } from "react-icons/fi";
 
 const services = [
@@ -64,23 +64,23 @@ const containerVariants = {
 
 const itemVariants = {
   initial: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.6, ease: "easeOut" } 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
   },
-  hover: { 
-    y: -10, 
-    transition: { duration: 0.4, ease: "easeInOut" } 
+  hover: {
+    y: -10,
+    transition: { duration: 0.4, ease: "easeInOut" }
   }
 };
 
 const childVariants = {
   initial: { opacity: 0, y: 15 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.5, ease: "easeOut" } 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
   }
 };
 
@@ -100,12 +100,11 @@ const ServiceCard = ({ service }) => {
       initial="initial"
       whileInView="visible"
       whileHover="hover"
-      whileTap="hover"
       viewport={{ once: true, margin: "-50px" }}
       onMouseMove={handleMouseMove}
       className="group relative h-full rounded-[2.5rem] p-8 md:p-10 transition-all duration-500 overflow-hidden cursor-default"
-      style={{ 
-        backgroundColor: "var(--card-bg)", 
+      style={{
+        backgroundColor: "var(--card-bg)",
         border: "1px solid var(--card-border)",
         backdropFilter: "blur(12px)"
       }}
@@ -126,23 +125,23 @@ const ServiceCard = ({ service }) => {
 
       <div className="relative z-10">
         {/* Icon Container */}
-        <motion.div 
+        <motion.div
           variants={{
             initial: { rotate: 0, scale: 0.8, opacity: 0 },
-            visible: { 
-              rotate: 0, 
-              scale: 1, 
+            visible: {
+              rotate: 0,
+              scale: 1,
               opacity: 1,
-              transition: { duration: 0.6, ease: "backOut" } 
+              transition: { duration: 0.6, ease: "backOut" }
             },
-            hover: { 
-              rotate: 15, 
+            hover: {
+              rotate: 15,
               scale: 1.15,
               transition: { type: "spring", stiffness: 300, damping: 15 }
             }
           }}
           className="mb-8 w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300"
-          style={{ 
+          style={{
             backgroundColor: `${service.color}15`,
             color: service.color,
             border: `1px solid ${service.color}30`
@@ -158,17 +157,17 @@ const ServiceCard = ({ service }) => {
         </motion.div>
 
         {/* Content with internal stagger */}
-        <motion.h3 
+        <motion.h3
           variants={childVariants}
-          className="text-xl md:text-2xl font-bold mb-4 font-poppins transition-colors duration-300 group-hover:text-[#00D0FF]" 
+          className="text-xl md:text-2xl font-bold mb-4 font-poppins transition-colors duration-300 group-hover:text-[#00D0FF]"
           style={{ color: "var(--text-primary)" }}
         >
           {service.title}
         </motion.h3>
-        
-        <motion.p 
+
+        <motion.p
           variants={childVariants}
-          className="text-[14px] md:text-base leading-relaxed font-outfit" 
+          className="text-[14px] md:text-base leading-relaxed font-outfit"
           style={{ color: "var(--text-secondary)" }}
         >
           {service.description}
@@ -200,13 +199,13 @@ const Services = () => {
           </h2>
           <div className="w-24 h-[4px] bg-gradient-to-r from-[#00D0FF] to-transparent mb-12 rounded-full shadow-[0_0_15px_rgba(0,208,255,0.5)]" />
           <p className="section-copy">
-            I provide end-to-end digital solutions, combining creative design with robust technology 
-             to help you build and scale your products effectively.
+            I provide end-to-end digital solutions, combining creative design with robust technology
+            to help you build and scale your products effectively.
           </p>
         </motion.div>
 
         {/* Services Grid with Container Stagger */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="initial"
           whileInView="visible"
