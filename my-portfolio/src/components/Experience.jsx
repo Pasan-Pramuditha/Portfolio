@@ -30,7 +30,7 @@ const Experience = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
@@ -51,7 +51,7 @@ const Experience = () => {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className={`relative flex items-center justify-between md:justify-normal w-full ${index % 2 !== 0 ? "md:flex-row-reverse" : ""}`}
               >

@@ -88,7 +88,7 @@ const ServiceCard = ({ service }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  function handleMouseMove({ currentTarget, clientX, clientY }) {
+  function handlePointerMove({ currentTarget, clientX, clientY }) {
     const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
@@ -100,8 +100,8 @@ const ServiceCard = ({ service }) => {
       initial="initial"
       whileInView="visible"
       whileHover="hover"
-      viewport={{ once: true, margin: "-50px" }}
-      onMouseMove={handleMouseMove}
+      viewport={{ once: true, amount: 0.2 }}
+      onPointerMove={handlePointerMove}
       className="group relative h-full rounded-[2.5rem] p-8 md:p-10 transition-all duration-500 overflow-hidden cursor-default"
       style={{
         backgroundColor: "var(--card-bg)",
@@ -189,7 +189,7 @@ const Services = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
@@ -209,7 +209,7 @@ const Services = () => {
           variants={containerVariants}
           initial="initial"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {services.map((service, index) => (

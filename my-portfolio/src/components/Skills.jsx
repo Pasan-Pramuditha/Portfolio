@@ -86,7 +86,7 @@ const SkillCard = ({ skill, index }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  function handleMouseMove({ currentTarget, clientX, clientY }) {
+  function handlePointerMove({ currentTarget, clientX, clientY }) {
     const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
@@ -96,10 +96,10 @@ const SkillCard = ({ skill, index }) => {
     <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.9 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, delay: (index % 10) * 0.05 }}
       whileHover={{ y: -10, scale: 1.05 }}
-      onMouseMove={handleMouseMove}
+      onPointerMove={handlePointerMove}
       className="group relative flex flex-col items-center justify-center p-6 md:p-8 rounded-3xl transition-all duration-300 cursor-pointer overflow-hidden shadow-2xl"
       style={{
         backgroundColor: "var(--card-bg)",
@@ -118,7 +118,8 @@ const SkillCard = ({ skill, index }) => {
       />
 
       <motion.div
-        className="mb-5 relative z-10 flex justify-center items-center h-14 w-14 md:h-20 md:w-20"
+        className="mb-5 relative z-10 flex justify-center items-center h-14 w-14 md:h-20 md:w-20 [perspective:800px]"
+        style={{ transformStyle: "preserve-3d" }}
         animate={{
           y: [0, -8, 0],
           rotateY: [0, 15, 0],
@@ -151,7 +152,7 @@ const Skills = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
           className="mb-16"
         >

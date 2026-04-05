@@ -103,7 +103,8 @@ const inputVariants = {
 export default function Contact() {
   const formRef = useRef();
   const sectionRef = useRef();
-  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
+  /* amount-based root is more reliable on small viewports than a tight negative rootMargin */
+  const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
   const [formData, setFormData] = useState({
     user_name: "", user_email: "", user_phone: "", subject: "", message: "",

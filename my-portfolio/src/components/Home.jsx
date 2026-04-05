@@ -166,7 +166,7 @@ const Home = () => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8 }}
           className="lg:w-3/5 xl:w-2/3 flex flex-col items-center text-center lg:items-start lg:text-left"
         >
@@ -215,7 +215,7 @@ const Home = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="lg:w-2/5 flex justify-center lg:justify-end items-center lg:items-end mt-8 lg:mt-0"
         >
