@@ -12,7 +12,14 @@ import {
   FaJs,
   FaCss3Alt,
   FaHtml5,
-  FaCode
+  FaCode,
+  FaPython,
+  FaDatabase,
+  FaDocker,
+  FaFigma,
+  FaAws,
+  FaGitAlt,
+  FaTerminal
 } from "react-icons/fa";
 
 import profileImg from "../assets/profile.png";
@@ -40,21 +47,54 @@ const Home = () => {
     { content: "API", type: "text" },
     { content: "flex", type: "text" },
     { content: "git", type: "text" },
+    { content: "SQL", type: "text" },
+    { content: "NoSQL", type: "text" },
+    { content: "React", type: "text" },
+    { content: "console.log()", type: "text" },
+    { content: "const", type: "text" },
+    { content: "=>", type: "text" },
     { content: FaReact, type: "icon" },
     { content: FaNodeJs, type: "icon" },
     { content: FaJs, type: "icon" },
     { content: FaCss3Alt, type: "icon" },
     { content: FaHtml5, type: "icon" },
     { content: FaCode, type: "icon" },
+    { content: FaPython, type: "icon" },
+    { content: FaDatabase, type: "icon" },
+    { content: FaDocker, type: "icon" },
+    { content: FaFigma, type: "icon" },
+    { content: FaAws, type: "icon" },
+    { content: FaGitAlt, type: "icon" },
+    { content: FaTerminal, type: "icon" }
   ];
 
   const [randomValues] = useState(() =>
     floatingItems.map(() => ({
       left: `${Math.random() * 95}%`,
       top: `${Math.random() * 95}%`,
-      duration: 8 + Math.random() * 7,
-      delay: Math.random() * 5
+      duration: 5 + Math.random() * 5,
+      delay: Math.random() * 5,
+      rotate: Math.random() * 360,
+      rotateMove: (Math.random() - 0.5) * 60,
+      yMove: (Math.random() - 0.5) * 60,
+      xMove: (Math.random() - 0.5) * 60
     }))
+  );
+
+  const [particles] = useState(() =>
+    Array.from({ length: 100 }).map(() => {
+      const size = Math.random() * 3 + 1;
+      return {
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        size,
+        duration: Math.random() * 10 + 10,
+        delay: Math.random() * 5,
+        opacity: Math.random() * 0.3 + 0.1,
+        yMove: (Math.random() - 0.5) * 100,
+        xMove: (Math.random() - 0.5) * 100,
+      };
+    })
   );
 
   return (
@@ -81,7 +121,7 @@ const Home = () => {
       </div>
 
       {/* Dynamic Animated Background Blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <motion.div
           animate={{
             x: [0, 100, 0],
@@ -126,6 +166,35 @@ const Home = () => {
         />
       </div>
 
+      {/* Particle effect matching the uploaded image */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {particles.map((particle, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute bg-cyan-accent rounded-full"
+            style={{
+              left: particle.left,
+              top: particle.top,
+              width: particle.size,
+              height: particle.size,
+              opacity: particle.opacity,
+            }}
+            animate={{
+              y: [0, particle.yMove, 0],
+              x: [0, particle.xMove, 0],
+              opacity: [particle.opacity, 0.8, particle.opacity],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: particle.duration,
+              repeat: Infinity,
+              delay: particle.delay,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+
       {/* Network background effect (floating elements) refined */}
       <div
         className="absolute inset-0 pointer-events-none transition-opacity duration-1000"
@@ -137,13 +206,15 @@ const Home = () => {
             className="absolute text-cyan-accent font-mono text-xs font-bold opacity-0"
             style={{
               left: randomValues[i].left,
-              top: randomValues[i].top
+              top: randomValues[i].top,
+              rotate: randomValues[i].rotate
             }}
             animate={{
-              y: ["-30px", "30px", "-30px"],
-              x: ["-30px", "30px", "-30px"],
+              y: [0, randomValues[i].yMove, 0],
+              x: [0, randomValues[i].xMove, 0],
+              rotate: [randomValues[i].rotate, randomValues[i].rotate + randomValues[i].rotateMove, randomValues[i].rotate],
               opacity: [0, "var(--hero-float-item-opacity)", 0],
-              scale: [1, 1.3, 1]
+              scale: [1, 1.2, 1]
             }}
             transition={{
               duration: randomValues[i].duration,
@@ -168,7 +239,7 @@ const Home = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8 }}
-          className="lg:w-3/5 xl:w-2/3 flex flex-col items-center text-center lg:items-start lg:text-left"
+          className="lg:w-3/5 xl:w-2/3 flex flex-col items-center text-center lg:items-start lg:text-left -mt-8 md:-mt-12 lg:-mt-24"
         >
           <h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-tight mb-6 text-cyan-accent font-poppins"
@@ -222,7 +293,6 @@ const Home = () => {
           <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-full lg:h-auto lg:max-w-[480px] flex items-center justify-center lg:items-end group">
             {/* Intense glow matching the dark theme */}
             <div className="absolute inset-0 lg:inset-x-0 lg:bottom-10 lg:h-1/2 bg-cyan-accent rounded-full blur-[60px] lg:blur-[130px] opacity-20 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none" />
-
             <div className="relative w-full h-full lg:h-auto z-10 rounded-full lg:rounded-none overflow-hidden lg:overflow-visible border-4 border-cyan-accent lg:border-none shadow-[0_0_30px_rgba(0,208,255,0.5)] lg:shadow-none hero-mask flex items-center justify-center bg-transparent">
               <img
                 src={profileImg}
