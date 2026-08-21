@@ -11,7 +11,7 @@ const educationData = [
     degree: "BSc (Hons) in Computer Science (Software Engineering)",
     institution: "University of Wolverhampton",
     location: "Cinec Campus",
-    year: "Sep 2025 - Present",
+    year: "2025 - 2026",
     status: "Completed",
     logo: wolverhamptonLogo,
   },
