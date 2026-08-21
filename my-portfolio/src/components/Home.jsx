@@ -231,7 +231,7 @@ const Home = () => {
           </motion.div>
         ))}
       </div>
-
+      {/* Left Content (Text) - Now follows the image on mobile */}
       <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between z-10 w-full max-w-7xl gap-12 lg:gap-0">
         {/* Left Content (Text) - Now follows the image on mobile */}
         <motion.div
