@@ -30,14 +30,20 @@ const contactInfo = [
 ];
 
 // Floating particle dots
-const PARTICLES = Array.from({ length: 18 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  y: Math.random() * 100,
-  size: Math.random() * 3 + 1,
-  duration: Math.random() * 6 + 6,
-  delay: Math.random() * 4,
-}));
+const PARTICLES = Array.from({ length: 100 }, (_, i) => {
+  const size = Math.random() * 3 + 1;
+  return {
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size,
+    duration: Math.random() * 10 + 10,
+    delay: Math.random() * 5,
+    opacity: Math.random() * 0.3 + 0.1,
+    xMove: (Math.random() - 0.5) * 100,
+    yMove: (Math.random() - 0.5) * 100,
+  };
+});
 
 // Animation variants
 const containerVariants = {
@@ -178,13 +184,24 @@ export default function Contact() {
       className="contact-section"
     >
       {/* ── Animated floating particles ── */}
-      <div className="contact-particles" aria-hidden="true">
+      <div className="contact-particles absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
         {PARTICLES.map((p) => (
           <motion.span
             key={p.id}
-            className="contact-particle"
-            style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size }}
-            animate={{ y: [0, -30, 0], opacity: [0.15, 0.5, 0.15] }}
+            className="contact-particle absolute bg-cyan-accent rounded-full"
+            style={{ 
+              left: `${p.x}%`, 
+              top: `${p.y}%`, 
+              width: p.size, 
+              height: p.size,
+              opacity: p.opacity,
+            }}
+            animate={{ 
+              x: [0, p.xMove, 0],
+              y: [0, p.yMove, 0], 
+              opacity: [p.opacity, 0.8, p.opacity],
+              scale: [1, 1.5, 1],
+            }}
             transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
           />
         ))}
