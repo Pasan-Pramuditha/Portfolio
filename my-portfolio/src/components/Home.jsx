@@ -52,7 +52,7 @@ const Home = () => {
     floatingItems.map(() => ({
       left: `${Math.random() * 95}%`,
       top: `${Math.random() * 95}%`,
-      duration: 12 + Math.random() * 10,
+      duration: 8 + Math.random() * 7,
       delay: Math.random() * 5
     }))
   );
@@ -60,7 +60,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] flex items-center overflow-hidden px-4 sm:px-6 md:px-12 xl:px-24 pt-28 sm:pt-32 pb-24 sm:pb-32 lg:pt-0 lg:pb-0 font-outfit transition-colors duration-500 border-b"
+      className="relative min-h-[100vh] flex items-center overflow-hidden px-4 sm:px-6 md:px-12 xl:px-24 pt-28 sm:pt-32 pb-24 sm:pb-32 lg:pt-0 lg:pb-0 font-outfit transition-colors duration-500 border-b"
       style={{ backgroundColor: "var(--bg-primary)", borderColor: "var(--card-border)" }}
     >
       {/* Premium Background Overlays */}
@@ -72,7 +72,7 @@ const Home = () => {
             opacity: [0, "var(--hero-glow-opacity)", 0]
           }}
           transition={{
-            duration: 8,
+            duration: 5,
             repeat: Infinity,
             ease: "easeInOut"
           }}
@@ -89,7 +89,7 @@ const Home = () => {
             scale: [1, 1.2, 1],
           }}
           transition={{
-            duration: 20,
+            duration: 14,
             repeat: Infinity,
             ease: "linear",
           }}
@@ -103,7 +103,7 @@ const Home = () => {
             scale: [1, 1.3, 1],
           }}
           transition={{
-            duration: 25,
+            duration: 18,
             repeat: Infinity,
             ease: "linear",
           }}
@@ -117,7 +117,7 @@ const Home = () => {
             scale: [1, 1.1, 1],
           }}
           transition={{
-            duration: 18,
+            duration: 12,
             repeat: Infinity,
             ease: "linear",
           }}
