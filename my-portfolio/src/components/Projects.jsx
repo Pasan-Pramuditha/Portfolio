@@ -36,14 +36,23 @@ const Projects = () => {
   return (
     <section id="projects" className="py-24 border-b transition-colors duration-500 overflow-hidden relative" style={{ borderColor: "var(--card-border)" }}>
       <div className="container mx-auto px-6 md:px-12 max-w-7xl">
-        <div className="mb-16">
-          <p className="section-kicker">Portfolio</p>
-          <h2 className="section-title">Selected Projects</h2>
-          <p className="section-copy">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <p className="text-[#00D0FF] text-[10px] font-black tracking-[0.3em] uppercase mb-1 font-poppins">Portfolio</p>
+          <h2 className="section-title mb-4">
+            Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D0FF] to-cyan-300">Projects</span>
+          </h2>
+          <div className="w-24 h-[4px] bg-gradient-to-r from-[#00D0FF] to-transparent mb-6 rounded-full shadow-[0_0_15px_rgba(0,208,255,0.5)]" />
+          <p className="section-copy max-w-2xl">
             A collection of work that reflects my practical experience in building
             software solutions and digital experiences.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
