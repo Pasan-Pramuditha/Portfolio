@@ -10,6 +10,7 @@ import Services from "./components/Services";
 import Contact from "./components/Contact";
 import CVViewer from "./components/CVViewer";
 import Certifications from "./components/Certifications";
+import Footer from "./components/Footer";
 
 const PortfolioLayout = () => (
   <>
@@ -22,6 +23,7 @@ const PortfolioLayout = () => (
     <Certifications />
     <Services />
     <Contact />
+    <Footer />
   </>
 );
 
