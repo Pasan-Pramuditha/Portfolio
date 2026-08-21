@@ -12,7 +12,7 @@ const educationData = [
     institution: "University of Wolverhampton",
     location: "Cinec Campus",
     year: "Sep 2025 - Present",
-    status: "Ongoing",
+    status: "Completed",
     logo: wolverhamptonLogo,
   },
   {

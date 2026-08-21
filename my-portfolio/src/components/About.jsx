@@ -105,7 +105,7 @@ const About = () => {
               Recently, I worked as an <span className="highlight-text">Intern Software Engineer at Sri Lanka Telecom PLC (SLTMobitel)</span> in the Talent Development Section, contributing to internal systems. I am continually advancing my expertise in <span className="highlight-text">.NET Core backend architecture</span> and crafting intuitive, user-friendly mobile interfaces using <span className="highlight-text">Flutter</span>.
             </p>
             <p className="about-paragraph">
-              Academically, I hold a Higher Diploma in Software Engineering (BTEC HND level 5) from <span className="highlight-text">Pearson College London</span>, completed at Esoft Metro Campus. Currently, I am pursuing a BSc (Hons) in Computer Science (Software Engineering) at the <span className="highlight-text">University of Wolverhampton</span> through Cinec Campus, further strengthening my foundation in programming, networking, and modern software development.
+              Academically, I hold a Higher Diploma in Software Engineering (BTEC HND level 5) from <span className="highlight-text">Pearson College London</span>, completed at Esoft Metro Campus. I also hold a BSc (Hons) in Computer Science (Software Engineering) from the <span className="highlight-text">University of Wolverhampton</span> through Cinec Campus, further strengthening my foundation in programming, networking, and modern software development.
             </p>
           </motion.div>
         </div>
