@@ -189,16 +189,16 @@ export default function Contact() {
           <motion.span
             key={p.id}
             className="contact-particle absolute bg-cyan-accent rounded-full"
-            style={{ 
-              left: `${p.x}%`, 
-              top: `${p.y}%`, 
-              width: p.size, 
+            style={{
+              left: `${p.x}%`,
+              top: `${p.y}%`,
+              width: p.size,
               height: p.size,
               opacity: p.opacity,
             }}
-            animate={{ 
+            animate={{
               x: [0, p.xMove, 0],
-              y: [0, p.yMove, 0], 
+              y: [0, p.yMove, 0],
               opacity: [p.opacity, 0.8, p.opacity],
               scale: [1, 1.5, 1],
             }}
