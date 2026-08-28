@@ -13,7 +13,7 @@ const Preloader = () => {
     const timer = setTimeout(() => {
       setIsVisible(false);
       document.body.style.overflow = 'auto'; // Re-enable scrolling
-    }, 2500);
+    }, 3000);
 
     // Cleanup function in case component unmounts
     return () => {
@@ -83,16 +83,16 @@ const Preloader = () => {
 
             <div className="preloader-title-container">
               {titleLetters.map((letter, i) => (
-                  <motion.span
-                    key={i}
-                    custom={i}
-                    variants={letterVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="preloader-letter"
-                  >
-                    {letter === " " ? "\u00A0" : letter}
-                  </motion.span>
+                <motion.span
+                  key={i}
+                  custom={i}
+                  variants={letterVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="preloader-letter"
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </motion.span>
               ))}
             </div>
 
