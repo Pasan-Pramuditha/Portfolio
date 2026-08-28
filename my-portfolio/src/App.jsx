@@ -11,6 +11,7 @@ import Contact from "./components/Contact";
 import CVViewer from "./components/CVViewer";
 import Certifications from "./components/Certifications";
 import Footer from "./components/Footer";
+import Preloader from "./components/Preloader";
 
 const PortfolioLayout = () => (
   <>
@@ -30,6 +31,7 @@ const PortfolioLayout = () => (
 function App() {
   return (
     <Router>
+      <Preloader />
       <div className="app-shell">
         <Navbar />
         <main>
