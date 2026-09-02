@@ -44,8 +44,25 @@ const Chatbot = () => {
         throw new Error('Network response was not ok');
       }
 
-      const data = await response.json();
-      setMessages([...newMessages, { role: 'model', content: data.text }]);
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder('utf-8');
+
+      setIsLoading(false);
+      setMessages([...newMessages, { role: 'model', content: '' }]);
+
+      let fullText = '';
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        
+        fullText += decoder.decode(value, { stream: true });
+        
+        setMessages(prev => {
+          const updated = [...prev];
+          updated[updated.length - 1].content = fullText;
+          return updated;
+        });
+      }
     } catch (error) {
       console.error('Chat error:', error);
       setMessages([...newMessages, { role: 'model', content: `Oops! Something went wrong: ${error.message}` }]);

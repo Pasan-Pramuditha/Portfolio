@@ -37,7 +37,7 @@ Guidelines:
 - Do not make up information that is not in the context above. If you don't know, say you don't know and ask them to contact Pasan directly.
 - Use a polite and enthusiastic tone.`;
 
-    const response = await ai.models.generateContent({
+    const responseStream = await ai.models.generateContentStream({
       model: 'gemini-3.6-flash',
       contents: messages.map(msg => ({
         role: msg.role === 'user' ? 'user' : 'model',
@@ -49,7 +49,15 @@ Guidelines:
       }
     });
 
-    res.status(200).json({ text: response.text });
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.setHeader('Transfer-Encoding', 'chunked');
+
+    for await (const chunk of responseStream) {
+      if (chunk.text) {
+        res.write(chunk.text);
+      }
+    }
+    res.end();
   } catch (error) {
     console.error('Gemini API Error:', error);
     res.status(500).json({ message: "Something went wrong while generating the response.", error: error.message });
