@@ -8,7 +8,7 @@ import ReactMarkdown from 'react-markdown';
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'model', content: "Hi! I'm Pasan's AI assistant. How can I help you today? (ඔබට සිංහලෙන් වුවත් ප්‍රශ්න ඇසිය හැක!)" }
+    { role: 'model', content: "Hi! I'm Pasan's AI assistant. How can I help you today?" }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -22,11 +22,16 @@ const Chatbot = () => {
     scrollToBottom();
   }, [messages, isOpen]);
 
-  const handleSend = async (e) => {
-    e?.preventDefault();
-    if (!input.trim() || isLoading) return;
+  const handleSend = async (eOrText) => {
+    let textToSend = input;
+    if (typeof eOrText === 'string') {
+      textToSend = eOrText;
+    } else {
+      eOrText?.preventDefault();
+    }
+    if (!textToSend.trim() || isLoading) return;
 
-    const userMessage = { role: 'user', content: input.trim() };
+    const userMessage = { role: 'user', content: textToSend.trim() };
     const newMessages = [...messages, userMessage];
     
     setMessages(newMessages);
@@ -173,6 +178,29 @@ const Chatbot = () => {
                       <motion.div className="w-1.5 h-1.5 bg-cyan-accent rounded-full" animate={{ y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 0.6, delay: 0.4 }} />
                     </div>
                   </div>
+                </motion.div>
+              )}
+              {messages.length === 1 && !isLoading && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="flex flex-wrap gap-2 mt-2"
+                >
+                  {[
+                    "Tell me about your projects",
+                    "What are your top skills?",
+                    "How can I contact you?",
+                    "Tell me in Sinhala (සිංහල)"
+                  ].map((suggestion, i) => (
+                    <button
+                      key={i}
+                      onClick={() => handleSend(suggestion)}
+                      className="px-3 py-1.5 text-xs rounded-full border border-cyan-accent/30 text-cyan-accent/90 hover:bg-cyan-accent/10 hover:text-cyan-accent transition-colors text-left"
+                    >
+                      {suggestion}
+                    </button>
+                  ))}
                 </motion.div>
               )}
               <div ref={messagesEndRef} />
