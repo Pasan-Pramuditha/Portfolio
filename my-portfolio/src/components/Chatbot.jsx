@@ -3,29 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaRobot, FaTimes, FaPaperPlane, FaUser } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
 
-import { GoogleGenAI } from '@google/genai';
 
-const systemInstruction = `You are a helpful and friendly chatbot assistant on Pasan Pramuditha's portfolio website. 
-Your goal is to answer questions about Pasan, his skills, experience, and projects. 
-You can respond in English or Sinhala (Singlish or Unicode Sinhala) depending on how the user asks the question.
-If the user asks in Sinhala, respond in Sinhala.
-
-Here is the information about Pasan:
-- Name: Pasan Pramuditha
-- Profession: Full-Stack Developer & Software Engineering Undergraduate.
-- Current Role: Intern Software Engineer at Sri Lanka Telecom PLC (SLTMobitel) in the Talent Development Section.
-- Tech Stack/Skills: .NET, Flutter, React, Next.js, Java, Python, MySQL.
-- Education: BSc (Hons) in Computer Science (Software Engineering) from University of Wolverhampton (Cinec Campus). Higher Diploma in Software Engineering (BTEC HND level 5) from Pearson College London (Esoft Metro Campus).
-- Projects: 
-  1. A digital system for SLT Internal Solutions Management.
-  2. SmartFin: An AI-powered personal finance and expense tracker.
-- Interests: AI, Cloud Deployment, Architecture.
-- Contact info: LinkedIn (Pasan-Pramuditha-31b2b2286), GitHub (Pasan-Pramuditha), WhatsApp (+94 77 813 6626), Email (pasanpr58@gmail.com).
-
-Guidelines:
-- Keep your answers concise, friendly, and professional.
-- Do not make up information that is not in the context above. If you don't know, say you don't know and ask them to contact Pasan directly.
-- Use a polite and enthusiastic tone.`;
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,36 +34,18 @@ const Chatbot = () => {
     setIsLoading(true);
 
     try {
-      const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-      if (!apiKey) {
-        throw new Error("API key is missing");
-      }
-
-      const ai = new GoogleGenAI({ apiKey });
-      const responseStream = await ai.models.generateContentStream({
-        model: 'gemini-3.6-flash',
-        contents: newMessages.map(msg => ({
-          role: msg.role === 'user' ? 'user' : 'model',
-          parts: [{ text: msg.content }]
-        })),
-        config: {
-          systemInstruction,
-          temperature: 0.7,
-        }
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: newMessages })
       });
 
-      setIsLoading(false); // Hide the typing indicator
-      setMessages([...newMessages, { role: 'model', content: '' }]);
-      
-      let fullText = '';
-      for await (const chunk of responseStream) {
-        fullText += chunk.text;
-        setMessages(prev => {
-          const updated = [...prev];
-          updated[updated.length - 1].content = fullText;
-          return updated;
-        });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
+
+      const data = await response.json();
+      setMessages([...newMessages, { role: 'model', content: data.text }]);
     } catch (error) {
       console.error('Chat error:', error);
       setMessages([...newMessages, { role: 'model', content: `Oops! Something went wrong: ${error.message}` }]);
