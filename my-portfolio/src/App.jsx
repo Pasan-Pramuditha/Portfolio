@@ -12,6 +12,7 @@ import CVViewer from "./components/CVViewer";
 import Certifications from "./components/Certifications";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
+import Chatbot from "./components/Chatbot";
 
 const PortfolioLayout = () => (
   <>
@@ -40,6 +41,7 @@ function App() {
             <Route path="/cv" element={<CVViewer />} />
           </Routes>
         </main>
+        <Chatbot />
       </div>
     </Router>
   );
