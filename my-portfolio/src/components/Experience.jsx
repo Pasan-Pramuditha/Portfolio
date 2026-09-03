@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { HiOutlineBriefcase, HiOutlineCalendar, HiOutlineBuildingOffice } from "react-icons/hi2";
 import SLTMobitelLogo from "../assets/SLTMobitelLogo.webp";
 import PersonalDevelopment from "../assets/PersonalDevelopment.png";
+import freelancerLogo from "../assets/freelancerLogo.png";
 
 const experiences = [
   {
@@ -11,12 +12,17 @@ const experiences = [
     logo: SLTMobitelLogo,
   },
   {
+    role: "Freelancer",
+    company: "Self-Employed",
+    period: "2024 - Present",
+    logo: freelancerLogo,
+  },
+  {
     role: "Student - self Development",
     company: "Personal Development",
     period: "2023 - Present",
     logo: PersonalDevelopment,
   },
-
 ];
 
 const Experience = () => {
@@ -92,7 +98,7 @@ const Experience = () => {
                           <img
                             src={item.logo}
                             alt={item.company}
-                            className="w-full h-full object-contain filter group-hover:scale-105 group-hover:brightness-110 transition-all duration-500"
+                            className={`w-full h-full object-contain filter group-hover:brightness-110 transition-all duration-500 ${item.role === 'Freelancer' ? 'scale-[1.3] group-hover:scale-[1.4]' : 'group-hover:scale-105'}`}
                             onError={(e) => {
                               e.target.onerror = null;
                               e.target.style.display = 'none';
