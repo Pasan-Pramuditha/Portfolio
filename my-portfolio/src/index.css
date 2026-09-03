@@ -620,4 +620,9 @@
     border-color: rgba(37, 211, 102, 0.5);
     box-shadow: 0 0 16px rgba(37, 211, 102, 0.3);
   }
+
+  /* Force freelancer logo to be black in light mode */
+  :root.light .freelancer-logo {
+    filter: brightness(0) !important;
+  }
 }

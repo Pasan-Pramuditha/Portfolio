@@ -98,7 +98,7 @@ const Experience = () => {
                           <img
                             src={item.logo}
                             alt={item.company}
-                            className={`w-full h-full object-contain filter group-hover:brightness-110 transition-all duration-500 ${item.role === 'Freelancer' ? 'scale-[1.3] group-hover:scale-[1.4]' : 'group-hover:scale-105'}`}
+                            className={`w-full h-full object-contain filter group-hover:brightness-110 transition-all duration-500 ${item.role === 'Freelancer' ? 'freelancer-logo scale-[1.3] group-hover:scale-[1.4]' : 'group-hover:scale-105'}`}
                             onError={(e) => {
                               e.target.onerror = null;
                               e.target.style.display = 'none';
