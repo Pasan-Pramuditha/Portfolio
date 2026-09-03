@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaRobot, FaTimes, FaPaperPlane, FaUser, FaSync } from 'react-icons/fa';
+import { FaRobot, FaTimes, FaPaperPlane, FaUser } from 'react-icons/fa';
+import { FiRefreshCw } from 'react-icons/fi';
 import ReactMarkdown from 'react-markdown';
 
 
@@ -144,7 +145,7 @@ const Chatbot = () => {
                   className="text-[var(--text-secondary)] hover:text-cyan-accent transition-colors p-2"
                   title="Refresh Chat"
                 >
-                  <FaSync />
+                  <FiRefreshCw size={14} />
                 </button>
                 <button 
                   onClick={() => setIsOpen(false)}
