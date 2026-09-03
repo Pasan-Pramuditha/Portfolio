@@ -54,7 +54,7 @@ Guidelines:
 - Use a polite and enthusiastic tone.`;
 
     const responseStream = await ai.models.generateContentStream({
-      model: 'gemini-3.6-flash',
+      model: 'gemini-1.5-flash',
       contents: messages.map(msg => ({
         role: msg.role === 'user' ? 'user' : 'model',
         parts: [{ text: msg.content }]
@@ -67,6 +67,7 @@ Guidelines:
 
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
     res.setHeader('Transfer-Encoding', 'chunked');
+    res.flushHeaders(); // Starts streaming immediately without buffering
 
     for await (const chunk of responseStream) {
       if (chunk.text) {
