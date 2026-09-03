@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaRobot, FaTimes, FaPaperPlane, FaUser } from 'react-icons/fa';
+import { FaRobot, FaTimes, FaPaperPlane, FaUser, FaSync } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
 
 
@@ -11,6 +11,12 @@ const Chatbot = () => {
     { role: 'model', content: "Hi! I'm Pasan's AI assistant. How can I help you today?" }
   ]);
   const [input, setInput] = useState('');
+
+  const handleRefresh = () => {
+    setMessages([
+      { role: 'model', content: "Hi! I'm Pasan's AI assistant. How can I help you today?" }
+    ]);
+  };
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
@@ -132,12 +138,21 @@ const Chatbot = () => {
                   </div>
                 </div>
               </div>
-              <button 
-                onClick={() => setIsOpen(false)}
-                className="text-[var(--text-secondary)] hover:text-cyan-accent transition-colors p-2"
-              >
-                <FaTimes />
-              </button>
+              <div className="flex items-center gap-1">
+                <button 
+                  onClick={handleRefresh}
+                  className="text-[var(--text-secondary)] hover:text-cyan-accent transition-colors p-2"
+                  title="Refresh Chat"
+                >
+                  <FaSync />
+                </button>
+                <button 
+                  onClick={() => setIsOpen(false)}
+                  className="text-[var(--text-secondary)] hover:text-cyan-accent transition-colors p-2"
+                >
+                  <FaTimes />
+                </button>
+              </div>
             </div>
 
             {/* Messages Area */}
