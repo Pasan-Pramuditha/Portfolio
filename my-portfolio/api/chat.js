@@ -54,7 +54,7 @@ Guidelines:
 - Use a polite and enthusiastic tone.`;
 
     const responseStream = await ai.models.generateContentStream({
-      model: 'gemini-1.5-flash',
+      model: 'gemini-3.6-flash',
       contents: messages.map(msg => ({
         role: msg.role === 'user' ? 'user' : 'model',
         parts: [{ text: msg.content }]
