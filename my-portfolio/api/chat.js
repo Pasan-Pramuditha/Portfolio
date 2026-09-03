@@ -67,7 +67,6 @@ Guidelines:
 
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
     res.setHeader('Transfer-Encoding', 'chunked');
-    res.flushHeaders(); // Starts streaming immediately without buffering
 
     for await (const chunk of responseStream) {
       if (chunk.text) {
