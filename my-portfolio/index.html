@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/Logo.jpg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- SEO & Social Media Meta Tags -->
@@ -19,25 +19,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Inter:wght@100..900&display=swap"
     rel="stylesheet">
-
-  <script>
-    // Dynamic circular favicon script
-    const img = new Image();
-    img.src = '/Logo.jpg';
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      const size = 64;
-      canvas.width = size;
-      canvas.height = size;
-      const ctx = canvas.getContext('2d');
-      ctx.beginPath();
-      ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
-      ctx.clip();
-      ctx.drawImage(img, 0, 0, size, size);
-      const link = document.querySelector("link[rel*='icon']");
-      if (link) link.href = canvas.toDataURL('image/png');
-    };
-  </script>
 </head>
 
 <body>
