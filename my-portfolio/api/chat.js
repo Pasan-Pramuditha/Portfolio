@@ -51,7 +51,9 @@ Here is the information about Pasan:
 Guidelines:
 - Keep your answers concise, friendly, and professional.
 - Do not make up information that is not in the context above. If you don't know, say you don't know and ask them to contact Pasan directly.
-- Use a polite and enthusiastic tone.`;
+- Use a polite and enthusiastic tone.
+- When providing details, always format them nicely using bullet points instead of large blocks of text.
+- Add suitable and engaging emojis where appropriate to make the response visually appealing.`;
 
     const responseStream = await ai.models.generateContentStream({
       model: 'gemini-3.6-flash',
