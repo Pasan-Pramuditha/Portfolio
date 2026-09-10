@@ -69,9 +69,9 @@ const Certifications = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative rounded-3xl overflow-hidden flex flex-col h-full bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[#00D0FF]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,208,255,0.1)]"
+              className="group relative rounded-3xl overflow-hidden flex flex-col h-full bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[#00D0FF]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,208,255,0.1)] min-h-[420px]"
             >
-              <div className="h-48 w-full overflow-hidden relative border-b border-[var(--card-border)]">
+              <div className="h-64 w-full overflow-hidden relative border-b border-[var(--card-border)]">
                 <img 
                   src={cert.image} 
                   alt={cert.title} 
@@ -85,21 +85,21 @@ const Certifications = () => {
                 </div>
               </div>
 
-              <div className="p-6 flex flex-col flex-grow">
-                <div className="flex justify-between items-center mb-4">
-                  <span className="text-xs font-bold text-white bg-black/50 px-3 py-1 rounded-full border border-white/10">
+              <div className="p-8 flex flex-col flex-grow">
+                <div className="flex justify-between items-center mb-5">
+                  <span className="text-sm font-bold text-white bg-black/50 px-4 py-1.5 rounded-full border border-white/10">
                     {cert.year}
                   </span>
-                  <span className="text-xs font-bold text-[#00D0FF] tracking-wider uppercase">
+                  <span className="text-sm font-bold text-[#00D0FF] tracking-wider uppercase">
                     {cert.issuer}
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-[#00D0FF] transition-colors leading-tight">
+                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-[#00D0FF] transition-colors leading-tight">
                   {cert.title}
                 </h3>
                 
-                <p className="text-sm text-gray-400 flex-grow leading-relaxed">
+                <p className="text-base text-gray-400 flex-grow leading-relaxed">
                   {cert.description}
                 </p>
               </div>
