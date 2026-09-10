@@ -13,7 +13,7 @@ const AllCertifications = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] pt-28 pb-20 relative overflow-hidden">
+    <div className="min-h-screen bg-[var(--bg-primary)] pt-24 pb-16 md:pt-28 md:pb-20 relative overflow-hidden">
       {/* Background ambient light */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#00D0FF]/5 rounded-full blur-[120px] pointer-events-none" />
       
@@ -57,9 +57,9 @@ const AllCertifications = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative rounded-3xl overflow-hidden flex flex-col h-full bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[#00D0FF]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,208,255,0.1)] min-h-[420px]"
+              className="group relative rounded-3xl overflow-hidden flex flex-col h-full bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[#00D0FF]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,208,255,0.1)] min-h-[380px] sm:min-h-[420px]"
             >
-              <div className="h-64 w-full overflow-hidden relative border-b border-[var(--card-border)]">
+              <div className="h-48 sm:h-64 w-full overflow-hidden relative border-b border-[var(--card-border)]">
                 <img 
                   src={cert.image} 
                   alt={cert.title} 
@@ -73,7 +73,7 @@ const AllCertifications = () => {
                 </div>
               </div>
 
-              <div className="p-8 flex flex-col flex-grow">
+              <div className="p-6 sm:p-8 flex flex-col flex-grow">
                 <div className="flex justify-between items-center mb-5">
                   <span className="text-sm font-bold text-white bg-black/50 px-4 py-1.5 rounded-full border border-white/10">
                     {cert.year}
@@ -83,7 +83,7 @@ const AllCertifications = () => {
                   </span>
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-[#00D0FF] transition-colors leading-tight">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white group-hover:text-[#00D0FF] transition-colors leading-tight">
                   {cert.title}
                 </h3>
                 
