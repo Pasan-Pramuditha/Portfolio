@@ -10,7 +10,7 @@ export const certificationsData = [
     title: "Introduction to HTML",
     issuer: "sololearn",
     year: "2023",
-    link: "#",
+    link: "https://www.sololearn.com/certificates/CC-T3TIBCBT",
     image: htmlCertImg,
     description: "Demonstrates a theoretical and practical understanding of HTML."
   },
