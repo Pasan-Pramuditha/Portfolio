@@ -5,6 +5,7 @@ import htmlCertImg from "../assets/Introduction to Html.png";
 
 export const certificationsData = [
   {
+    id: "html-intro",
     title: "Introduction to HTML",
     issuer: "sololearn",
     year: "2023",
@@ -13,6 +14,7 @@ export const certificationsData = [
     description: "Demonstrates a theoretical and practical understanding of HTML."
   },
   {
+    id: "rn-specialist",
     title: "React Native Specialist",
     issuer: "Meta",
     year: "2024",
@@ -21,6 +23,7 @@ export const certificationsData = [
     description: "Advanced certification covering cross-platform mobile development with React Native."
   },
   {
+    id: "full-stack",
     title: "Full-Stack Web Development",
     issuer: "Coursera",
     year: "2023",
@@ -29,6 +32,7 @@ export const certificationsData = [
     description: "Comprehensive program covering frontend and backend technologies including MERN stack."
   },
   {
+    id: "gcp-professional",
     title: "Google Cloud Professional",
     issuer: "Google",
     year: "2023",
@@ -80,9 +84,9 @@ const Certifications = () => {
                 />
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <a href={cert.link} className="flex items-center gap-2 text-white font-medium bg-black/40 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 hover:bg-[#00D0FF] hover:border-[#00D0FF] transition-all">
+                  <Link to={`/certification/${cert.id}`} className="flex items-center gap-2 text-white font-medium bg-black/40 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 hover:bg-[#00D0FF] hover:border-[#00D0FF] transition-all">
                     View Certification <FaExternalLinkAlt size={14} />
-                  </a>
+                  </Link>
                 </div>
               </div>
 
