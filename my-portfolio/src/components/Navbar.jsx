@@ -26,6 +26,8 @@ const Navbar = () => {
     return false;
   });
 
+  const location = useLocation();
+
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
@@ -37,6 +39,15 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    // If not on the home page, set appropriate active section or clear it
+    if (location.pathname === '/certifications') {
+      setActiveSection("certifications");
+      return;
+    } else if (location.pathname !== '/') {
+      setActiveSection("");
+      return;
+    }
+
     const observerOptions = {
       root: null,
       rootMargin: "-20% 0px -60% 0px",
@@ -53,13 +64,19 @@ const Navbar = () => {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    navLinks.forEach((link) => {
-      const section = document.querySelector(link.href);
-      if (section) observer.observe(section);
-    });
+    // Use a short timeout to ensure DOM elements are rendered after route change
+    const timeoutId = setTimeout(() => {
+      navLinks.forEach((link) => {
+        const section = document.querySelector(link.href);
+        if (section) observer.observe(section);
+      });
+    }, 100);
 
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      clearTimeout(timeoutId);
+      observer.disconnect();
+    };
+  }, [location.pathname]);
 
   useEffect(() => {
     if (isLight) {
@@ -91,12 +108,29 @@ const Navbar = () => {
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
-              <a
+              <Link
                 key={link.label}
-                href={`/${link.href}`}
+                to={`/${link.href}`}
+                onClick={(e) => {
+                  if (location.pathname === '/') {
+                    e.preventDefault();
+                    const element = document.querySelector(link.href);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                      window.history.pushState(null, '', `/${link.href}`);
+                    }
+                  } else {
+                    setTimeout(() => {
+                      const element = document.querySelector(link.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }, 100);
+                  }
+                }}
                 className={`relative px-4 py-2 text-[11px] xl:text-[12px] font-bold uppercase tracking-[0.15em] transition-all duration-300 rounded-full z-10 
-                  ${isActive 
-                    ? "text-cyan-accent" 
+                  ${isActive
+                    ? "text-cyan-accent"
                     : "text-zinc-400 hover:text-cyan-accent dark:hover:text-white"
                   }`}
                 style={{ color: isActive ? "var(--accent-primary)" : "var(--text-secondary)" }}
@@ -109,7 +143,7 @@ const Navbar = () => {
                   />
                 )}
                 {link.label}
-              </a>
+              </Link>
             );
           })}
         </nav>
@@ -168,17 +202,34 @@ const Navbar = () => {
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
-                <a
+                <Link
                   key={link.label}
-                  href={`/${link.href}`}
-                  onClick={closeMenu}
+                  to={`/${link.href}`}
+                  onClick={(e) => {
+                    if (location.pathname === '/') {
+                      e.preventDefault();
+                      const element = document.querySelector(link.href);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                        window.history.pushState(null, '', `/${link.href}`);
+                      }
+                    } else {
+                      setTimeout(() => {
+                        const element = document.querySelector(link.href);
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }, 100);
+                    }
+                    closeMenu();
+                  }}
                   className={`text-[13px] font-bold uppercase tracking-[0.2em] transition-all px-4 py-3 rounded-xl border ${isActive
                     ? "bg-[#00D0FF]/10 text-[#00D0FF] border-[#00D0FF]/30"
                     : "border-transparent text-zinc-400 hover:bg-white/5 hover:text-white"
                     }`}
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
           </motion.nav>

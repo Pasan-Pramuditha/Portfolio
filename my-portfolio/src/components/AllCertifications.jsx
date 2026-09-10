@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { certificationsData } from "./Certifications"; // Import data
 
 const AllCertifications = () => {
+  const navigate = useNavigate();
+  
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -16,12 +18,20 @@ const AllCertifications = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#00D0FF]/5 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
-        <Link 
-          to="/" 
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-white text-sm font-medium hover:bg-white/5 hover:border-white/20 transition-all duration-300 mb-12"
+        <button 
+          onClick={() => {
+            navigate('/');
+            setTimeout(() => {
+              const element = document.getElementById('certifications');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+              }
+            }, 100);
+          }}
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-white text-sm font-medium hover:bg-white/5 hover:border-white/20 transition-all duration-300 mb-12 cursor-pointer"
         >
-          <FaArrowLeft /> Back to Home
-        </Link>
+          <FaArrowLeft /> Back to My Certifications
+        </button>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
