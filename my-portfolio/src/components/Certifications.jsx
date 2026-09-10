@@ -3,6 +3,7 @@ import { FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import htmlCertImg from "../assets/certificate/Introduction to Html.png";
 import htmlGreatLearningImg from "../assets/certificate/Front End developer - HTML.png";
+import cssCertImg from "../assets/certificate/Introduction to CSS.png";
 
 export const certificationsData = [
   {
@@ -24,13 +25,13 @@ export const certificationsData = [
     description: "Certification for successfully completing the Front End Development - HTML course."
   },
   {
-    id: "full-stack",
-    title: "Full-Stack Web Development",
-    issuer: "Coursera",
+    id: "css-intro",
+    title: "Introduction to CSS",
+    issuer: "sololearn",
     year: "2023",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&auto=format&fit=crop",
-    description: "Comprehensive program covering frontend and backend technologies including MERN stack."
+    link: "https://www.sololearn.com/certificates/CC-WPJAV3QK",
+    image: cssCertImg,
+    description: "Demonstrates a theoretical and practical understanding of CSS."
   },
   {
     id: "gcp-professional",
@@ -41,6 +42,7 @@ export const certificationsData = [
     image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600&auto=format&fit=crop",
     description: "Advanced certification for designing and managing scalable cloud architectures."
   }
+
 ];
 
 const Certifications = () => {
