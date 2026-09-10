@@ -10,6 +10,7 @@ import Services from "./components/Services";
 import Contact from "./components/Contact";
 import CVViewer from "./components/CVViewer";
 import Certifications from "./components/Certifications";
+import AllCertifications from "./components/AllCertifications";
 import Footer from "./components/Footer";
 import Preloader from "./components/Preloader";
 import Chatbot from "./components/Chatbot";
@@ -39,6 +40,7 @@ function App() {
           <Routes>
             <Route path="/" element={<PortfolioLayout />} />
             <Route path="/cv" element={<CVViewer />} />
+            <Route path="/certifications" element={<AllCertifications />} />
           </Routes>
         </main>
         <Chatbot />

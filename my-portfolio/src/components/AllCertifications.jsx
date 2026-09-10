@@ -1,49 +1,28 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
+import { FaExternalLinkAlt, FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { certificationsData } from "./Certifications"; // Import data
 
-export const certificationsData = [
-  {
-    title: "AWS Certified Developer",
-    issuer: "Amazon Web Services",
-    year: "2025",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop",
-    description: "Validates technical expertise in developing, deploying, and maintaining applications on AWS."
-  },
-  {
-    title: "React Native Specialist",
-    issuer: "Meta",
-    year: "2024",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop",
-    description: "Advanced certification covering cross-platform mobile development with React Native."
-  },
-  {
-    title: "Full-Stack Web Development",
-    issuer: "Coursera",
-    year: "2023",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&auto=format&fit=crop",
-    description: "Comprehensive program covering frontend and backend technologies including MERN stack."
-  },
-  {
-    title: "Google Cloud Professional",
-    issuer: "Google",
-    year: "2023",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600&auto=format&fit=crop",
-    description: "Advanced certification for designing and managing scalable cloud architectures."
-  }
-];
-
-const Certifications = () => {
-  // Only show the first 3 certifications on the home page
-  const previewCerts = certificationsData.slice(0, 3);
+const AllCertifications = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <section id="certifications" className="py-24 border-b transition-colors duration-500 overflow-hidden relative" style={{ borderColor: "var(--card-border)" }}>
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+    <div className="min-h-screen bg-[var(--bg-primary)] pt-28 pb-20 relative overflow-hidden">
+      {/* Background ambient light */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#00D0FF]/5 rounded-full blur-[120px] pointer-events-none" />
+      
+      <div className="container mx-auto px-6 md:px-12 max-w-7xl relative z-10">
+        <Link 
+          to="/" 
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-white text-sm font-medium hover:bg-white/5 hover:border-white/20 transition-all duration-300 mb-12"
+        >
+          <FaArrowLeft /> Back to Home
+        </Link>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,22 +31,21 @@ const Certifications = () => {
           className="mb-16"
         >
           <p className="text-[#00D0FF] text-[10px] font-black tracking-[0.3em] uppercase mb-1 font-poppins">Achievements</p>
-          <h2 className="section-title mb-4">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D0FF] to-cyan-300">Certifications</span>
+          <h2 className="section-title mb-4 flex flex-wrap items-center gap-4">
+            All <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D0FF] to-cyan-300">Certifications</span>
           </h2>
           <div className="w-24 h-[4px] bg-gradient-to-r from-[#00D0FF] to-transparent mb-6 rounded-full shadow-[0_0_15px_rgba(0,208,255,0.5)]" />
           <p className="section-copy max-w-2xl">
-            A showcase of my professional qualifications and continuous learning journey in software engineering.
+            A comprehensive list of my professional certifications and achievements.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {previewCerts.map((cert, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {certificationsData.map((cert, index) => (
             <motion.article
               key={index}
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative rounded-3xl overflow-hidden flex flex-col h-full bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[#00D0FF]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,208,255,0.1)]"
             >
@@ -106,25 +84,9 @@ const Certifications = () => {
             </motion.article>
           ))}
         </div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex justify-center"
-        >
-          <Link 
-            to="/certifications" 
-            className="flex items-center gap-3 px-8 py-4 rounded-full font-bold text-sm text-white border border-[#00D0FF]/30 hover:border-[#00D0FF] hover:bg-[#00D0FF]/10 transition-all duration-300"
-          >
-            View All Certifications <FaArrowRight className="text-[#00D0FF]" />
-          </Link>
-        </motion.div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Certifications;
-
+export default AllCertifications;
