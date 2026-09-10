@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import htmlCertImg from "../assets/Introduction to Html.png";
 
 export const certificationsData = [
   {
-    title: "AWS Certified Developer",
-    issuer: "Amazon Web Services",
-    year: "2025",
+    title: "Introduction to HTML",
+    issuer: "sololearn",
+    year: "2023",
     link: "#",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=600&auto=format&fit=crop",
-    description: "Validates technical expertise in developing, deploying, and maintaining applications on AWS."
+    image: htmlCertImg,
+    description: "Demonstrates a theoretical and practical understanding of HTML."
   },
   {
     title: "React Native Specialist",
@@ -72,9 +73,9 @@ const Certifications = () => {
               className="group relative rounded-3xl overflow-hidden flex flex-col h-full bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[#00D0FF]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,208,255,0.1)] min-h-[420px]"
             >
               <div className="h-64 w-full overflow-hidden relative border-b border-[var(--card-border)]">
-                <img 
-                  src={cert.image} 
-                  alt={cert.title} 
+                <img
+                  src={cert.image}
+                  alt={cert.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 {/* Overlay on hover */}
@@ -94,11 +95,11 @@ const Certifications = () => {
                     {cert.issuer}
                   </span>
                 </div>
-                
+
                 <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-[#00D0FF] transition-colors leading-tight">
                   {cert.title}
                 </h3>
-                
+
                 <p className="text-base text-gray-400 flex-grow leading-relaxed">
                   {cert.description}
                 </p>
@@ -107,15 +108,15 @@ const Certifications = () => {
           ))}
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex justify-center"
         >
-          <Link 
-            to="/certifications" 
+          <Link
+            to="/certifications"
             className="flex items-center gap-3 px-8 py-4 rounded-full font-bold text-sm text-white border border-[#00D0FF]/30 hover:border-[#00D0FF] hover:bg-[#00D0FF]/10 transition-all duration-300"
           >
             View All Certifications <FaArrowRight className="text-[#00D0FF]" />
