@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import htmlCertImg from "../assets/Introduction to Html.png";
+import htmlCertImg from "../assets/certificate/Introduction to Html.png";
+import htmlGreatLearningImg from "../assets/certificate/Front End developer - HTML.png";
 
 export const certificationsData = [
   {
@@ -14,13 +15,13 @@ export const certificationsData = [
     description: "Demonstrates a theoretical and practical understanding of HTML."
   },
   {
-    id: "rn-specialist",
-    title: "React Native Specialist",
-    issuer: "Meta",
-    year: "2024",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop",
-    description: "Advanced certification covering cross-platform mobile development with React Native."
+    id: "html-great-learning",
+    title: "Front End Development - HTML",
+    issuer: "Great Learning Academy",
+    year: "2023",
+    link: "https://www.mygreatlearning.com/certificate/JTIDTKHA",
+    image: htmlGreatLearningImg,
+    description: "Certification for successfully completing the Front End Development - HTML course."
   },
   {
     id: "full-stack",
