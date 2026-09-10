@@ -28,7 +28,7 @@ const AllCertifications = () => {
               }
             }, 100);
           }}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-white text-sm font-medium hover:bg-white/5 hover:border-white/20 transition-all duration-300 mb-12 cursor-pointer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--card-border)] text-[var(--text-primary)] text-sm font-medium hover:bg-[var(--card-bg-hover)] hover:border-[var(--card-border-hover)] transition-all duration-300 mb-12 cursor-pointer"
         >
           <FaArrowLeft /> Back to My Certifications
         </button>
@@ -75,7 +75,7 @@ const AllCertifications = () => {
 
               <div className="p-6 sm:p-8 flex flex-col flex-grow">
                 <div className="flex justify-between items-center mb-5">
-                  <span className="text-sm font-bold text-white bg-black/50 px-4 py-1.5 rounded-full border border-white/10">
+                  <span className="text-sm font-bold text-[var(--text-primary)] bg-[var(--glass-bg)] px-4 py-1.5 rounded-full border border-[var(--glass-border)]">
                     {cert.year}
                   </span>
                   <span className="text-sm font-bold text-[#00D0FF] tracking-wider uppercase">
@@ -83,11 +83,11 @@ const AllCertifications = () => {
                   </span>
                 </div>
                 
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white group-hover:text-[#00D0FF] transition-colors leading-tight">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[var(--text-primary)] group-hover:text-[#00D0FF] transition-colors leading-tight">
                   {cert.title}
                 </h3>
                 
-                <p className="text-base text-gray-400 flex-grow leading-relaxed">
+                <p className="text-base text-[var(--text-secondary)] flex-grow leading-relaxed">
                   {cert.description}
                 </p>
               </div>

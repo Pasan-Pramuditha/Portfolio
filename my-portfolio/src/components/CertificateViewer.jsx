@@ -36,7 +36,7 @@ const CertificateViewer = () => {
 
   if (!cert) {
     return (
-      <div className="min-h-screen bg-[var(--bg-primary)] flex items-center justify-center text-white">
+      <div className="min-h-screen bg-[var(--bg-primary)] flex items-center justify-center text-[var(--text-primary)]">
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-4">Certificate Not Found</h2>
           <button
@@ -65,7 +65,7 @@ const CertificateViewer = () => {
         >
           <button
             onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 text-white text-sm font-medium hover:bg-white/5 hover:border-white/20 transition-all duration-300 cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--card-border)] text-[var(--text-primary)] text-sm font-medium hover:bg-[var(--card-bg-hover)] hover:border-[var(--card-border-hover)] transition-all duration-300 cursor-pointer"
           >
             <FaArrowLeft /> Back
           </button>
@@ -78,7 +78,7 @@ const CertificateViewer = () => {
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             whileHover={{ scale: 1.02 }}
-            className="w-full lg:w-2/3 flex items-center justify-center bg-[#0a0a0a] rounded-3xl border border-white/5 p-4 md:p-6 overflow-hidden shadow-2xl transition-transform duration-500 min-h-[30vh]"
+            className="w-full lg:w-2/3 flex items-center justify-center bg-[var(--bg-secondary)] rounded-3xl border border-[var(--card-border)] p-4 md:p-6 overflow-hidden shadow-2xl transition-transform duration-500 min-h-[30vh]"
           >
             <img
               src={cert.image}
@@ -98,18 +98,18 @@ const CertificateViewer = () => {
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#00D0FF]/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
 
             <motion.p variants={itemVariants} className="text-[#00D0FF] text-xs font-black tracking-[0.2em] uppercase mb-2 font-poppins">{cert.issuer}</motion.p>
-            <motion.h2 variants={itemVariants} className="text-3xl font-bold text-white mb-6 leading-tight">
+            <motion.h2 variants={itemVariants} className="text-3xl font-bold text-[var(--text-primary)] mb-6 leading-tight">
               {cert.title}
             </motion.h2>
 
             <motion.div variants={itemVariants} className="flex items-center gap-3 mb-8">
               <div className="w-8 h-[2px] bg-[#00D0FF]"></div>
-              <span className="text-gray-300 text-sm font-medium tracking-wide">Issued: {cert.year}</span>
+              <span className="text-[var(--text-primary)] text-sm font-medium tracking-wide">Issued: {cert.year}</span>
             </motion.div>
 
             <motion.div variants={itemVariants} className="mb-8 flex-grow">
-              <h3 className="text-white font-bold tracking-wider mb-3 uppercase text-sm border-b border-white/10 pb-2">About This Certificate</h3>
-              <p className="text-gray-400 text-base leading-relaxed">
+              <h3 className="text-[var(--text-primary)] font-bold tracking-wider mb-3 uppercase text-sm border-b border-[var(--card-border)] pb-2">About This Certificate</h3>
+              <p className="text-[var(--text-secondary)] text-base leading-relaxed">
                 {cert.description}
               </p>
             </motion.div>
@@ -127,9 +127,9 @@ const CertificateViewer = () => {
               </motion.div>
             )}
 
-            <motion.div variants={itemVariants} className="mt-8 pt-6 border-t border-white/5">
-              <p className="text-[10px] text-gray-500 uppercase tracking-wider leading-relaxed">
-                This is an official certification verified and issued by <span className="text-gray-300 font-bold">{cert.issuer}</span>.
+            <motion.div variants={itemVariants} className="mt-8 pt-6 border-t border-[var(--card-border)]">
+              <p className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider leading-relaxed">
+                This is an official certification verified and issued by <span className="text-[var(--text-primary)] font-bold">{cert.issuer}</span>.
               </p>
             </motion.div>
           </motion.div>

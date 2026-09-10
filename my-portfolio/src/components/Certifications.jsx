@@ -92,7 +92,7 @@ const Certifications = () => {
 
               <div className="p-6 sm:p-8 flex flex-col flex-grow">
                 <div className="flex justify-between items-center mb-5">
-                  <span className="text-sm font-bold text-white bg-black/50 px-4 py-1.5 rounded-full border border-white/10">
+                  <span className="text-sm font-bold text-[var(--text-primary)] bg-[var(--glass-bg)] px-4 py-1.5 rounded-full border border-[var(--glass-border)]">
                     {cert.year}
                   </span>
                   <span className="text-sm font-bold text-[#00D0FF] tracking-wider uppercase">
@@ -100,11 +100,11 @@ const Certifications = () => {
                   </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white group-hover:text-[#00D0FF] transition-colors leading-tight">
+                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[var(--text-primary)] group-hover:text-[#00D0FF] transition-colors leading-tight">
                   {cert.title}
                 </h3>
 
-                <p className="text-base text-gray-400 flex-grow leading-relaxed">
+                <p className="text-base text-[var(--text-secondary)] flex-grow leading-relaxed">
                   {cert.description}
                 </p>
               </div>
@@ -121,7 +121,7 @@ const Certifications = () => {
         >
           <Link
             to="/certifications"
-            className="flex items-center gap-3 px-8 py-4 rounded-full font-bold text-sm text-white border border-[#00D0FF]/30 hover:border-[#00D0FF] hover:bg-[#00D0FF]/10 transition-all duration-300"
+            className="flex items-center gap-3 px-8 py-4 rounded-full font-bold text-sm text-[var(--text-primary)] border border-[#00D0FF]/30 hover:border-[#00D0FF] hover:bg-[#00D0FF]/10 transition-all duration-300"
           >
             View All Certifications <FaArrowRight className="text-[#00D0FF]" />
           </Link>
