@@ -15,7 +15,7 @@ import uiuxImg from "../assets/certificate/UI UX for Beginners.png";
 import pythonImg from "../assets/certificate/Introduction to Python.png";
 import projectMgmtImg from "../assets/certificate/Project Management.png";
 import techForEveryoneImg from "../assets/certificate/Tech for Everyone.png";
-import cSharpImg from "../assets/certificate/Introduction to C#.png";
+import cSharpImg from "../assets/certificate/Introduction to CSharp.png";
 
 export const certificationsData = [
   {
@@ -153,7 +153,7 @@ export const certificationsData = [
     image: sqlInterImg,
     description: "Demonstrates a theoretical and practical understanding of intermediate SQL concepts."
   }
-];
+].sort((a, b) => parseInt(b.year || 0) - parseInt(a.year || 0));
 
 const Certifications = () => {
   // Only show the first 3 certifications on the home page
