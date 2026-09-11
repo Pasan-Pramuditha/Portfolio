@@ -2,7 +2,10 @@ import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-import portfolioImg from "../assets/projects/portfolio.jpg";
+import portfolioImg_01 from "../assets/projects/Portfolio-01.png";
+import portfolioImg_02 from "../assets/projects/Portfolio-02.png";
+import portfolioImg_03 from "../assets/projects/Portfolio-03.png";
+import portfolioImg_04 from "../assets/projects/Portfolio-04.png";
 import businessMgmtImg from "../assets/projects/business_management.jpg";
 import salesDashImg from "../assets/projects/sales_dashboard.jpg";
 import reservationImg from "../assets/projects/reservation_platform.jpg";
@@ -13,10 +16,19 @@ export const projectsData = [
     title: "Portfolio Website",
     category: "React, Tailwind",
     year: "2026",
-    link: "https://github.com/Pasan-Pramuditha/Portfolio",
-    image: portfolioImg,
+    link: "#",
+    demoLink: "#",
+    image: portfolioImg_01,
+    images: [portfolioImg_01, portfolioImg_02, portfolioImg_03, portfolioImg_04],
     description: "A responsive portfolio experience designed to showcase skills, projects, and contact details with a clean and professional layout.",
-    longDescription: "A fully responsive personal portfolio website built with React, Vite, and Tailwind CSS. Features include smooth scroll animations with Framer Motion, a dynamic project showcase, and a clean, modern aesthetic."
+    longDescription: "A fully responsive personal portfolio website built with React, Vite, and Tailwind CSS. Features include smooth scroll animations with Framer Motion, a dynamic project showcase, and a clean, modern aesthetic.",
+    features: [
+      "Responsive layout for mobile, tablet, and desktop",
+      "Smooth scroll animations and page transitions",
+      "Dark and Light mode support",
+      "Dynamic project rendering from data arrays"
+    ],
+    technologies: ["React", "Vite", "TailwindCSS", "Framer Motion"]
   },
   {
     id: "business-management",
@@ -24,9 +36,18 @@ export const projectsData = [
     category: "Java, MySQL",
     year: "2025",
     link: "#",
+    demoLink: "#",
     image: businessMgmtImg,
+    images: [businessMgmtImg, businessMgmtImg, businessMgmtImg, businessMgmtImg],
     description: "A desktop system created to manage records, reports, and business workflows with a structured and efficient interface.",
-    longDescription: "An enterprise-grade desktop application built with Java and MySQL to manage business operations. Includes modules for inventory tracking, sales reporting, and employee management."
+    longDescription: "An enterprise-grade desktop application built with Java and MySQL to manage business operations. Includes modules for inventory tracking, sales reporting, and employee management.",
+    features: [
+      "Role-based authentication (Admin/Employee)",
+      "Real-time inventory and sales tracking",
+      "Comprehensive PDF report generation",
+      "Secure database connectivity with MySQL"
+    ],
+    technologies: ["Java", "Java Swing", "MySQL", "JDBC"]
   },
   {
     id: "sales-dashboard",
@@ -34,9 +55,18 @@ export const projectsData = [
     category: "Python, Data Viz",
     year: "2025",
     link: "#",
+    demoLink: "#",
     image: salesDashImg,
+    images: [salesDashImg, salesDashImg, salesDashImg, salesDashImg],
     description: "A data-focused project that transforms raw sales information into readable visual insights for better decision making.",
-    longDescription: "A comprehensive data visualization dashboard built using Python. It ingests raw sales data and generates interactive graphs and charts to help stakeholders identify trends and make informed decisions."
+    longDescription: "A comprehensive data visualization dashboard built using Python. It ingests raw sales data and generates interactive graphs and charts to help stakeholders identify trends and make informed decisions.",
+    features: [
+      "Interactive data charts and graphs",
+      "Automated data cleaning and preprocessing",
+      "Customizable date ranges and filters",
+      "Exportable data summaries"
+    ],
+    technologies: ["Python", "Pandas", "Matplotlib", "Dash"]
   },
   {
     id: "reservation-platform",
@@ -44,9 +74,18 @@ export const projectsData = [
     category: "JavaFX, MySQL",
     year: "2024",
     link: "#",
+    demoLink: "#",
     image: reservationImg,
+    images: [reservationImg, reservationImg, reservationImg, reservationImg],
     description: "A reservation management solution that streamlines customer details, booking status, and service tracking in one flow.",
-    longDescription: "A robust booking and reservation management system built with JavaFX and MySQL. Designed for the hospitality industry, it provides real-time room availability, customer management, and automated booking workflows."
+    longDescription: "A robust booking and reservation management system built with JavaFX and MySQL. Designed for the hospitality industry, it provides real-time room availability, customer management, and automated booking workflows.",
+    features: [
+      "Real-time calendar availability checking",
+      "Customer booking and cancellation workflows",
+      "Automated invoice generation",
+      "Modern UI built with JavaFX"
+    ],
+    technologies: ["JavaFX", "Java", "MySQL", "CSS"]
   },
 ];
 
