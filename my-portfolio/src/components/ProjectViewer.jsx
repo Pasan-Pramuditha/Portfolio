@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight, FaExternalLinkAlt, FaGithub, FaCheck } from "react-icons/fa";
 import { projectsData } from "./Projects";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ProjectViewer = () => {
   const { id } = useParams();
@@ -66,13 +66,24 @@ const ProjectViewer = () => {
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] pt-24 pb-12 md:pt-28 md:pb-20 relative overflow-hidden flex flex-col">
       {/* Background ambient light */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#00D0FF]/5 rounded-full blur-[120px] pointer-events-none" />
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.5, 0.3] 
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#00D0FF]/10 rounded-full blur-[120px] pointer-events-none" 
+      />
 
       <div className="container mx-auto px-4 md:px-8 max-w-[1400px] relative z-10 flex-grow flex flex-col">
         {/* Back button at the very top */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           className="mb-8 flex justify-between items-center"
         >
@@ -89,34 +100,43 @@ const ProjectViewer = () => {
           {/* Left side: Image & Gallery */}
           <div className="w-full lg:w-1/2 flex flex-col gap-4 lg:sticky lg:top-[120px]">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, x: -30 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.95, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="w-full bg-[var(--card-bg)] rounded-[2rem] p-2 overflow-hidden shadow-2xl relative border border-[var(--card-border)]"
+              className="w-full bg-[var(--card-bg)] rounded-[2rem] p-2 overflow-hidden shadow-2xl relative border border-[var(--card-border)] group"
             >
               {/* Carousel arrows */}
               {projectImages.length > 1 && (
                 <>
                   <div 
                     onClick={handlePrevImage}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-black/60 transition-colors z-10"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white cursor-pointer opacity-0 group-hover:opacity-100 hover:bg-[#00D0FF] hover:scale-110 transition-all duration-300 z-10"
                   >
                      <FaArrowLeft size={14} />
                   </div>
                   <div 
                     onClick={handleNextImage}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-black/60 transition-colors z-10"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white cursor-pointer opacity-0 group-hover:opacity-100 hover:bg-[#00D0FF] hover:scale-110 transition-all duration-300 z-10"
                   >
                      <FaArrowRight size={14} />
                   </div>
                 </>
               )}
 
-              <img
-                src={activeImage}
-                alt={project.title}
-                className="w-full h-auto max-h-[60vh] object-cover rounded-[1.5rem]"
-              />
+              <div className="w-full h-auto max-h-[60vh] rounded-[1.5rem] overflow-hidden bg-[var(--bg-primary)]">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={activeImageIndex}
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    src={activeImage}
+                    alt={project.title}
+                    className="w-full h-full object-cover rounded-[1.5rem]"
+                  />
+                </AnimatePresence>
+              </div>
             </motion.div>
             
             {/* Thumbnails row */}
@@ -128,13 +148,15 @@ const ProjectViewer = () => {
                 className="flex gap-3 md:gap-4 overflow-x-auto pb-2 scrollbar-hide mt-2"
               >
                 {projectImages.slice(0, 4).map((imgUrl, index) => (
-                  <div 
+                  <motion.div 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     key={index} 
                     onClick={() => setActiveImageIndex(index)}
-                    className={`flex-shrink-0 w-24 h-16 md:w-32 md:h-24 rounded-2xl overflow-hidden border-2 cursor-pointer transition-all ${index === activeImageIndex ? 'border-[#00D0FF]' : 'border-transparent opacity-50 hover:opacity-100'}`}
+                    className={`flex-shrink-0 w-24 h-16 md:w-32 md:h-24 rounded-2xl overflow-hidden border-2 cursor-pointer transition-all duration-300 ${index === activeImageIndex ? 'border-[#00D0FF] shadow-[0_0_15px_rgba(0,208,255,0.4)]' : 'border-transparent opacity-50 hover:opacity-100'}`}
                   >
                      <img src={imgUrl} className="w-full h-full object-cover rounded-xl border border-[var(--card-border)]" alt={`thumbnail-${index}`} />
-                  </div>
+                  </motion.div>
                 ))}
               </motion.div>
             )}
@@ -153,7 +175,12 @@ const ProjectViewer = () => {
             </motion.h2>
 
             <motion.div variants={itemVariants} className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
-              <div className="w-8 md:w-10 h-[2px] bg-[#00D0FF]"></div>
+              <motion.div 
+                initial={{ width: 0 }}
+                animate={{ width: "2rem" }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="h-[2px] bg-[#00D0FF]" 
+              />
               <span className="text-[#00D0FF] text-xs md:text-sm font-bold tracking-widest uppercase">
                 {project.year}
               </span>
@@ -172,10 +199,15 @@ const ProjectViewer = () => {
                 <h3 className="text-lg md:text-xl font-bold text-[var(--text-primary)] tracking-wide mb-4 md:mb-5">Key Features</h3>
                 <ul className="flex flex-col gap-3">
                   {project.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm md:text-[15px] text-[var(--text-secondary)]">
+                    <motion.li 
+                      key={idx} 
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                      className="flex items-start gap-3 text-sm md:text-[15px] text-[var(--text-secondary)]"
+                    >
                       <span className="text-[#00D0FF] mt-1"><FaCheck size={12} className="md:w-3.5 md:h-3.5" /></span>
                       <span className="leading-relaxed">{feature}</span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               </motion.div>
@@ -187,9 +219,13 @@ const ProjectViewer = () => {
                 <h3 className="text-lg md:text-xl font-bold text-[var(--text-primary)] tracking-wide mb-4 md:mb-5">Technologies Used</h3>
                 <div className="flex flex-wrap gap-2 md:gap-3">
                   {project.technologies.map((tech, idx) => (
-                    <span key={idx} className="px-4 py-1.5 md:px-5 md:py-2 rounded-full text-xs md:text-[13px] font-bold tracking-wider uppercase border border-[#00D0FF]/30 text-[#00D0FF] bg-[#00D0FF]/5 hover:bg-[#00D0FF]/10 transition-colors">
+                    <motion.span 
+                      key={idx} 
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className="px-4 py-1.5 md:px-5 md:py-2 rounded-full text-xs md:text-[13px] font-bold tracking-wider uppercase border border-[#00D0FF]/30 text-[#00D0FF] bg-[#00D0FF]/5 hover:bg-[#00D0FF]/10 transition-colors shadow-sm cursor-default"
+                    >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </motion.div>
@@ -198,24 +234,28 @@ const ProjectViewer = () => {
             {/* Action Buttons */}
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 md:gap-5 mt-2 md:mt-4 w-full">
               {project.demoLink && (
-                <a
+                <motion.a
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
                   href={project.demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex justify-center items-center gap-3 px-8 py-3.5 rounded-xl bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold text-sm tracking-wide hover:opacity-80 transition-all duration-300"
+                  className="w-full sm:w-auto inline-flex justify-center items-center gap-3 px-8 py-3.5 rounded-xl bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold text-sm tracking-wide hover:shadow-[0_10px_20px_rgba(0,0,0,0.1)] transition-shadow duration-300"
                 >
                   Live Demo <FaExternalLinkAlt size={14} />
-                </a>
+                </motion.a>
               )}
               {project.link && (
-                <a
+                <motion.a
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex justify-center items-center gap-3 px-8 py-3.5 rounded-xl bg-transparent border border-[var(--card-border)] text-[var(--text-secondary)] font-bold text-sm tracking-wide hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] transition-all duration-300"
+                  className="w-full sm:w-auto inline-flex justify-center items-center gap-3 px-8 py-3.5 rounded-xl bg-transparent border border-[var(--card-border)] text-[var(--text-secondary)] font-bold text-sm tracking-wide hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] transition-colors duration-300"
                 >
                   View Code <FaGithub size={18} />
-                </a>
+                </motion.a>
               )}
             </motion.div>
           </motion.div>
