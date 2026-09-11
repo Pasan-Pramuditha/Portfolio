@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import htmlCertImg from "../assets/certificate/Introduction to Html.png";
 import htmlGreatLearningImg from "../assets/certificate/Front End developer - HTML.png";
 import cssCertImg from "../assets/certificate/Introduction to CSS.png";
+import sqlIntroImg from "../assets/certificate/Introduction to SQL.png";
+import nosqlIntroImg from "../assets/certificate/Introduction to NoSQL.png";
+import sqlInterImg from "../assets/certificate/SQL Intermediate.png";
 
 export const certificationsData = [
   {
@@ -34,41 +37,32 @@ export const certificationsData = [
     description: "Demonstrates a theoretical and practical understanding of CSS."
   },
   {
-    id: "gcp-professional",
-    title: "Google Cloud Professional",
-    issuer: "Google",
+    id: "sql-intro",
+    title: "Introduction to SQL",
+    issuer: "sololearn",
     year: "2023",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600&auto=format&fit=crop",
-    description: "Advanced certification for designing and managing scalable cloud architectures."
+    link: "https://www.sololearn.com/certificates/CC-MKRFBKKM",
+    image: sqlIntroImg,
+    description: "Demonstrates a theoretical and practical understanding of SQL."
   },
   {
-    id: "gcp-professional",
-    title: "Google Cloud Professional",
-    issuer: "Google",
+    id: "nosql-intro",
+    title: "Introduction to NoSQL",
+    issuer: "Great Learning Academy",
     year: "2023",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600&auto=format&fit=crop",
-    description: "Advanced certification for designing and managing scalable cloud architectures."
+    link: "https://www.mygreatlearning.com/certificate/CQYMDPQG",
+    image: nosqlIntroImg,
+    description: "Certification for successfully completing the Introduction to NoSQL course."
   },
   {
-    id: "gcp-professional",
-    title: "Google Cloud Professional",
-    issuer: "Google",
+    id: "sql-intermediate",
+    title: "SQL Intermediate",
+    issuer: "sololearn",
     year: "2023",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600&auto=format&fit=crop",
-    description: "Advanced certification for designing and managing scalable cloud architectures."
-  },
-  {
-    id: "gcp-professional",
-    title: "Google Cloud Professional",
-    issuer: "Google",
-    year: "2023",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=600&auto=format&fit=crop",
-    description: "Advanced certification for designing and managing scalable cloud architectures."
-  },
+    link: "https://www.sololearn.com/certificates/CC-AQ0BMEOZ",
+    image: sqlInterImg,
+    description: "Demonstrates a theoretical and practical understanding of intermediate SQL concepts."
+  }
 ];
 
 const Certifications = () => {
