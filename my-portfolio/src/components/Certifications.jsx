@@ -8,8 +8,88 @@ import sqlIntroImg from "../assets/certificate/Introduction to SQL.png";
 import nosqlIntroImg from "../assets/certificate/Introduction to NoSQL.png";
 import sqlInterImg from "../assets/certificate/SQL Intermediate.png";
 import webDesignImg from "../assets/certificate/Web Design for Beginners.png";
+import genAiImg from "../assets/certificate/Genrrative AI in Practice.png";
+import netSecImg from "../assets/certificate/Network Security.png";
+import cloudFoundImg from "../assets/certificate/Cloud Foundations.png";
+import uiuxImg from "../assets/certificate/UI UX for Beginners.png";
+import pythonImg from "../assets/certificate/Introduction to Python.png";
+import projectMgmtImg from "../assets/certificate/Project Management.png";
+import techForEveryoneImg from "../assets/certificate/Tech for Everyone.png";
+import cSharpImg from "../assets/certificate/Introduction to C#.png";
 
 export const certificationsData = [
+  {
+    id: "project-mgmt",
+    title: "Project Management",
+    issuer: "Great Learning Academy",
+    year: "2023",
+    link: "https://www.mygreatlearning.com/certificate/FGDMLMJS",
+    image: projectMgmtImg,
+    description: "Certification for successfully completing the Project Management course."
+  },
+  {
+    id: "tech-for-everyone",
+    title: "Tech for Everyone",
+    issuer: "sololearn",
+    year: "2026",
+    link: "https://www.sololearn.com/certificates/CC-BYFAWAHH",
+    image: techForEveryoneImg,
+    description: "Demonstrates a theoretical and practical understanding of foundational tech concepts."
+  },
+  {
+    id: "c-sharp-intro",
+    title: "Introduction to C#",
+    issuer: "sololearn",
+    year: "2023",
+    link: "https://www.sololearn.com/certificates/CC-UGA4TRGX",
+    image: cSharpImg,
+    description: "Demonstrates a theoretical and practical understanding of C#."
+  },
+  {
+    id: "gen-ai",
+    title: "Generative AI in Practice",
+    issuer: "sololearn",
+    year: "2026",
+    link: "https://www.sololearn.com/certificates/CC-HSFDXO33",
+    image: genAiImg,
+    description: "Demonstrates a theoretical and practical understanding of Generative AI in Practice."
+  },
+  {
+    id: "net-sec",
+    title: "Network Security",
+    issuer: "Great Learning Academy",
+    year: "2023",
+    link: "https://www.mygreatlearning.com/certificate/WKPLGSTU",
+    image: netSecImg,
+    description: "Certification for successfully completing the Network Security course."
+  },
+  {
+    id: "cloud-foundations",
+    title: "Cloud Foundations",
+    issuer: "Great Learning Academy",
+    year: "2023",
+    link: "https://www.mygreatlearning.com/certificate/BNBWMCAH",
+    image: cloudFoundImg,
+    description: "Certification for successfully completing the Cloud Foundations course."
+  },
+  {
+    id: "ui-ux",
+    title: "UI / UX for Beginners",
+    issuer: "Great Learning Academy",
+    year: "2023",
+    link: "https://www.mygreatlearning.com/certificate/JNGYBGOM",
+    image: uiuxImg,
+    description: "Certification for successfully completing the UI / UX for Beginners course."
+  },
+  {
+    id: "python-intro",
+    title: "Introduction to Python",
+    issuer: "sololearn",
+    year: "2023",
+    link: "https://www.sololearn.com/certificates/CC-O53QBCFJ",
+    image: pythonImg,
+    description: "Demonstrates a theoretical and practical understanding of Python."
+  },
   {
     id: "web-design-uom",
     title: "Web Design for Beginners",
