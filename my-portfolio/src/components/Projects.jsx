@@ -28,7 +28,7 @@ export const projectsData = [
       "Dark and Light mode support",
       "Dynamic project rendering from data arrays"
     ],
-    technologies: ["React", "Vite", "TailwindCSS", "Framer Motion"]
+    technologies: ["React", "Vite", "TailwindCSS", "Framer Motion", "React Router", "EmailJS"]
   },
   {
     id: "business-management",
