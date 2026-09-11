@@ -148,32 +148,32 @@ const ProjectViewer = () => {
             className="w-full lg:w-1/2 flex flex-col pt-2 md:pt-4"
           >
             {/* Title Area */}
-            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl lg:text-[54px] font-bold text-[var(--text-primary)] mb-6 leading-tight tracking-wide uppercase">
+            <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold text-[var(--text-primary)] mb-4 md:mb-6 leading-tight tracking-wide uppercase">
               {project.title}
             </motion.h2>
 
-            <motion.div variants={itemVariants} className="flex items-center gap-4 mb-8">
-              <div className="w-10 h-[2px] bg-[#00D0FF]"></div>
-              <span className="text-[#00D0FF] text-sm font-bold tracking-widest uppercase">
+            <motion.div variants={itemVariants} className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
+              <div className="w-8 md:w-10 h-[2px] bg-[#00D0FF]"></div>
+              <span className="text-[#00D0FF] text-xs md:text-sm font-bold tracking-widest uppercase">
                 {project.year}
               </span>
             </motion.div>
 
             {/* Description */}
-            <motion.div variants={itemVariants} className="mb-10">
-              <p className="text-[var(--text-secondary)] text-base md:text-[17px] leading-relaxed">
+            <motion.div variants={itemVariants} className="mb-8 md:mb-10">
+              <p className="text-[var(--text-secondary)] text-sm sm:text-base md:text-[17px] leading-relaxed">
                 {project.longDescription || project.description}
               </p>
             </motion.div>
 
             {/* Key Features */}
             {project.features && project.features.length > 0 && (
-              <motion.div variants={itemVariants} className="mb-10">
-                <h3 className="text-xl font-bold text-[var(--text-primary)] tracking-wide mb-5">Key Features</h3>
+              <motion.div variants={itemVariants} className="mb-8 md:mb-10">
+                <h3 className="text-lg md:text-xl font-bold text-[var(--text-primary)] tracking-wide mb-4 md:mb-5">Key Features</h3>
                 <ul className="flex flex-col gap-3">
                   {project.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-[15px] text-[var(--text-secondary)]">
-                      <span className="text-[#00D0FF] mt-1"><FaCheck size={14} /></span>
+                    <li key={idx} className="flex items-start gap-3 text-sm md:text-[15px] text-[var(--text-secondary)]">
+                      <span className="text-[#00D0FF] mt-1"><FaCheck size={12} className="md:w-3.5 md:h-3.5" /></span>
                       <span className="leading-relaxed">{feature}</span>
                     </li>
                   ))}
@@ -183,11 +183,11 @@ const ProjectViewer = () => {
 
             {/* Technologies */}
             {project.technologies && project.technologies.length > 0 && (
-              <motion.div variants={itemVariants} className="mb-10">
-                <h3 className="text-xl font-bold text-[var(--text-primary)] tracking-wide mb-5">Technologies Used</h3>
-                <div className="flex flex-wrap gap-3">
+              <motion.div variants={itemVariants} className="mb-8 md:mb-10">
+                <h3 className="text-lg md:text-xl font-bold text-[var(--text-primary)] tracking-wide mb-4 md:mb-5">Technologies Used</h3>
+                <div className="flex flex-wrap gap-2 md:gap-3">
                   {project.technologies.map((tech, idx) => (
-                    <span key={idx} className="px-5 py-2 rounded-full text-[13px] font-bold tracking-wider uppercase border border-[#00D0FF]/30 text-[#00D0FF] bg-[#00D0FF]/5 hover:bg-[#00D0FF]/10 transition-colors">
+                    <span key={idx} className="px-4 py-1.5 md:px-5 md:py-2 rounded-full text-xs md:text-[13px] font-bold tracking-wider uppercase border border-[#00D0FF]/30 text-[#00D0FF] bg-[#00D0FF]/5 hover:bg-[#00D0FF]/10 transition-colors">
                       {tech}
                     </span>
                   ))}
@@ -196,13 +196,13 @@ const ProjectViewer = () => {
             )}
 
             {/* Action Buttons */}
-            <motion.div variants={itemVariants} className="flex flex-wrap sm:flex-row gap-5 mt-4">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 md:gap-5 mt-2 md:mt-4 w-full">
               {project.demoLink && (
                 <a
                   href={project.demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex justify-center items-center gap-3 px-8 py-3.5 rounded-xl bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold text-sm tracking-wide hover:opacity-80 transition-all duration-300"
+                  className="w-full sm:w-auto inline-flex justify-center items-center gap-3 px-8 py-3.5 rounded-xl bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold text-sm tracking-wide hover:opacity-80 transition-all duration-300"
                 >
                   Live Demo <FaExternalLinkAlt size={14} />
                 </a>
@@ -212,7 +212,7 @@ const ProjectViewer = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex justify-center items-center gap-3 px-8 py-3.5 rounded-xl bg-transparent border border-[var(--card-border)] text-[var(--text-secondary)] font-bold text-sm tracking-wide hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] transition-all duration-300"
+                  className="w-full sm:w-auto inline-flex justify-center items-center gap-3 px-8 py-3.5 rounded-xl bg-transparent border border-[var(--card-border)] text-[var(--text-secondary)] font-bold text-sm tracking-wide hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] transition-all duration-300"
                 >
                   View Code <FaGithub size={18} />
                 </a>

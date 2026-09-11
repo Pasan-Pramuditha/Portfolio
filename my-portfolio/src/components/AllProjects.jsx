@@ -57,40 +57,40 @@ const AllProjects = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative rounded-3xl overflow-hidden flex flex-col h-full bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[#00D0FF]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,208,255,0.1)] min-h-[380px] sm:min-h-[420px]"
+              className="group relative rounded-3xl overflow-hidden flex flex-col h-full bg-[var(--card-bg)] border border-[var(--card-border)] hover:border-[#00D0FF]/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(0,208,255,0.1)]"
             >
-              <div className="h-48 sm:h-64 w-full overflow-hidden relative border-b border-[var(--card-border)]">
+              <div className="h-48 sm:h-56 md:h-64 w-full overflow-hidden relative border-b border-[var(--card-border)]">
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <Link to={`/project/${project.id}`} className="flex items-center gap-2 text-white font-medium bg-black/40 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 hover:bg-[#00D0FF] hover:border-[#00D0FF] transition-all">
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 sm:gap-4">
+                  <Link to={`/project/${project.id}`} className="flex items-center gap-2 text-white font-medium bg-black/40 backdrop-blur-md px-5 py-2.5 sm:px-6 sm:py-3 rounded-full border border-white/20 hover:bg-[#00D0FF] hover:border-[#00D0FF] transition-all text-sm sm:text-base">
                     View Details
                   </Link>
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white font-medium bg-black/40 backdrop-blur-md w-12 h-12 justify-center rounded-full border border-white/20 hover:bg-[#00D0FF] hover:border-[#00D0FF] transition-all">
-                    <FaGithub size={18} />
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white font-medium bg-black/40 backdrop-blur-md w-10 h-10 sm:w-12 sm:h-12 justify-center rounded-full border border-white/20 hover:bg-[#00D0FF] hover:border-[#00D0FF] transition-all">
+                    <FaGithub size={18} className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
                   </a>
                 </div>
               </div>
 
-              <div className="p-6 sm:p-8 flex flex-col flex-grow">
-                <div className="flex justify-between items-center mb-5">
-                  <span className="text-sm font-bold text-[var(--text-primary)] bg-[var(--glass-bg)] px-4 py-1.5 rounded-full border border-[var(--glass-border)]">
+              <div className="p-5 sm:p-6 md:p-8 flex flex-col flex-grow">
+                <div className="flex justify-between items-center mb-4 sm:mb-5">
+                  <span className="text-xs sm:text-sm font-bold text-[var(--text-primary)] bg-[var(--glass-bg)] px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border border-[var(--glass-border)]">
                     {project.year}
                   </span>
-                  <span className="text-sm font-bold text-[#00D0FF] tracking-wider uppercase">
+                  <span className="text-xs sm:text-sm font-bold text-[#00D0FF] tracking-wider uppercase">
                     {project.category}
                   </span>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-[var(--text-primary)] group-hover:text-[#00D0FF] transition-colors leading-tight">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 md:mb-4 text-[var(--text-primary)] group-hover:text-[#00D0FF] transition-colors leading-tight">
                   {project.title}
                 </h3>
 
-                <p className="text-base text-[var(--text-secondary)] flex-grow leading-relaxed">
+                <p className="text-sm sm:text-base text-[var(--text-secondary)] flex-grow leading-relaxed">
                   {project.description}
                 </p>
               </div>
