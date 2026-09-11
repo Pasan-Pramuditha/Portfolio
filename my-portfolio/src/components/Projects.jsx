@@ -13,7 +13,7 @@ export const projectsData = [
     title: "Portfolio Website",
     category: "React, Tailwind",
     year: "2026",
-    link: "#",
+    link: "https://github.com/Pasan-Pramuditha/Portfolio",
     image: portfolioImg,
     description: "A responsive portfolio experience designed to showcase skills, projects, and contact details with a clean and professional layout.",
     longDescription: "A fully responsive personal portfolio website built with React, Vite, and Tailwind CSS. Features include smooth scroll animations with Framer Motion, a dynamic project showcase, and a clean, modern aesthetic."

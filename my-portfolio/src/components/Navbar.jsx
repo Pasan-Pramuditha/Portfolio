@@ -40,8 +40,11 @@ const Navbar = () => {
 
   useEffect(() => {
     // If not on the home page, set appropriate active section or clear it
-    if (location.pathname === '/certifications') {
+    if (location.pathname.startsWith('/certification')) {
       setActiveSection("certifications");
+      return;
+    } else if (location.pathname.startsWith('/project')) {
+      setActiveSection("projects");
       return;
     } else if (location.pathname !== '/') {
       setActiveSection("");
