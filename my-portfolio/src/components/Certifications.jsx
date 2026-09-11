@@ -7,8 +7,18 @@ import cssCertImg from "../assets/certificate/Introduction to CSS.png";
 import sqlIntroImg from "../assets/certificate/Introduction to SQL.png";
 import nosqlIntroImg from "../assets/certificate/Introduction to NoSQL.png";
 import sqlInterImg from "../assets/certificate/SQL Intermediate.png";
+import webDesignImg from "../assets/certificate/Web Design for Beginners.png";
 
 export const certificationsData = [
+  {
+    id: "web-design-uom",
+    title: "Web Design for Beginners",
+    issuer: "University of Moratuwa",
+    year: "2026",
+    link: "https://open.uom.lk/verify",
+    image: webDesignImg,
+    description: "Online learning programme in Web Design for Beginners conducted by the Department of Information Technology."
+  },
   {
     id: "html-intro",
     title: "Introduction to HTML",
