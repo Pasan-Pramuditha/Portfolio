@@ -82,7 +82,7 @@ const AllProjects = () => {
                     {project.year}
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-[#00D0FF] tracking-wider uppercase">
-                    {project.category}
+                    {project.category} {project.technologies && project.technologies.length > 2 && `+${project.technologies.length - 2}`}
                   </span>
                 </div>
 
