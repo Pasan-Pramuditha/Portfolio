@@ -78,7 +78,7 @@ const ProjectViewer = () => {
         >
           <button
             onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-white/20 text-white text-sm font-medium hover:bg-white/10 transition-all duration-300 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-[var(--card-border)] text-[var(--text-primary)] text-sm font-medium hover:bg-[var(--card-bg)] hover:border-[var(--text-primary)] transition-all duration-300 cursor-pointer"
           >
             <FaArrowLeft /> Back
           </button>
@@ -92,7 +92,7 @@ const ProjectViewer = () => {
               initial={{ opacity: 0, scale: 0.95, x: -30 }}
               animate={{ opacity: 1, scale: 1, x: 0 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="w-full bg-white rounded-[2rem] p-2 overflow-hidden shadow-2xl relative"
+              className="w-full bg-[var(--card-bg)] rounded-[2rem] p-2 overflow-hidden shadow-2xl relative border border-[var(--card-border)]"
             >
               {/* Carousel arrows */}
               {projectImages.length > 1 && (
@@ -133,7 +133,7 @@ const ProjectViewer = () => {
                     onClick={() => setActiveImageIndex(index)}
                     className={`flex-shrink-0 w-24 h-16 md:w-32 md:h-24 rounded-2xl overflow-hidden border-2 cursor-pointer transition-all ${index === activeImageIndex ? 'border-[#00D0FF]' : 'border-transparent opacity-50 hover:opacity-100'}`}
                   >
-                     <img src={imgUrl} className="w-full h-full object-cover rounded-xl" alt={`thumbnail-${index}`} />
+                     <img src={imgUrl} className="w-full h-full object-cover rounded-xl border border-[var(--card-border)]" alt={`thumbnail-${index}`} />
                   </div>
                 ))}
               </motion.div>
@@ -148,7 +148,7 @@ const ProjectViewer = () => {
             className="w-full lg:w-1/2 flex flex-col pt-2 md:pt-4"
           >
             {/* Title Area */}
-            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl lg:text-[54px] font-bold text-white mb-6 leading-tight tracking-wide uppercase">
+            <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl lg:text-[54px] font-bold text-[var(--text-primary)] mb-6 leading-tight tracking-wide uppercase">
               {project.title}
             </motion.h2>
 
@@ -161,7 +161,7 @@ const ProjectViewer = () => {
 
             {/* Description */}
             <motion.div variants={itemVariants} className="mb-10">
-              <p className="text-zinc-300 text-base md:text-[17px] leading-relaxed">
+              <p className="text-[var(--text-secondary)] text-base md:text-[17px] leading-relaxed">
                 {project.longDescription || project.description}
               </p>
             </motion.div>
@@ -169,10 +169,10 @@ const ProjectViewer = () => {
             {/* Key Features */}
             {project.features && project.features.length > 0 && (
               <motion.div variants={itemVariants} className="mb-10">
-                <h3 className="text-xl font-bold text-white tracking-wide mb-5">Key Features</h3>
+                <h3 className="text-xl font-bold text-[var(--text-primary)] tracking-wide mb-5">Key Features</h3>
                 <ul className="flex flex-col gap-3">
                   {project.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-[15px] text-zinc-300">
+                    <li key={idx} className="flex items-start gap-3 text-[15px] text-[var(--text-secondary)]">
                       <span className="text-[#00D0FF] mt-1"><FaCheck size={14} /></span>
                       <span className="leading-relaxed">{feature}</span>
                     </li>
@@ -184,7 +184,7 @@ const ProjectViewer = () => {
             {/* Technologies */}
             {project.technologies && project.technologies.length > 0 && (
               <motion.div variants={itemVariants} className="mb-10">
-                <h3 className="text-xl font-bold text-white tracking-wide mb-5">Technologies Used</h3>
+                <h3 className="text-xl font-bold text-[var(--text-primary)] tracking-wide mb-5">Technologies Used</h3>
                 <div className="flex flex-wrap gap-3">
                   {project.technologies.map((tech, idx) => (
                     <span key={idx} className="px-5 py-2 rounded-full text-[13px] font-bold tracking-wider uppercase border border-[#00D0FF]/30 text-[#00D0FF] bg-[#00D0FF]/5 hover:bg-[#00D0FF]/10 transition-colors">
@@ -202,7 +202,7 @@ const ProjectViewer = () => {
                   href={project.demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex justify-center items-center gap-3 px-8 py-3.5 rounded-xl bg-[#e4e4e7] text-zinc-900 font-bold text-sm tracking-wide hover:bg-white transition-all duration-300"
+                  className="inline-flex justify-center items-center gap-3 px-8 py-3.5 rounded-xl bg-[var(--text-primary)] text-[var(--bg-primary)] font-bold text-sm tracking-wide hover:opacity-80 transition-all duration-300"
                 >
                   Live Demo <FaExternalLinkAlt size={14} />
                 </a>
@@ -212,7 +212,7 @@ const ProjectViewer = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex justify-center items-center gap-3 px-8 py-3.5 rounded-xl bg-transparent border border-zinc-700 text-zinc-300 font-bold text-sm tracking-wide hover:border-zinc-500 hover:text-white transition-all duration-300"
+                  className="inline-flex justify-center items-center gap-3 px-8 py-3.5 rounded-xl bg-transparent border border-[var(--card-border)] text-[var(--text-secondary)] font-bold text-sm tracking-wide hover:border-[var(--text-primary)] hover:text-[var(--text-primary)] transition-all duration-300"
                 >
                   View Code <FaGithub size={18} />
                 </a>
