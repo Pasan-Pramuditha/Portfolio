@@ -37,7 +37,7 @@ export const projectsData = [
   {
     id: "smartfin-personal-finance",
     title: "SmartFin – Personal Finance & Expense Tracker with AI Insights",
-    category: "Mobile App (Flutter & Python)",
+    category: "Mobile App",
     year: "2024",
     link: "https://github.com/Pasan-Pramuditha/SmartFin.git",
     demoLink: "#",
