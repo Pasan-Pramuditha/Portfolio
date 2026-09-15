@@ -44,7 +44,7 @@ export const projectsData = [
     category: "HTML, CSS",
     year: "2024",
     link: "https://github.com/Pasan-Pramuditha/Malcolm-Lismore-Photographer-Website.git",
-    demoLink: "https://drive.google.com/file/d/1VZrHLmLFpaaW9n-dEgveQveQCOMxnxKQ/view?usp=sharing",
+    demoLink: "https://youtu.be/yXMiJpNCAOM",
     image: malcolmLismoreImg_01,
     images: [malcolmLismoreImg_01, malcolmLismoreImg_02, malcolmLismoreImg_03, malcolmLismoreImg_04, malcolmLismoreImg_05, malcolmLismoreImg_06],
     description: "A visually captivating and fully responsive portfolio website tailored to exhibit professional photography services and high-quality image galleries.",

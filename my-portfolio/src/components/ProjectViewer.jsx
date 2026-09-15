@@ -54,14 +54,38 @@ const ProjectViewer = () => {
   }
 
   const projectImages = project.images && project.images.length > 0 ? project.images : [project.image];
-  const activeImage = projectImages[activeImageIndex];
+  
+  const mediaItems = project.videoUrl 
+    ? [{ type: 'video', url: project.videoUrl }, ...projectImages.map(url => ({ type: 'image', url }))] 
+    : projectImages.map(url => ({ type: 'image', url }));
+    
+  const activeMedia = mediaItems[activeImageIndex];
 
   const handlePrevImage = () => {
-    setActiveImageIndex((prev) => (prev === 0 ? projectImages.length - 1 : prev - 1));
+    setActiveImageIndex((prev) => (prev === 0 ? mediaItems.length - 1 : prev - 1));
   };
 
   const handleNextImage = () => {
-    setActiveImageIndex((prev) => (prev === projectImages.length - 1 ? 0 : prev + 1));
+    setActiveImageIndex((prev) => (prev === mediaItems.length - 1 ? 0 : prev + 1));
+  };
+
+  const getEmbedUrl = (url) => {
+    if (!url) return '';
+    // Handle Google Drive
+    if (url.includes('drive.google.com')) {
+      return url.replace(/\/view.*$/, '/preview');
+    }
+    // Handle YouTube (watch?v=ID or youtu.be/ID)
+    if (url.includes('youtube.com/watch')) {
+      const urlParams = new URLSearchParams(new URL(url).search);
+      const videoId = urlParams.get('v');
+      return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    }
+    if (url.includes('youtu.be/')) {
+      const videoId = url.split('youtu.be/')[1].split('?')[0];
+      return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    }
+    return url;
   };
 
   return (
@@ -107,7 +131,7 @@ const ProjectViewer = () => {
               className="w-full bg-[var(--card-bg)] rounded-[2rem] p-2 overflow-hidden shadow-2xl relative border border-[var(--card-border)] group"
             >
               {/* Carousel arrows */}
-              {projectImages.length > 1 && (
+              {mediaItems.length > 1 && (
                 <>
                   <div
                     onClick={handlePrevImage}
@@ -124,39 +148,66 @@ const ProjectViewer = () => {
                 </>
               )}
 
-              <div className="w-full h-auto max-h-[60vh] rounded-[1.5rem] overflow-hidden bg-[var(--bg-primary)]">
+              <div className="w-full h-auto min-h-[300px] sm:min-h-[400px] max-h-[60vh] rounded-[1.5rem] overflow-hidden bg-[var(--bg-primary)] flex items-center justify-center relative">
                 <AnimatePresence mode="wait">
-                  <motion.img
-                    key={activeImageIndex}
-                    initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                    src={activeImage}
-                    alt={project.title}
-                    className="w-full h-full object-cover rounded-[1.5rem]"
-                  />
+                  {activeMedia.type === 'video' ? (
+                    <motion.div
+                      key={`video-${activeImageIndex}`}
+                      initial={{ opacity: 0, scale: 1.05 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      className="w-full h-full absolute inset-0"
+                    >
+                      <iframe
+                        src={getEmbedUrl(activeMedia.url)}
+                        className="w-full h-full border-0 rounded-[1.5rem]"
+                        allow="autoplay; fullscreen"
+                        allowFullScreen>
+                      </iframe>
+                    </motion.div>
+                  ) : (
+                    <motion.img
+                      key={`img-${activeImageIndex}`}
+                      initial={{ opacity: 0, scale: 1.05 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      src={activeMedia.url}
+                      alt={project.title}
+                      className="w-full h-full object-contain sm:object-cover rounded-[1.5rem]"
+                    />
+                  )}
                 </AnimatePresence>
               </div>
             </motion.div>
 
             {/* Thumbnails row */}
-            {projectImages.length > 1 && (
+            {mediaItems.length > 1 && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="flex gap-3 md:gap-4 overflow-x-auto pb-2 scrollbar-hide mt-2"
               >
-                {projectImages.slice(0, 4).map((imgUrl, index) => (
+                {mediaItems.slice(0, 5).map((media, index) => (
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     key={index}
                     onClick={() => setActiveImageIndex(index)}
-                    className={`flex-shrink-0 w-24 h-16 md:w-32 md:h-24 rounded-2xl overflow-hidden border-2 cursor-pointer transition-all duration-300 ${index === activeImageIndex ? 'border-[#00D0FF] shadow-[0_0_15px_rgba(0,208,255,0.4)]' : 'border-transparent opacity-50 hover:opacity-100'}`}
+                    className={`flex-shrink-0 w-24 h-16 md:w-32 md:h-24 rounded-2xl overflow-hidden border-2 cursor-pointer transition-all duration-300 relative ${index === activeImageIndex ? 'border-[#00D0FF] shadow-[0_0_15px_rgba(0,208,255,0.4)]' : 'border-transparent opacity-50 hover:opacity-100'}`}
                   >
-                    <img src={imgUrl} className="w-full h-full object-cover rounded-xl border border-[var(--card-border)]" alt={`thumbnail-${index}`} />
+                    {media.type === 'video' ? (
+                      <div className="w-full h-full bg-[#111] flex items-center justify-center border border-[var(--card-border)] rounded-xl relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#00D0FF]/20 to-transparent"></div>
+                        <div className="w-8 h-8 rounded-full bg-[#00D0FF] flex items-center justify-center pl-1 z-10 shadow-lg shadow-[#00D0FF]/40">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M5 3l14 9-14 9V3z" /></svg>
+                        </div>
+                      </div>
+                    ) : (
+                      <img src={media.url} className="w-full h-full object-cover rounded-xl border border-[var(--card-border)]" alt={`thumbnail-${index}`} />
+                    )}
                   </motion.div>
                 ))}
               </motion.div>
@@ -268,28 +319,30 @@ const ProjectViewer = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-8"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-0 md:p-8"
             onClick={() => setIsVideoModalOpen(false)}
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-[var(--card-border)]"
+              className="relative w-full max-w-5xl flex flex-col items-end px-2 md:px-0"
               onClick={(e) => e.stopPropagation()}
             >
               <button 
                 onClick={() => setIsVideoModalOpen(false)}
-                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-[#00D0FF] text-white rounded-full flex items-center justify-center transition-colors font-bold text-xl"
+                className="mb-2 md:mb-4 mr-2 md:mr-0 w-10 h-10 md:w-12 md:h-12 bg-[#111] hover:bg-[#00D0FF] text-white rounded-full flex items-center justify-center transition-colors font-bold text-lg md:text-xl border border-[var(--card-border)] shadow-lg"
               >
                 ✕
               </button>
-              <iframe 
-                src={project.demoLink ? project.demoLink.replace(/\/view.*$/, '/preview') : ''} 
-                className="w-full h-full border-0" 
-                allow="autoplay; fullscreen" 
-                allowFullScreen
-              ></iframe>
+              <div className="w-full aspect-video bg-black md:rounded-2xl overflow-hidden shadow-2xl md:border border-[var(--card-border)] relative">
+                <iframe 
+                  src={getEmbedUrl(project.demoLink)} 
+                  className="absolute inset-0 w-full h-full border-0" 
+                  allow="autoplay; fullscreen" 
+                  allowFullScreen
+                ></iframe>
+              </div>
             </motion.div>
           </motion.div>
         )}
