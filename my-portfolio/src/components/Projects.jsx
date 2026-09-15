@@ -6,6 +6,7 @@ import portfolioImg_01 from "../assets/projects/Portfolio-01.png";
 import portfolioImg_02 from "../assets/projects/Portfolio-02.png";
 import portfolioImg_03 from "../assets/projects/Portfolio-03.png";
 import portfolioImg_04 from "../assets/projects/Portfolio-04.png";
+
 import salesDashImg from "../assets/projects/sales_dashboard.jpg";
 import reservationImg from "../assets/projects/reservation_platform.jpg";
 
@@ -43,7 +44,7 @@ export const projectsData = [
     category: "HTML, CSS",
     year: "2024",
     link: "https://github.com/Pasan-Pramuditha/Malcolm-Lismore-Photographer-Website.git",
-    demoLink: "#",
+    demoLink: "https://drive.google.com/file/d/1VZrHLmLFpaaW9n-dEgveQveQCOMxnxKQ/view?usp=sharing",
     image: malcolmLismoreImg_01,
     images: [malcolmLismoreImg_01, malcolmLismoreImg_02, malcolmLismoreImg_03, malcolmLismoreImg_04, malcolmLismoreImg_05, malcolmLismoreImg_06],
     description: "A visually captivating and fully responsive portfolio website tailored to exhibit professional photography services and high-quality image galleries.",
