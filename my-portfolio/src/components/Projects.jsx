@@ -6,9 +6,16 @@ import portfolioImg_01 from "../assets/projects/Portfolio-01.png";
 import portfolioImg_02 from "../assets/projects/Portfolio-02.png";
 import portfolioImg_03 from "../assets/projects/Portfolio-03.png";
 import portfolioImg_04 from "../assets/projects/Portfolio-04.png";
-import businessMgmtImg from "../assets/projects/business_management.jpg";
 import salesDashImg from "../assets/projects/sales_dashboard.jpg";
 import reservationImg from "../assets/projects/reservation_platform.jpg";
+
+import malcolmLismoreImg_01 from "../assets/projects/Malcolm-Lismore-Photographer-01.png";
+import malcolmLismoreImg_02 from "../assets/projects/Malcolm-Lismore-Photographer-02.png";
+import malcolmLismoreImg_03 from "../assets/projects/Malcolm-Lismore-Photographer-03.png";
+import malcolmLismoreImg_04 from "../assets/projects/Malcolm-Lismore-Photographer-04.png";
+import malcolmLismoreImg_05 from "../assets/projects/Malcolm-Lismore-Photographer-05.png";
+import malcolmLismoreImg_06 from "../assets/projects/Malcolm-Lismore-Photographer-06.png";
+
 
 export const projectsData = [
   {
@@ -31,23 +38,23 @@ export const projectsData = [
     technologies: ["React", "Vite", "TailwindCSS", "Framer Motion", "React Router", "EmailJS"]
   },
   {
-    id: "business-management",
-    title: "Business Management",
-    category: "Java, MySQL",
-    year: "2025",
-    link: "#",
+    id: "malcolm-lismore-photography",
+    title: "Malcolm Lismore Photography Portfolio",
+    category: "HTML, CSS",
+    year: "2024",
+    link: "https://github.com/Pasan-Pramuditha/Malcolm-Lismore-Photographer-Website.git",
     demoLink: "#",
-    image: businessMgmtImg,
-    images: [businessMgmtImg, businessMgmtImg, businessMgmtImg, businessMgmtImg],
-    description: "A desktop system created to manage records, reports, and business workflows with a structured and efficient interface.",
-    longDescription: "An enterprise-grade desktop application built with Java and MySQL to manage business operations. Includes modules for inventory tracking, sales reporting, and employee management.",
+    image: malcolmLismoreImg_01,
+    images: [malcolmLismoreImg_01, malcolmLismoreImg_02, malcolmLismoreImg_03, malcolmLismoreImg_04, malcolmLismoreImg_05, malcolmLismoreImg_06],
+    description: "A visually captivating and fully responsive portfolio website tailored to exhibit professional photography services and high-quality image galleries.",
+    longDescription: "A premium photography portfolio web application architected with PHP and MySQL. It features a modern, responsive design that seamlessly showcases categorized galleries for landscape, wildlife, and event photography. The system includes an interactive service pricing module, a dynamic customer inquiry form with database integration, and a secure backend authentication system for seamless management.",
     features: [
-      "Role-based authentication (Admin/Employee)",
-      "Real-time inventory and sales tracking",
-      "Comprehensive PDF report generation",
-      "Secure database connectivity with MySQL"
+      "Modern and responsive UI with Bootstrap and dynamic AOS scroll animations",
+      "Categorized, high-resolution image galleries (Landscape, Wildlife, Weddings & Events)",
+      "Interactive contact and inquiry system with real-time MySQL database storage",
+      "Secure, role-based backend authentication for administration and content management"
     ],
-    technologies: ["Java", "Java Swing", "MySQL", "JDBC"]
+    technologies: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL", "Bootstrap"]
   },
   {
     id: "sales-dashboard",
