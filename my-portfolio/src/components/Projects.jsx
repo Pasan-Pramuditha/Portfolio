@@ -2,6 +2,21 @@ import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+import smartfinImg_01 from "../assets/projects/SmartFin-01.png";
+import smartfinImg_02 from "../assets/projects/SmartFin-02.png";
+import smartfinImg_03 from "../assets/projects/SmartFin-03.jpeg";
+import smartfinImg_04 from "../assets/projects/SmartFin-04.png";
+import smartfinImg_05 from "../assets/projects/SmartFin-05.png";
+import smartfinImg_06 from "../assets/projects/SmartFin-06.png";
+import smartfinImg_07 from "../assets/projects/SmartFin-07.png";
+import smartfinImg_08 from "../assets/projects/SmartFin-08.png";
+import smartfinImg_09 from "../assets/projects/SmartFin-09.png";
+import smartfinImg_10 from "../assets/projects/SmartFin-10.png";
+import smartfinImg_11 from "../assets/projects/SmartFin-11.png";
+import smartfinImg_12 from "../assets/projects/SmartFin-12.png";
+import smartfinImg_13 from "../assets/projects/SmartFin-13.png";
+
+
 import portfolioImg_01 from "../assets/projects/Portfolio-01.png";
 import portfolioImg_02 from "../assets/projects/Portfolio-02.png";
 import portfolioImg_03 from "../assets/projects/Portfolio-03.png";
@@ -19,6 +34,39 @@ import malcolmLismoreImg_06 from "../assets/projects/Malcolm-Lismore-Photographe
 
 
 export const projectsData = [
+  {
+    id: "smartfin-personal-finance",
+    title: "SmartFin – Personal Finance & Expense Tracker with AI Insights",
+    category: "Mobile App (Flutter & Python)",
+    year: "2024",
+    link: "https://github.com/Pasan-Pramuditha/SmartFin.git",
+    demoLink: "#",
+    image: smartfinImg_01,
+    images: [smartfinImg_01, smartfinImg_02, smartfinImg_03, smartfinImg_04, smartfinImg_05, smartfinImg_06, smartfinImg_07, smartfinImg_08, smartfinImg_09, smartfinImg_10, smartfinImg_11, smartfinImg_12, smartfinImg_13],
+    description: "An advanced, cross-platform mobile application for personal finance management, featuring AI-powered expense categorization and interactive budget tracking.",
+    longDescription: "SmartFin is a complete personal finance management ecosystem built with a Flutter mobile frontend and a high-performance Python (FastAPI) backend. The application leverages Machine Learning (NLP) to automatically categorize user expenses. It ensures top-tier security with Biometric logins (Fingerprint/FaceID), Social Auth, and email-based Two-Factor Authentication (2FA). Users can seamlessly set budgets, track multi-currency transactions, visualize spending via interactive charts, and export detailed financial reports to PDF and Excel.",
+    features: [
+      "AI-Powered expense categorization using Scikit-Learn NLP machine learning models",
+      "Secure authentication system featuring Biometrics, Google/Facebook login, and 2FA OTP",
+      "Comprehensive financial insights with interactive daily, weekly, and monthly charts",
+      "Advanced budget management, multi-currency support, and PDF/Excel report generation"
+    ],
+    technologies: [
+      "Flutter",
+      "Dart",
+      "Provider",
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "SQLAlchemy",
+      "Docker",
+      "Scikit-Learn",
+      "Pandas",
+      "JWT & OAuth 2.0",
+      "Fl-Chart"
+    ]
+  },
+
   {
     id: "portfolio-website",
     title: "Portfolio Website",
