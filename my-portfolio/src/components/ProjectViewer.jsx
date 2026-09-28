@@ -54,11 +54,11 @@ const ProjectViewer = () => {
   }
 
   const projectImages = project.images && project.images.length > 0 ? project.images : [project.image];
-  
-  const mediaItems = project.videoUrl 
-    ? [{ type: 'video', url: project.videoUrl }, ...projectImages.map(url => ({ type: 'image', url }))] 
+
+  const mediaItems = project.videoUrl
+    ? [{ type: 'video', url: project.videoUrl }, ...projectImages.map(url => ({ type: 'image', url }))]
     : projectImages.map(url => ({ type: 'image', url }));
-    
+
   const activeMedia = mediaItems[activeImageIndex];
 
   const handlePrevImage = () => {
@@ -329,17 +329,17 @@ const ProjectViewer = () => {
               className="relative w-full max-w-5xl flex flex-col items-end px-2 md:px-0"
               onClick={(e) => e.stopPropagation()}
             >
-              <button 
+              <button
                 onClick={() => setIsVideoModalOpen(false)}
                 className="mb-2 md:mb-4 mr-2 md:mr-0 w-10 h-10 md:w-12 md:h-12 bg-[#111] hover:bg-[#00D0FF] text-white rounded-full flex items-center justify-center transition-colors font-bold text-lg md:text-xl border border-[var(--card-border)] shadow-lg"
               >
                 ✕
               </button>
               <div className="w-full aspect-video bg-black md:rounded-2xl overflow-hidden shadow-2xl md:border border-[var(--card-border)] relative">
-                <iframe 
-                  src={getEmbedUrl(project.demoLink)} 
-                  className="absolute inset-0 w-full h-full border-0" 
-                  allow="autoplay; fullscreen" 
+                <iframe
+                  src={getEmbedUrl(project.demoLink)}
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="autoplay; fullscreen"
                   allowFullScreen
                 ></iframe>
               </div>
