@@ -8,7 +8,7 @@ import NenasalaLogo from "../assets/NenasalaLogo.png"
 
 const educationData = [
   {
-    degree: "First-Class BSc (Hons) in Computer Science (Software Engineering)",
+    degree: "BSc (Hons) in Computer Science (Software Engineering)",
     institution: "University of Wolverhampton",
     location: "Cinec Campus",
     year: "2025 - 2026",
