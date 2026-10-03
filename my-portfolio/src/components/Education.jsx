@@ -11,6 +11,7 @@ const educationData = [
     degree: "BSc (Hons) in Computer Science (Software Engineering)",
     institution: "University of Wolverhampton",
     location: "Cinec Campus",
+    grade: "First Class",
     year: "2025 - 2026",
     status: "Completed",
     logo: wolverhamptonLogo,
@@ -154,6 +155,12 @@ const Education = () => {
                         <HiOutlineMapPin className="text-cyan-accent text-lg" />
                         <span>{item.location}</span>
                       </div>
+                      {item.grade && (
+                        <div className="flex items-center gap-2 mt-1">
+                          <span className="text-cyan-accent font-bold tracking-wider uppercase text-[10px]">Grade:</span>
+                          <span className="font-semibold text-white/90 text-[12px]">{item.grade}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
