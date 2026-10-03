@@ -248,8 +248,8 @@ const Home = () => {
             Pasan <br className="lg:hidden" /> Pramuditha
           </h1>
           <p className="text-base sm:text-lg md:text-xl mb-10 md:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-            I am a Software Engineering undergraduate focused on building modern,
-            resilient digital experiences with a clean aesthetic.
+            First Class Software Engineering graduate dedicated to crafting modern,
+            resilient digital platforms with a clean aesthetic.
           </p>
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-5 mb-14">
