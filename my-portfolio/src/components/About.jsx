@@ -70,7 +70,7 @@ const About = () => {
               <div className="info-card-title">
                 <span className="icon-container"><HiOutlineAcademicCap /></span> Academic
               </div>
-              <div className="info-card-subtitle">BSc (Hons) | HND | Diploma</div>
+              <div className="info-card-subtitle">First Class BSc (Hons) | HND | Diploma</div>
             </motion.div>
 
             <motion.div
@@ -96,7 +96,7 @@ const About = () => {
             className="text-glass-container"
           >
             <p className="about-paragraph">
-              I'm <span className="highlight-text">Pasan Pramuditha</span>, a motivated and detail-oriented undergraduate IT student focused on building dynamic and problem-solving software solutions.
+              I'm <span className="highlight-text">Pasan Pramuditha</span>, a motivated and detail-oriented Software Engineer and First Class graduate focused on building dynamic, problem-solving software solutions.
             </p>
             <p className="about-paragraph">
               I specialize in software development using technologies such as <span className="highlight-text">.NET, Flutter, React, Next.js, Java, Python</span> and <span className="highlight-text">MySQL</span>. I've developed platforms including a digital system for SLT Internal Solutions Management to streamline operations, an AI-powered personal finance and expense tracker called <span className="highlight-text">SmartFin</span>, and various other management and networked systems.
@@ -105,7 +105,7 @@ const About = () => {
               Recently, I worked as an <span className="highlight-text">Intern Software Engineer at Sri Lanka Telecom PLC (SLTMobitel)</span> in the Talent Development Section, contributing to internal systems. I am continually advancing my expertise in <span className="highlight-text">.NET Core backend architecture</span> and crafting intuitive, user-friendly mobile interfaces using <span className="highlight-text">Flutter</span>.
             </p>
             <p className="about-paragraph">
-              Academically, I hold a Higher Diploma in Software Engineering (BTEC HND level 5) from <span className="highlight-text">Pearson College London</span>, completed at Esoft Metro Campus. I also hold a BSc (Hons) in Computer Science (Software Engineering) from the <span className="highlight-text">University of Wolverhampton</span> through Cinec Campus, further strengthening my foundation in programming, networking, and modern software development.
+              Academically, I hold a Higher Diploma in Software Engineering (BTEC HND level 5) from <span className="highlight-text">Pearson College London</span>, completed at Esoft Metro Campus. I also hold a <span className="highlight-text">First Class BSc (Hons)</span> in Computer Science (Software Engineering) from the <span className="highlight-text">University of Wolverhampton</span> through Cinec Campus, further strengthening my foundation in programming, networking, and modern software development.
             </p>
           </motion.div>
         </div>
