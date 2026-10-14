@@ -20,7 +20,7 @@ const Footer = () => {
             className="flex justify-center text-center w-full"
           >
             <p className="text-[14px] sm:text-[15px] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
-              Thank you for visiting my portfolio.<br className="hidden sm:block" /> Let&apos;s connect and build something <a href="mailto:pasanpr58@gmail.com" className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-200 hover:opacity-80 transition-opacity cursor-pointer">amazing together</a>.
+              Thank you for visiting my portfolio.<br className="hidden sm:block" /> Let&apos;s connect and build something <a href="mailto:h.pasanpramuditha@gmail.com" className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-cyan-200 hover:opacity-80 transition-opacity cursor-pointer">amazing together</a>.
             </p>
           </motion.div>
 

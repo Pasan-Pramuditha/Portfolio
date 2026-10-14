@@ -18,7 +18,7 @@ const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-const YOUR_EMAIL = "pasanpr58@gmail.com";
+const YOUR_EMAIL = "h.pasanpramuditha@gmail.com";
 const YOUR_PHONE = "+94 77 813 6626";
 const YOUR_LOCATION = "Beliatta, Sri Lanka";
 

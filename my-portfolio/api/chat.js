@@ -43,7 +43,7 @@ Here is the information about Pasan:
   6. Networked System for Alliance Health: LAN, WLAN, VPN, Security, IP Management, VLAN setup.
   7. Freelance Photographer Website (Malcolm Lismore): Tech: HTML, JS, CSS, PHP, XAMPP.
   8. Bus Reservation System: Tech: Java, GUI framework, XAMPP.
-- Contact info: LinkedIn (Pasan-Pramuditha-31b2b2286), GitHub (Pasan-Pramuditha), WhatsApp (+94 77 813 6626), Email (pasanpr58@gmail.com), Address (No.125/3, Aldeniya, Getamanna, Beliatta).
+- Contact info: LinkedIn (Pasan-Pramuditha-31b2b2286), GitHub (Pasan-Pramuditha), WhatsApp (+94 77 813 6626), Email (h.pasanpramuditha@gmail.com), Address (No.125/3, Aldeniya, Getamanna, Beliatta).
 - References:
   1. Mr. Dileepa Mihiranga (Lecturer & Program Coordinator / Esoft Metro Campus) - +94 76 631 2397 | dileepa.mihiranga@esoft.lk
   2. Mr. Chalana Kalpitha (Senior Software Engineer / BISTEC Global Services) - +94 71 484 6641 | chalanakalpitha72@gmail.com
