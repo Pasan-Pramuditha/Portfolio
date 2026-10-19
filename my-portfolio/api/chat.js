@@ -39,7 +39,7 @@ Here is the information about Pasan:
   2. SmartFin: AI-powered personal finance & expense tracker mobile app. Tech: FastAPI (Python), Flutter, PostgreSQL, NLP, LinearRegression, JWT.
   3. Student Registration System for Dhamma School: Windows form application. Tech: .Net 8, SSMS.
   4. Native Android Blogging Platform: Online/offline blogging app. Tech: Java, Android Studio, SQLite, REST APIs.
-  5. Quiet Attic Films Production System: Database design. Tech: C#, .Net, SSMS.
+  5. Quiet Attic Films Production Management System: Enterprise production management desktop system for film studios. Tech: C# (.NET Framework 4.8), Windows Forms, MS SQL Server, ADO.NET. GitHub: https://github.com/Pasan-Pramuditha/Quiet-Attic-Film-System-
   6. Networked System for Alliance Health: LAN, WLAN, VPN, Security, IP Management, VLAN setup.
   7. Freelance Photographer Website (Malcolm Lismore): Tech: HTML, JS, CSS, PHP, XAMPP.
   8. Bus Reservation System: Tech: Java, GUI framework, XAMPP.

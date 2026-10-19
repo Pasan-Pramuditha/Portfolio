@@ -31,6 +31,7 @@ import malcolmLismoreImg_03 from "../assets/projects/Malcolm-Lismore-Photographe
 import malcolmLismoreImg_04 from "../assets/projects/Malcolm-Lismore-Photographer-04.png";
 import malcolmLismoreImg_05 from "../assets/projects/Malcolm-Lismore-Photographer-05.png";
 import malcolmLismoreImg_06 from "../assets/projects/Malcolm-Lismore-Photographer-06.png";
+import quietAtticImg from "../assets/projects/quiet_attic_films.jpg";
 
 
 export const projectsData = [
@@ -85,6 +86,35 @@ export const projectsData = [
       "Dynamic project rendering from data arrays"
     ],
     technologies: ["React", "Vite", "TailwindCSS", "Framer Motion", "React Router", "EmailJS"]
+  },
+  {
+    id: "quiet-attic-films",
+    title: "Quiet Attic Films – Production Management System",
+    category: "C#, .NET, MSSQL",
+    year: "2025",
+    link: "https://github.com/Pasan-Pramuditha/Quiet-Attic-Film-System-",
+    demoLink: "#",
+    image: quietAtticImg,
+    images: [quietAtticImg, quietAtticImg, quietAtticImg],
+    description: "An enterprise Windows desktop system developed for film production studios to streamline client orders, crew assignments, equipment tracking, and financial billing.",
+    longDescription: "Quiet Attic Films Production Management System is a centralized desktop enterprise software engineered with C# (.NET Framework) and Microsoft SQL Server. Specifically tailored for film production studios, the system manages the complexity of concurrent film productions, client reservations, staff, and logistics. It features dual role-based access for Administrators and Operational Staff, facilitating complete lifecycle management for film orders, crew allocation with specialized roles, property & equipment tracking, indoor/outdoor shoot locations, and automated invoicing.",
+    features: [
+      "Role-Based Access Control: Dedicated portals and secure login authentication for Admins and Operational Staff (Employees)",
+      "Film Production & Order Management: End-to-end processing of client film bookings, schedule monitoring, and milestone tracking",
+      "Crew & Resource Allocation: Dynamic assignment of production crew members based on specialization, roles, and project requirements",
+      "Equipment & Location Scheduling: Comprehensive inventory tracking for cameras, props, and booking schedules for indoor/outdoor shoot locations",
+      "Billing & Invoicing Workflows: Automated calculation of service rates, client payment logging, and receipt verification",
+      "Enterprise Database Architecture: Microsoft SQL Server backend with ADO.NET ensuring ACID transactions and secure data backups"
+    ],
+    technologies: [
+      "C#",
+      ".NET Framework 4.8",
+      "Windows Forms",
+      "Microsoft SQL Server",
+      "ADO.NET",
+      "T-SQL",
+      "Visual Studio"
+    ]
   },
   {
     id: "malcolm-lismore-photography",
