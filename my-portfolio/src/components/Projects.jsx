@@ -133,7 +133,6 @@ export const projectsData = [
       "Windows Forms",
       "Microsoft SQL Server",
       "ADO.NET"
-
     ]
   },
 
