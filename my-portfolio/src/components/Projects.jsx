@@ -91,7 +91,7 @@ export const projectsData = [
     id: "quiet-attic-films",
     title: "Quiet Attic Films – Production Management System",
     category: "C#, .NET, MSSQL",
-    year: "2025",
+    year: "2023",
     link: "https://github.com/Pasan-Pramuditha/Quiet-Attic-Film-System-",
     demoLink: "#",
     image: quietAtticImg,
