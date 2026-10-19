@@ -132,9 +132,8 @@ export const projectsData = [
       ".NET Framework 4.8",
       "Windows Forms",
       "Microsoft SQL Server",
-      "ADO.NET",
-      "T-SQL",
-      "Visual Studio"
+      "ADO.NET"
+
     ]
   },
 
