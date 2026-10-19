@@ -31,7 +31,8 @@ import malcolmLismoreImg_03 from "../assets/projects/Malcolm-Lismore-Photographe
 import malcolmLismoreImg_04 from "../assets/projects/Malcolm-Lismore-Photographer-04.png";
 import malcolmLismoreImg_05 from "../assets/projects/Malcolm-Lismore-Photographer-05.png";
 import malcolmLismoreImg_06 from "../assets/projects/Malcolm-Lismore-Photographer-06.png";
-import quietAtticImg from "../assets/projects/quiet_attic_films.jpg";
+
+import QuietAttic_01 from "../assets/projects/Quiet Attic-01.png";
 
 
 export const projectsData = [
@@ -115,7 +116,7 @@ export const projectsData = [
     year: "2023",
     link: "https://github.com/Pasan-Pramuditha/Quiet-Attic-Film-System-",
     demoLink: "#",
-    image: quietAtticImg,
+    image: QuietAttic_01,
     images: [quietAtticImg, quietAtticImg, quietAtticImg],
     description: "An enterprise Windows desktop system developed for film production studios to streamline client orders, crew assignments, equipment tracking, and financial billing.",
     longDescription: "Quiet Attic Films Production Management System is a centralized desktop enterprise software engineered with C# (.NET Framework) and Microsoft SQL Server. Specifically tailored for film production studios, the system manages the complexity of concurrent film productions, client reservations, staff, and logistics. It features dual role-based access for Administrators and Operational Staff, facilitating complete lifecycle management for film orders, crew allocation with specialized roles, property & equipment tracking, indoor/outdoor shoot locations, and automated invoicing.",
