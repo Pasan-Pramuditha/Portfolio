@@ -40,9 +40,10 @@ Here is the information about Pasan:
   3. Student Registration System for Dhamma School: Windows form application. Tech: .Net 8, SSMS.
   4. Native Android Blogging Platform: Online/offline blogging app. Tech: Java, Android Studio, SQLite, REST APIs.
   5. Quiet Attic Films Production Management System: Enterprise production management desktop system for film studios. Tech: C# (.NET Framework 4.8), Windows Forms, MS SQL Server, ADO.NET. GitHub: https://github.com/Pasan-Pramuditha/Quiet-Attic-Film-System-
-  6. Networked System for Alliance Health: LAN, WLAN, VPN, Security, IP Management, VLAN setup.
-  7. Freelance Photographer Website (Malcolm Lismore): Tech: HTML, JS, CSS, PHP, XAMPP.
-  8. Bus Reservation System: Tech: Java, GUI framework, XAMPP.
+  6. Grifindo Toys Payroll Management System: Enterprise Windows desktop payroll and employee management system. Tech: C# (.NET Framework), Windows Forms, MS SQL Server, ADO.NET. GitHub: https://github.com/Pasan-Pramuditha/Grifindo-Toys
+  7. Networked System for Alliance Health: LAN, WLAN, VPN, Security, IP Management, VLAN setup.
+  8. Freelance Photographer Website (Malcolm Lismore): Tech: HTML, JS, CSS, PHP, XAMPP.
+  9. Bus Reservation System: Tech: Java, GUI framework, XAMPP.
 - Contact info: LinkedIn (Pasan-Pramuditha-31b2b2286), GitHub (Pasan-Pramuditha), WhatsApp (+94 77 813 6626), Email (h.pasanpramuditha@gmail.com), Address (No.125/3, Aldeniya, Getamanna, Beliatta).
 - References:
   1. Mr. Dileepa Mihiranga (Lecturer & Program Coordinator / Esoft Metro Campus) - +94 76 631 2397 | dileepa.mihiranga@esoft.lk

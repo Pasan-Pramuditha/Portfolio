@@ -41,6 +41,14 @@ import QuietAttic_06 from "../assets/projects/Quiet Attic-06.png";
 import QuietAttic_07 from "../assets/projects/Quiet Attic-07.png";
 import QuietAttic_08 from "../assets/projects/Quiet Attic-08.png";
 
+import grifindoImg_01 from "../assets/projects/Grifindo-01.png";
+import grifindoImg_02 from "../assets/projects/Grifindo-02.png";
+import grifindoImg_03 from "../assets/projects/Grifindo-03.png";
+import grifindoImg_04 from "../assets/projects/Grifindo-04.png";
+import grifindoImg_05 from "../assets/projects/Grifindo-05.png";
+import grifindoImg_06 from "../assets/projects/Grifindo-06.png";
+import grifindoImg_07 from "../assets/projects/Grifindo-07.png";
+
 
 export const projectsData = [
   {
@@ -138,6 +146,35 @@ export const projectsData = [
     technologies: [
       "C#",
       ".NET Framework 4.8",
+      "Windows Forms",
+      "Microsoft SQL Server",
+      "ADO.NET"
+    ]
+  },
+
+  {
+    id: "grifindo-toys-payroll-system",
+    title: "Grifindo Toys – Payroll & Employee Management System",
+    category: "C#, .NET, MSSQL",
+    year: "2023",
+    link: "https://github.com/Pasan-Pramuditha/Grifindo-Toys",
+    demoLink: "#",
+    image: grifindoImg_01,
+    images: [grifindoImg_01, grifindoImg_02, grifindoImg_03, grifindoImg_04, grifindoImg_05, grifindoImg_06, grifindoImg_07],
+    description: "An enterprise Windows desktop payroll and employee management system developed for Grifindo Toys to automate salary calculations, attendance, overtime, and tax deductions.",
+    longDescription: "Grifindo Toys Payroll Management System is a specialized desktop application engineered with C# Windows Forms and Microsoft SQL Server. Designed to streamline corporate HR operations, the system automates organizational payroll processing, salary cycle evaluations, and employee administration. It empowers administrators to manage multi-branch operations, configure tax and overtime (OT) rates, track monthly attendance records, and accurately calculate gross and net salaries with automated deductions.",
+    features: [
+      "Role-Based Access & Admin Authentication: Secure login and administrator sign-up portals with credential validation and password toggle",
+      "Intuitive Navigation Dashboard: Quick-access navigation hubs to manage Employees, Organization Settings, Salary Calculations, and Branch offices",
+      "Employee Profile Lifecycle Management: Comprehensive registry for employee records including personal information, contact details, designations, and base monthly pay",
+      "Dynamic Payroll & Salary Issuing: Automated calculation of gross and net salaries factoring in present/absent days, overtime hours, allowances, and tax percentages",
+      "Payroll Cycle & Parameter Configuration: Flexible administration for overtime rates, tax brackets, and custom monthly payroll date ranges",
+      "Branch Management System: Centralized management of enterprise branch offices, contact numbers, and locations",
+      "Relational Database Integration: Microsoft SQL Server backend integrated via ADO.NET ensuring robust transaction processing and persistent storage"
+    ],
+    technologies: [
+      "C#",
+      ".NET Framework",
       "Windows Forms",
       "Microsoft SQL Server",
       "ADO.NET"
