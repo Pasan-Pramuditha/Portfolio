@@ -226,7 +226,7 @@ const ProjectViewer = () => {
               {project.title}
             </motion.h2>
 
-            <motion.div variants={itemVariants} className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-3 md:gap-4 mb-6 md:mb-8">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: "2rem" }}
@@ -236,6 +236,17 @@ const ProjectViewer = () => {
               <span className="text-[#00D0FF] text-xs md:text-sm font-bold tracking-widest uppercase">
                 {project.year}
               </span>
+              {project.isRealWorld && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/40 shadow-[0_0_14px_rgba(16,185,129,0.25)]"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]"></span>
+                  <span className="text-[10px] font-bold tracking-widest text-emerald-300 uppercase">Real World Project</span>
+                </motion.div>
+              )}
             </motion.div>
 
             {/* Description */}
