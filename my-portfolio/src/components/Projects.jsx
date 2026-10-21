@@ -137,7 +137,7 @@ export const projectsData = [
 
   {
     id: "dhamma-school-management-system",
-    title: "Siri Vajiranana Dhamma School Management System",
+    title: "Siri Vajiranana Dhamma School – Student & Academic Management System",
     category: "C#, .NET 9, MSSQL",
     year: "2024",
     isRealWorld: true,
