@@ -37,7 +37,7 @@ Here is the information about Pasan:
 - Projects: 
   1. Development Management system for SLTMobitel: Digital Platform for SLT Internal Solutions Management. Tech: .Net 8, MySQL.
   2. SmartFin: AI-powered personal finance & expense tracker mobile app. Tech: FastAPI (Python), Flutter, PostgreSQL, NLP, LinearRegression, JWT.
-  3. Student Registration System for Dhamma School: Windows form application. Tech: .Net 8, SSMS.
+  3. Siri Vajiranana Dhamma School Management System: Enterprise desktop management system for student registration, multi-grade academic results, teacher allocation, and database backups. Tech: C# (.NET 8), Windows Forms, MS SQL Server (SSMS), ADO.NET. GitHub: https://github.com/Pasan-Pramuditha/Dhamma-School-Management-System
   4. Native Android Blogging Platform: Online/offline blogging app. Tech: Java, Android Studio, SQLite, REST APIs.
   5. Quiet Attic Films Production Management System: Enterprise production management desktop system for film studios. Tech: C# (.NET Framework 4.8), Windows Forms, MS SQL Server, ADO.NET. GitHub: https://github.com/Pasan-Pramuditha/Quiet-Attic-Film-System-
   6. Grifindo Toys Payroll Management System: Enterprise Windows desktop payroll and employee management system with modern UI. Tech: C# (.NET Framework), Windows Forms, Krypton Framework, MS SQL Server, ADO.NET. GitHub: https://github.com/Pasan-Pramuditha/Grifindo-Toys

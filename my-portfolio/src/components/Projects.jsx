@@ -49,6 +49,17 @@ import grifindoImg_05 from "../assets/projects/Grifindo-05.png";
 import grifindoImg_06 from "../assets/projects/Grifindo-06.png";
 import grifindoImg_07 from "../assets/projects/Grifindo-07.png";
 
+import dhammaSchoolImg_01 from "../assets/projects/Dhamma School-01.png";
+import dhammaSchoolImg_02 from "../assets/projects/Dhamma School-02.png";
+import dhammaSchoolImg_03 from "../assets/projects/Dhamma School-03.png";
+import dhammaSchoolImg_04 from "../assets/projects/Dhamma School-04.png";
+import dhammaSchoolImg_05 from "../assets/projects/Dhamma School-05.png";
+import dhammaSchoolImg_06 from "../assets/projects/Dhamma School-06.png";
+import dhammaSchoolImg_07 from "../assets/projects/Dhamma School-07.png";
+import dhammaSchoolImg_08 from "../assets/projects/Dhamma School-08.png";
+import dhammaSchoolImg_09 from "../assets/projects/Dhamma School-09.png";
+import dhammaSchoolImg_10 from "../assets/projects/Dhamma School-10.png";
+
 
 export const projectsData = [
   {
@@ -179,6 +190,46 @@ export const projectsData = [
       "Windows Forms",
       "Krypton Framework",
       "Microsoft SQL Server",
+      "ADO.NET"
+    ]
+  },
+
+  {
+    id: "dhamma-school-management-system",
+    title: "Siri Vajiranana Dhamma School – Student & Academic Management System",
+    category: "C#, .NET 8, MSSQL",
+    year: "2024",
+    link: "https://github.com/Pasan-Pramuditha/Dhamma-School-Management-System",
+    demoLink: "#",
+    image: dhammaSchoolImg_01,
+    images: [
+      dhammaSchoolImg_01,
+      dhammaSchoolImg_02,
+      dhammaSchoolImg_03,
+      dhammaSchoolImg_04,
+      dhammaSchoolImg_05,
+      dhammaSchoolImg_06,
+      dhammaSchoolImg_07,
+      dhammaSchoolImg_08,
+      dhammaSchoolImg_09,
+      dhammaSchoolImg_10
+    ],
+    description: "A modern desktop school management system built with C# and .NET 8 for Siri Vajiranana Dhamma School to streamline student registrations, academic performance records, teacher assignments, and database backup & maintenance.",
+    longDescription: "Siri Vajiranana Dhamma School Management System is a modern, dark-themed enterprise desktop application developed with C# (.NET 8) and Microsoft SQL Server (SSMS). Designed to digitize the administrative workflow of a premier religious educational institution, the platform facilitates comprehensive student enrollment, multi-grade exam score management (Buddhism, Abhidhamma, Pali across Grades 05 to 11), teacher profile registries, role-based admin approval workflows, and automated SQL database backup and restoration.",
+    features: [
+      "Modern Dark-Themed Dashboard: Intuitive, card-based metrics tracking total students, teachers, results entered, and pending admin approvals",
+      "Student Lifecycle & Enrollment: Streamlined registration system capturing personal information, admission years, contact details, and custom skill notes",
+      "Multi-Grade Academic Performance Records: Centralized examination scoring and progress tracking across subjects including Buddhism, Abhidhamma, and Pali for grades 05 to 11 with printable detail cards",
+      "Teacher Management: Dedicated portal for registering staff, managing subject and grade allocations, and browsing teacher directories",
+      "Role-Based Admin Approvals: Multi-tier security workflow for pending administrator registrations with instant approval or rejection controls",
+      "Database Backup & Maintenance: Integrated utility to generate full (.bak) SQL database snapshots and perform one-click database restorations",
+      "Reliable Database Architecture: Built on Microsoft SQL Server ensuring ACID data integrity, optimized queries, and secure local data persistence"
+    ],
+    technologies: [
+      "C#",
+      ".NET 8",
+      "Windows Forms",
+      "Microsoft SQL Server (SSMS)",
       "ADO.NET"
     ]
   },
