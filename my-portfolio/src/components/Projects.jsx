@@ -137,8 +137,8 @@ export const projectsData = [
 
   {
     id: "dhamma-school-management-system",
-    title: "Siri Vajiranana Dhamma School – Student & Academic Management System",
-    category: "C#, .NET 8, MSSQL",
+    title: "Siri Vajiranana Dhamma School Management System",
+    category: "C#, .NET 9, MSSQL",
     year: "2024",
     isRealWorld: true,
     link: "https://github.com/Pasan-Pramuditha/Dhamma-School-Management-System",
@@ -156,23 +156,25 @@ export const projectsData = [
       dhammaSchoolImg_09,
       dhammaSchoolImg_10
     ],
-    description: "A modern desktop school management system built with C# and .NET 8 for Siri Vajiranana Dhamma School to streamline student registrations, academic performance records, teacher assignments, and database backup & maintenance.",
-    longDescription: "Siri Vajiranana Dhamma School Management System is a modern, dark-themed enterprise desktop application developed with C# (.NET 8) and Microsoft SQL Server (SSMS). Designed to digitize the administrative workflow of a premier religious educational institution, the platform facilitates comprehensive student enrollment, multi-grade exam score management (Buddhism, Abhidhamma, Pali across Grades 05 to 11), teacher profile registries, role-based admin approval workflows, and automated SQL database backup and restoration.",
+    description: "A comprehensive full-stack web application built to digitize and streamline the administration of a Buddhist Dhamma School — covering student registrations, teacher profiles, academic results, and role-based admin access.",
+    longDescription: "Siri Vajiranana Dhamma School Management System is a comprehensive, full-stack web application built with ASP.NET Core (.NET 9 Razor Pages) and a Microsoft SQL Server LocalDB backend. The platform enables administrators to efficiently manage student registrations, teacher profiles, academic results, and admin access within a secure, role-based environment. The system automates critical tasks such as database initialization, Super Admin bootstrapping, and role-based approval workflows. It covers the complete lifecycle of student academic records across Grades 5 through 11, spanning core Dhamma subjects — Buddhism, Abhidhamma, and Pali. On first run, the system automatically provisions the SQL Server LocalDB database and all required tables with zero manual SQL setup required.",
     features: [
-      "Modern Dark-Themed Dashboard: Intuitive, card-based metrics tracking total students, teachers, results entered, and pending admin approvals",
-      "Student Lifecycle & Enrollment: Streamlined registration system capturing personal information, admission years, contact details, and custom skill notes",
-      "Multi-Grade Academic Performance Records: Centralized examination scoring and progress tracking across subjects including Buddhism, Abhidhamma, and Pali for grades 05 to 11 with printable detail cards",
-      "Teacher Management: Dedicated portal for registering staff, managing subject and grade allocations, and browsing teacher directories",
-      "Role-Based Admin Approvals: Multi-tier security workflow for pending administrator registrations with instant approval or rejection controls",
-      "Database Backup & Maintenance: Integrated utility to generate full (.bak) SQL database snapshots and perform one-click database restorations",
-      "Reliable Database Architecture: Built on Microsoft SQL Server ensuring ACID data integrity, optimized queries, and secure local data persistence"
+      "Comprehensive Student Management: Register, update, search, and view detailed student profiles including personal information, contact details, year of admission, other skills, and full academic marks across Grades 5–11 for all three subjects (Buddhism, Abhidhamma, Pali)",
+      "Teacher Profile Management: Register, update, and manage teacher records including NIC, contact details, subject specialization, and year of appointment",
+      "Intelligent Role-Based Admin Control: A self-bootstrapping Super Admin system where the very first registered user is automatically elevated to Super Admin — all subsequent administrators require explicit Super Admin approval before gaining access",
+      "Automated Database Initialization: On first run, the system automatically creates the SQL Server LocalDB database file (Database1.mdf) and all required tables without any manual SQL setup",
+      "Database Backup & Restore: Built-in functionality to back up and restore the database, ensuring data safety and disaster recovery for the institution",
+      "Secure Session-Based Authentication: Login sessions are managed server-side, protecting all admin routes from unauthorized access"
     ],
     technologies: [
       "C#",
-      ".NET 8",
-      "Windows Forms",
-      "Microsoft SQL Server (SSMS)",
-      "ADO.NET"
+      ".NET 9",
+      "ASP.NET Core Razor Pages",
+      "Microsoft SQL Server LocalDB",
+      "ADO.NET",
+      "HTML5 & CSS3",
+      "JavaScript",
+      "Session Middleware"
     ]
   },
 
