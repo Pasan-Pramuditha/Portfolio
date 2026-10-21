@@ -155,15 +155,16 @@ export const projectsData = [
   {
     id: "grifindo-toys-payroll-system",
     title: "Grifindo Toys – Payroll & Employee Management System",
-    category: "C#, .NET, MSSQL",
+    category: "C#, Krypton, MSSQL",
     year: "2023",
     link: "https://github.com/Pasan-Pramuditha/Grifindo-Toys",
     demoLink: "#",
     image: grifindoImg_01,
     images: [grifindoImg_01, grifindoImg_02, grifindoImg_03, grifindoImg_04, grifindoImg_05, grifindoImg_06, grifindoImg_07],
-    description: "An enterprise Windows desktop payroll and employee management system developed for Grifindo Toys to automate salary calculations, attendance, overtime, and tax deductions.",
-    longDescription: "Grifindo Toys Payroll Management System is a specialized desktop application engineered with C# Windows Forms and Microsoft SQL Server. Designed to streamline corporate HR operations, the system automates organizational payroll processing, salary cycle evaluations, and employee administration. It empowers administrators to manage multi-branch operations, configure tax and overtime (OT) rates, track monthly attendance records, and accurately calculate gross and net salaries with automated deductions.",
+    description: "An enterprise Windows desktop payroll and employee management system developed for Grifindo Toys using C# and Krypton Framework to automate salary calculations, attendance, overtime, and tax deductions with a sleek modern UI.",
+    longDescription: "Grifindo Toys Payroll Management System is a specialized desktop application engineered with C# Windows Forms, Krypton Framework (Toolkit), and Microsoft SQL Server. Designed to streamline corporate HR operations with an ultra-modern user interface, the system automates organizational payroll processing, salary cycle evaluations, and employee administration. It empowers administrators to manage multi-branch operations, configure tax and overtime (OT) rates, track monthly attendance records, and accurately calculate gross and net salaries with automated deductions.",
     features: [
+      "Modern UI/UX with Krypton Framework: Sleek desktop interface styled with Krypton Toolkit components, rounded controls, custom palettes, and smooth navigation",
       "Role-Based Access & Admin Authentication: Secure login and administrator sign-up portals with credential validation and password toggle",
       "Intuitive Navigation Dashboard: Quick-access navigation hubs to manage Employees, Organization Settings, Salary Calculations, and Branch offices",
       "Employee Profile Lifecycle Management: Comprehensive registry for employee records including personal information, contact details, designations, and base monthly pay",
@@ -176,6 +177,7 @@ export const projectsData = [
       "C#",
       ".NET Framework",
       "Windows Forms",
+      "Krypton Framework",
       "Microsoft SQL Server",
       "ADO.NET"
     ]
