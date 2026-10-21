@@ -175,6 +175,7 @@ export const projectsData = [
       "HTML5 & CSS3",
       "JavaScript",
       "Session Middleware"
+
     ]
   },
 
