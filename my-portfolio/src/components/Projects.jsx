@@ -142,7 +142,7 @@ export const projectsData = [
     year: "2024",
     isRealWorld: true,
     link: "https://github.com/Pasan-Pramuditha/Dhamma-School-Management-System",
-    demoLink: "#",
+    demoLink: "https://youtu.be/wi8_lp8gGDQ",
     image: dhammaSchoolImg_01,
     images: [
       dhammaSchoolImg_01,
