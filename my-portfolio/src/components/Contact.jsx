@@ -64,6 +64,31 @@ function validateEmail(email) {
   return null; // valid format (ZeroBounce will handle domain/existence check)
 }
 
+function validatePhone(phone) {
+  const trimmed = (phone || "").trim();
+  if (!trimmed) return null; // Optional if not provided
+
+  if (trimmed.startsWith("0")) {
+    if (!/^0\d{9}$/.test(trimmed)) {
+      return "Phone number starting with 0 must be exactly 10 digits (e.g. 07XXXXXXXX).";
+    }
+    return null;
+  }
+
+  if (trimmed.startsWith("+94")) {
+    if (!/^\+94\d{9}$/.test(trimmed)) {
+      return "Phone number starting with +94 must be exactly 12 characters (e.g. +94XXXXXXXXX).";
+    }
+    return null;
+  }
+
+  if (trimmed.startsWith("+")) {
+    return "Country code must be +94 (e.g. +94XXXXXXXXX).";
+  }
+
+  return "Phone number must start with 0 (10 digits) or +94 (12 characters).";
+}
+
 function hasEmailJsConfig() {
   return Boolean(EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY);
 }
@@ -87,14 +112,47 @@ export default function Contact() {
   const [status, setStatus] = useState("idle");
   const [focusedField, setFocusedField] = useState(null);
   const [emailError, setEmailError] = useState(null);
+  const [phoneError, setPhoneError] = useState(null);
   const [submitError, setSubmitError] = useState("");
 
   const handleChange = (e) =>
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
+  const handlePhoneChange = (e) => {
+    const raw = e.target.value;
+    let cleaned = "";
+    for (let i = 0; i < raw.length; i++) {
+      const char = raw[i];
+      if (i === 0 && char === "+") {
+        cleaned += "+";
+      } else if (/\d/.test(char)) {
+        cleaned += char;
+      }
+    }
+
+    if (cleaned.startsWith("+")) {
+      cleaned = cleaned.slice(0, 12);
+    } else if (cleaned.startsWith("0")) {
+      cleaned = cleaned.slice(0, 10);
+    } else {
+      cleaned = cleaned.slice(0, 10);
+    }
+
+    setFormData((prev) => ({ ...prev, user_phone: cleaned }));
+
+    if (phoneError) {
+      setPhoneError(validatePhone(cleaned));
+    }
+  };
+
   const handleEmailBlur = () => {
     setFocusedField(null);
     setEmailError(validateEmail(formData.user_email));
+  };
+
+  const handlePhoneBlur = () => {
+    setFocusedField(null);
+    setPhoneError(validatePhone(formData.user_phone));
   };
 
   const handleSubmit = async (e) => {
@@ -108,6 +166,12 @@ export default function Contact() {
       return;
     }
 
+    const phoneValidationError = validatePhone(formData.user_phone);
+    if (phoneValidationError) {
+      setPhoneError(phoneValidationError);
+      return;
+    }
+
     if (!hasEmailJsConfig()) {
       setSubmitError("Contact form is not configured yet. Please email me directly for now.");
       setStatus("error");
@@ -115,6 +179,7 @@ export default function Contact() {
     }
 
     setEmailError(null);
+    setPhoneError(null);
     setSubmitError("");
     setStatus("idle");
 
@@ -123,6 +188,7 @@ export default function Contact() {
       await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, EMAILJS_PUBLIC_KEY);
       setStatus("success");
       setEmailError(null);
+      setPhoneError(null);
       setSubmitError("");
       setFormData({ user_name: "", user_email: "", user_phone: "", subject: "", message: "" });
       setTimeout(() => setStatus("idle"), 15000);
@@ -401,14 +467,30 @@ export default function Contact() {
                     <motion.input
                       variants={inputVariants}
                       animate={focusedField === "user_phone" ? "focus" : "blur"}
-                      id="contact-phone" type="tel" name="user_phone"
-                      placeholder="+94 77 123 4567"
+                      id="contact-phone"
+                      type="tel"
+                      name="user_phone"
+                      placeholder="07XXXXXXXX or +94XXXXXXXXX"
                       value={formData.user_phone}
-                      onChange={handleChange}
+                      onChange={handlePhoneChange}
                       onFocus={() => setFocusedField("user_phone")}
-                      onBlur={() => setFocusedField(null)}
-                      className="contact-input"
+                      onBlur={handlePhoneBlur}
+                      maxLength={formData.user_phone.startsWith("+") ? 12 : (formData.user_phone.startsWith("0") ? 10 : 12)}
+                      className={`contact-input ${phoneError ? "contact-input--error" : ""}`}
                     />
+                    <AnimatePresence>
+                      {phoneError && (
+                        <motion.p
+                          className="contact-field-error"
+                          initial={{ opacity: 0, y: -6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -6 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <FiAlertCircle size={12} /> {phoneError}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
                   </div>
                   <div className="contact-field-wrap">
                     <label className="contact-label" htmlFor="contact-subject">
